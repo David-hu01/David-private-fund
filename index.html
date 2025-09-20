@@ -9,72 +9,83 @@
   <style>
     html, body {
       height: 100%;
+      margin: 0;
     }
 
-    /* 手机端背景自适应 */
-    @media (max-width: 640px) {
-      body {
-        background-attachment: scroll; /* 替代 fixed */
-      }
+    /* 背景层在手机竖屏全屏显示 */
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      background-image: url('office_bg.jpg');
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+      z-index: 0;
     }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800 relative pt-36 sm:pt-32 bg-center bg-no-repeat bg-cover min-h-screen" 
-      style="background-image: url('office_bg.jpg');">
+<body class="relative min-h-screen overflow-x-hidden">
 
-  <!-- 页面背景淡淡LOGO -->
-  <div style="position:fixed;z-index:0;top:0;left:0;width:100vw;height:100vh;pointer-events:none;overflow:hidden;">
-    <img src="logo.png" alt="公司LOGO" style="opacity:0.07;position:absolute;right:10vw;bottom:5vh;max-width:60vw;max-height:80vh;user-select:none;">
+  <!-- 背景层 -->
+  <div class="bg-layer"></div>
+
+  <!-- 页面内容 -->
+  <div class="relative z-10 pt-36 sm:pt-32">
+
+    <!-- 页面背景淡淡LOGO -->
+    <div class="fixed z-0 top-0 left-0 w-screen h-screen pointer-events-none overflow-hidden">
+      <img src="logo.png" alt="公司LOGO" style="opacity:0.07;position:absolute;right:10vw;bottom:5vh;max-width:60vw;max-height:80vh;user-select:none;">
+    </div>
+
+    <!-- 顶部标题 -->
+    <header class="fixed top-0 w-full z-50 text-center py-6 sm:py-4 bg-white bg-opacity-90 text-gray-900 flex items-center justify-center">
+      <div class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-90 rounded-md p-1">
+        <img src="logo.png" alt="公司LOGO" class="h-16 sm:h-14">
+      </div>
+      <div>
+        <h1 class="text-3xl sm:text-2xl font-extrabold text-gray-900">大卫私人海外基金</h1>
+        <p class="mt-1 sm:mt-0 text-base sm:text-sm text-gray-700">稳健·专业·长期价值</p>
+      </div>
+    </header>
+
+    <div class="my-8"></div>
+
+    <!-- 基金核心指标 -->
+    <section class="max-w-5xl mx-auto py-8 px-4 sm:py-6 sm:px-3 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-3 text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-2xl shadow-lg mb-10">
+      <div class="p-4 sm:p-3">
+        <p class="text-gray-600 text-lg sm:text-base">最新净值</p>
+        <p class="text-3xl sm:text-2xl font-semibold text-blue-800">21.02</p>
+      </div>
+      <div class="p-4 sm:p-3">
+        <p class="text-gray-600 text-lg sm:text-base">年化收益率</p>
+        <p class="text-3xl sm:text-2xl font-semibold text-green-700">36.8%</p>
+      </div>
+      <div class="p-4 sm:p-3">
+        <p class="text-gray-600 text-lg sm:text-base">成立时间</p>
+        <p class="text-3xl sm:text-2xl font-semibold text-blue-800">2020-07-01</p>
+      </div>
+    </section>
+
+    <!-- 净值曲线图 -->
+    <section class="max-w-5xl mx-auto py-8 px-4 sm:py-6 sm:px-3 bg-white bg-opacity-40 backdrop-blur-lg rounded-2xl shadow-lg mb-10">
+      <h2 class="text-3xl sm:text-2xl font-bold mb-4 text-center text-gray-900">基金净值走势</h2>
+      <canvas id="navChart" class="p-4 sm:p-2 w-full" style="max-width: 100%;"></canvas>
+    </section>
+
+    <!-- 投资策略 -->
+    <section class="max-w-3xl mx-auto py-8 px-4 sm:py-6 sm:px-3 text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-2xl shadow-lg mb-10">
+      <h2 class="text-3xl sm:text-2xl font-bold mb-4 text-gray-900">投资策略</h2>
+      <p class="text-lg sm:text-base text-gray-700 leading-relaxed">
+        本基金以AI、清洁能源等高成长产业为核心方向，专注长期价值投资，追求稳健回报。
+      </p>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="text-center py-6 bg-gray-100 text-gray-500 text-sm">
+      投资有风险，入市需谨慎。<br>© 2025 大卫私人海外基金. All rights reserved.
+    </footer>
+
   </div>
-
-  <!-- 顶部标题 -->
-  <header class="fixed top-0 w-full z-50 text-center py-6 sm:py-4 bg-white bg-opacity-90 text-gray-900 flex items-center justify-center">
-    <div class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-90 rounded-md p-1">
-      <img src="logo.png" alt="公司LOGO" class="h-16 sm:h-14">
-    </div>
-    <div>
-      <h1 class="text-3xl sm:text-2xl font-extrabold text-gray-900">大卫私人海外基金</h1>
-      <p class="mt-1 sm:mt-0 text-base sm:text-sm text-gray-700">稳健·专业·长期价值</p>
-    </div>
-  </header>
-
-  <!-- 增加垂直间隙 -->
-  <div class="my-8"></div>
-
-  <!-- 基金核心指标 -->
-  <section class="max-w-5xl mx-auto py-8 px-4 sm:py-6 sm:px-3 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-3 text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-2xl shadow-lg mb-10">
-    <div class="p-4 sm:p-3">
-      <p class="text-gray-600 text-lg sm:text-base">最新净值</p>
-      <p class="text-3xl sm:text-2xl font-semibold text-blue-800">21.02</p>
-    </div>
-    <div class="p-4 sm:p-3">
-      <p class="text-gray-600 text-lg sm:text-base">年化收益率</p>
-      <p class="text-3xl sm:text-2xl font-semibold text-green-700">36.8%</p>
-    </div>
-    <div class="p-4 sm:p-3">
-      <p class="text-gray-600 text-lg sm:text-base">成立时间</p>
-      <p class="text-3xl sm:text-2xl font-semibold text-blue-800">2020-07-01</p>
-    </div>
-  </section>
-
-  <!-- 净值曲线图 -->
-  <section class="max-w-5xl mx-auto py-8 px-4 sm:py-6 sm:px-3 bg-white bg-opacity-40 backdrop-blur-lg rounded-2xl shadow-lg mb-10">
-    <h2 class="text-3xl sm:text-2xl font-bold mb-4 text-center text-gray-900">基金净值走势</h2>
-    <canvas id="navChart" class="p-4 sm:p-2 w-full" style="max-width: 100%;"></canvas>
-  </section>
-
-  <!-- 投资策略 -->
-  <section class="max-w-3xl mx-auto py-8 px-4 sm:py-6 sm:px-3 text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-2xl shadow-lg mb-10">
-    <h2 class="text-3xl sm:text-2xl font-bold mb-4 text-gray-900">投资策略</h2>
-    <p class="text-lg sm:text-base text-gray-700 leading-relaxed">
-      本基金以AI、清洁能源等高成长产业为核心方向，专注长期价值投资，追求稳健回报。
-    </p>
-  </section>
-
-  <!-- 页脚 -->
-  <footer class="text-center py-6 bg-gray-100 text-gray-500 text-sm">
-    投资有风险，入市需谨慎。<br>© 2025 大卫私人海外基金. All rights reserved.
-  </footer>
 
   <!-- Chart.js 配置 -->
   <script>
@@ -93,8 +104,8 @@
           borderWidth: 2,
           fill: true,
           tension: 0.3,
-          pointRadius: 5, // 增大触控点半径
-          pointHitRadius: 10 // 增加触控可点区域
+          pointRadius: 5,
+          pointHitRadius: 10
         }]
       },
       options: {
