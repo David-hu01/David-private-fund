@@ -5,8 +5,9 @@
   <title>大卫私人海外基金</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
 </head>
-<body class="bg-gray-50 text-gray-800 relative pt-36 sm:pt-32" style="background: url('office_bg.jpg') no-repeat center center fixed; background-size: cover;">
+<body class="bg-gray-50 text-gray-800 relative pt-36 sm:pt-32 bg-center bg-no-repeat bg-cover" style="background-image: url('office_bg.jpg');">
 
   <!-- 页面背景淡淡LOGO -->
   <div style="position:fixed;z-index:0;top:0;left:0;width:100vw;height:100vh;pointer-events:none;overflow:hidden;">
@@ -83,7 +84,11 @@
       options: {
         responsive: true,
         plugins: {
-          legend: { display: false }
+          legend: { display: false },
+          zoom: {
+            pan: { enabled: true, mode: 'x', modifierKey: 'ctrl' },
+            zoom: { wheel: { enabled: true }, pinch: { enabled: true }, mode: 'x' }
+          }
         },
         scales: {
           y: { beginAtZero: false }
@@ -92,9 +97,6 @@
     });
 
     // 计算年化收益率 (CAGR)
-    // 起始净值：navValues[0]
-    // 结束净值：navValues[navValues.length - 1]
-    // 时间：5年（2020-2025）
     const startValue = navValues[0];
     const endValue = navValues[navValues.length - 1];
     const years = 5;
@@ -105,5 +107,13 @@
     cagrElement.textContent = cagr.toFixed(1) + '%';
   </script>
 
+  <style>
+    /* 手机端背景自适应 */
+    @media (max-width: 640px) {
+      body {
+        background-attachment: scroll; /* 替代 fixed 避免手机显示问题 */
+      }
+    }
+  </style>
 </body>
 </html>
