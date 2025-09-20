@@ -6,8 +6,21 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+  <style>
+    html, body {
+      height: 100%;
+    }
+
+    /* 手机端背景自适应 */
+    @media (max-width: 640px) {
+      body {
+        background-attachment: scroll; /* 替代 fixed */
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800 relative pt-36 sm:pt-32 bg-center bg-no-repeat bg-cover" style="background-image: url('office_bg.jpg');">
+<body class="bg-gray-50 text-gray-800 relative pt-36 sm:pt-32 bg-center bg-no-repeat bg-cover min-h-screen" 
+      style="background-image: url('office_bg.jpg');">
 
   <!-- 页面背景淡淡LOGO -->
   <div style="position:fixed;z-index:0;top:0;left:0;width:100vw;height:100vh;pointer-events:none;overflow:hidden;">
@@ -67,6 +80,7 @@
   <script>
     const navValues = [1.0, 3.2, 6.72, 10.95, 19.16, 21.02];
     const ctx = document.getElementById('navChart').getContext('2d');
+
     const navChart = new Chart(ctx, {
       type: 'line',
       data: {
@@ -78,17 +92,29 @@
           backgroundColor: "rgba(37,99,235,0.1)",
           borderWidth: 2,
           fill: true,
-          tension: 0.3
+          tension: 0.3,
+          pointRadius: 5, // 增大触控点半径
+          pointHitRadius: 10 // 增加触控可点区域
         }]
       },
       options: {
         responsive: true,
         plugins: {
           legend: { display: false },
+          tooltip: {
+            enabled: true,
+            mode: 'nearest',
+            intersect: true,
+            position: 'nearest'
+          },
           zoom: {
-            pan: { enabled: true, mode: 'x', modifierKey: 'ctrl' },
+            pan: { enabled: true, mode: 'x' },
             zoom: { wheel: { enabled: true }, pinch: { enabled: true }, mode: 'x' }
           }
+        },
+        interaction: {
+          mode: 'nearest',
+          intersect: true
         },
         scales: {
           y: { beginAtZero: false }
@@ -107,13 +133,5 @@
     cagrElement.textContent = cagr.toFixed(1) + '%';
   </script>
 
-  <style>
-    /* 手机端背景自适应 */
-    @media (max-width: 640px) {
-      body {
-        background-attachment: scroll; /* 替代 fixed 避免手机显示问题 */
-      }
-    }
-  </style>
 </body>
 </html>
