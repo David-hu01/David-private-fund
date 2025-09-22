@@ -1,148 +1,135 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>大卫私人海外基金</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
-
-    /* 背景层在手机竖屏全屏显示 */
-    .bg-layer {
-      position: fixed;
-      inset: 0;
-      background-image: url('office_bg.jpg');
-      background-size: cover;
-      background-position: center top;
-      background-repeat: no-repeat;
-      z-index: 0;
+    body {
+      background-color: #f9fafb;
+      min-height: 100vh;
     }
   </style>
 </head>
-<body class="relative min-h-screen overflow-x-hidden pt-24">
+<body class="flex flex-col min-h-screen">
 
-  <!-- 导航栏 -->
-  <nav class="fixed top-0 w-full z-40 bg-white bg-opacity-90 shadow-md flex justify-center space-x-8 py-3">
-    <a href="index.html" class="text-gray-800 hover:text-blue-600 font-semibold">基金展示</a>
-    <a href="report.html" class="text-gray-800 hover:text-blue-600 font-semibold">全球经济周报</a>
+  <!-- 顶部导航栏 -->
+  <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center space-x-3">
+          <img src="logo.png" alt="Logo" class="h-10 w-auto" />
+          <span class="font-bold text-xl text-gray-900">大卫私人海外基金</span>
+        </a>
+        <div class="flex space-x-6">
+          <a href="index.html" class="font-medium group">
+            <span class="bg-blue-600 text-white px-3 py-1 rounded transition-colors duration-150 group-hover:bg-blue-700">基金概览</span>
+          </a>
+          <a href="report.html" class="text-gray-700 hover:text-blue-600 font-medium">全球经济周报</a>
+        </div>
+      </div>
+    </div>
   </nav>
 
-  <!-- 背景层 -->
-  <div class="bg-layer"></div>
+  <!-- 页面主内容 -->
+  <main class="flex-grow pt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-  <!-- 页面内容 -->
-  <div class="relative z-10 pt-36 sm:pt-32 pb-24">
-
-    <!-- 页面背景淡淡LOGO -->
-    <div class="fixed z-0 top-0 left-0 w-screen h-screen pointer-events-none overflow-hidden">
-      <img src="logo.png" alt="公司LOGO" style="opacity:0.07;position:absolute;right:10vw;bottom:5vh;max-width:60vw;max-height:80vh;user-select:none;">
-    </div>
-
-    <!-- 顶部标题 -->
-    <header class="fixed top-0 w-full z-50 text-center py-6 sm:py-4 bg-white bg-opacity-90 text-gray-900 flex items-center justify-center">
-      <div class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-90 rounded-md p-1">
-        <img src="logo.png" alt="公司LOGO" class="h-16 sm:h-14">
-      </div>
-      <div>
-        <h1 class="text-3xl sm:text-2xl font-extrabold text-gray-900">大卫私人海外基金</h1>
-        <p class="mt-1 sm:mt-0 text-base sm:text-sm text-gray-700">稳健·专业·长期价值</p>
+    <!-- 头部信息 -->
+    <header class="text-center mb-12">
+      <h1 class="text-4xl font-extrabold text-gray-900 mb-2">大卫私人海外基金</h1>
+      <p class="text-gray-700 text-lg leading-relaxed">
+        本基金以AI、清洁能源等高成长产业为核心方向，专注长期价值投资，追求稳健回报。
+      </p>
+      <div class="flex justify-center mt-6 space-x-6">
+        <a href="invest.html" class="bg-blue-800 text-white font-bold rounded-lg shadow px-6 py-4 text-center hover:bg-blue-900 transition w-40">
+          投资我们
+        </a>
+        <a href="agreement.pdf" class="bg-green-600 text-white font-bold rounded-lg px-6 py-4 shadow text-center hover:bg-green-700 transition w-40">
+          合伙协议
+        </a>
       </div>
     </header>
 
-    <div class="my-8"></div>
-
-    <!-- 基金核心指标 -->
-    <section class="max-w-5xl mx-auto py-8 px-4 sm:py-6 sm:px-3 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-3 text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-2xl shadow-lg mb-10">
-      <div class="p-4 sm:p-3">
-        <p class="text-gray-600 text-lg sm:text-base">最新净值</p>
-        <p class="text-3xl sm:text-2xl font-semibold text-blue-800">21.02</p>
+    <!-- 核心指标卡片 -->
+    <section class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+      <div class="bg-white rounded-lg shadow p-6 text-center">
+        <p class="text-gray-500 text-sm mb-1">最新净值</p>
+        <p class="text-3xl font-semibold text-blue-700">21.02</p>
       </div>
-      <div class="p-4 sm:p-3">
-        <p class="text-gray-600 text-lg sm:text-base">年化收益率</p>
-        <p class="text-3xl sm:text-2xl font-semibold text-green-700">36.8%</p>
+      <div class="bg-white rounded-lg shadow p-6 text-center">
+        <p class="text-gray-500 text-sm mb-1">年化收益率</p>
+        <p id="cagr-value" class="text-3xl font-semibold text-green-600">36.8%</p>
       </div>
-      <div class="p-4 sm:p-3">
-        <p class="text-gray-600 text-lg sm:text-base">成立时间</p>
-        <p class="text-3xl sm:text-2xl font-semibold text-blue-800">2020-07-01</p>
+      <div class="bg-white rounded-lg shadow p-6 text-center">
+        <p class="text-gray-500 text-sm mb-1">成立时间</p>
+        <p class="text-3xl font-semibold text-blue-700">2020-07-01</p>
       </div>
     </section>
 
-    <!-- 净值曲线图 -->
-    <section class="max-w-5xl mx-auto py-8 px-4 sm:py-6 sm:px-3 bg-white bg-opacity-40 backdrop-blur-lg rounded-2xl shadow-lg mb-10">
-      <h2 class="text-3xl sm:text-2xl font-bold mb-4 text-center text-gray-900">基金净值走势</h2>
-      <canvas id="navChart" class="p-4 sm:p-2 w-full" style="max-width: 100%;"></canvas>
+    <!-- 净值走势图表 -->
+    <section class="bg-white rounded-lg shadow p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">基金净值走势</h2>
+      <canvas id="navChart" class="w-full max-w-4xl mx-auto"></canvas>
     </section>
 
-    <!-- 股票 Spreadsheet 信息块 -->
-    <section class="max-w-5xl mx-auto py-8 px-4 sm:py-6 sm:px-3 bg-white bg-opacity-25 backdrop-blur-lg rounded-2xl shadow-lg mb-10">
-      <h2 class="text-3xl sm:text-2xl font-bold mb-4 text-center text-gray-900">成功案例</h2>
+    <!-- 成功案例表格 -->
+    <section class="bg-white rounded-lg shadow p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">成功案例</h2>
       <div class="overflow-x-auto">
         <table class="min-w-full divide-y divide-gray-200">
-          <thead class="bg-gray-100">
+          <thead class="bg-gray-50">
             <tr>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">股票</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">持仓价格</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">退出价格</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">最终收益</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">股票</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">持仓价格</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">退出价格</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">最终收益</th>
             </tr>
           </thead>
-          <tbody class="bg-white bg-opacity-80 divide-y divide-gray-200">
+          <tbody class="bg-white divide-y divide-gray-200">
             <tr>
-              <td class="px-6 py-4 whitespace-nowrap text-base text-gray-900 font-semibold">BYD</td>
-              <td class="px-6 py-4 whitespace-nowrap text-base text-gray-900">32</td>
-              <td class="px-6 py-4 whitespace-nowrap text-base text-gray-900">100</td>
-              <td class="px-6 py-4 whitespace-nowrap text-base font-bold text-green-600">+312.5%</td>
+              <td class="px-6 py-4 whitespace-nowrap font-semibold text-gray-900">BYD</td>
+              <td class="px-6 py-4 whitespace-nowrap text-gray-900">32</td>
+              <td class="px-6 py-4 whitespace-nowrap text-gray-900">100</td>
+              <td class="px-6 py-4 whitespace-nowrap font-bold text-green-600">+312.5%</td>
             </tr>
             <tr>
-              <td class="px-6 py-4 whitespace-nowrap text-base text-gray-900 font-semibold">TSLA</td>
-              <td class="px-6 py-4 whitespace-nowrap text-base text-gray-900">240</td>
-              <td class="px-6 py-4 whitespace-nowrap text-base text-gray-900">420</td>
-              <td class="px-6 py-4 whitespace-nowrap text-base font-bold text-green-600">+175%</td>
+              <td class="px-6 py-4 whitespace-nowrap font-semibold text-gray-900">TSLA</td>
+              <td class="px-6 py-4 whitespace-nowrap text-gray-900">240</td>
+              <td class="px-6 py-4 whitespace-nowrap text-gray-900">420</td>
+              <td class="px-6 py-4 whitespace-nowrap font-bold text-green-600">+175%</td>
             </tr>
             <tr>
-              <td class="px-6 py-4 whitespace-nowrap text-base text-gray-900 font-semibold">NVDA</td>
-              <td class="px-6 py-4 whitespace-nowrap text-base text-gray-900">167</td>
-              <td class="px-6 py-4 whitespace-nowrap text-base text-gray-900">1790</td>
-              <td class="px-6 py-4 whitespace-nowrap text-base font-bold text-green-600">+1071.8%</td>
+              <td class="px-6 py-4 whitespace-nowrap font-semibold text-gray-900">NVDA</td>
+              <td class="px-6 py-4 whitespace-nowrap text-gray-900">167</td>
+              <td class="px-6 py-4 whitespace-nowrap text-gray-900">1790</td>
+              <td class="px-6 py-4 whitespace-nowrap font-bold text-green-600">+1071.8%</td>
             </tr>
             <tr>
-              <td class="px-6 py-4 whitespace-nowrap text-base text-gray-900 font-semibold">云海金属</td>
-              <td class="px-6 py-4 whitespace-nowrap text-base text-gray-900">11</td>
-              <td class="px-6 py-4 whitespace-nowrap text-base text-gray-900">29</td>
-              <td class="px-6 py-4 whitespace-nowrap text-base font-bold text-green-600">+263%</td>
+              <td class="px-6 py-4 whitespace-nowrap font-semibold text-gray-900">云海金属</td>
+              <td class="px-6 py-4 whitespace-nowrap text-gray-900">11</td>
+              <td class="px-6 py-4 whitespace-nowrap text-gray-900">29</td>
+              <td class="px-6 py-4 whitespace-nowrap font-bold text-green-600">+263%</td>
             </tr>
             <tr>
-              <td class="px-6 py-4 whitespace-nowrap text-base text-gray-900 font-semibold">Gold</td>
-              <td class="px-6 py-4 whitespace-nowrap text-base text-gray-900">2300</td>
-              <td class="px-6 py-4 whitespace-nowrap text-base text-gray-900">3393</td>
-              <td class="px-6 py-4 whitespace-nowrap text-base font-bold text-green-600">+147%</td>
+              <td class="px-6 py-4 whitespace-nowrap font-semibold text-gray-900">Gold</td>
+              <td class="px-6 py-4 whitespace-nowrap text-gray-900">2300</td>
+              <td class="px-6 py-4 whitespace-nowrap text-gray-900">3393</td>
+              <td class="px-6 py-4 whitespace-nowrap font-bold text-green-600">+147%</td>
             </tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <!-- 投资策略 -->
-    <section class="max-w-3xl mx-auto py-8 px-4 sm:py-6 sm:px-3 text-center bg-white bg-opacity-40 backdrop-blur-lg rounded-2xl shadow-lg mb-10">
-      <h2 class="text-3xl sm:text-2xl font-bold mb-4 text-gray-900">投资策略</h2>
-      <p class="text-lg sm:text-base text-gray-700 leading-relaxed">
-        本基金以AI、清洁能源等高成长产业为核心方向，专注长期价值投资，追求稳健回报。
-      </p>
-    </section>
+  </main>
 
-    <!-- 底部页脚固定 -->
-  <footer class="fixed bottom-0 w-full z-50 text-center py-4 bg-gray-100 bg-opacity-90 text-gray-500 text-sm">
-    投资有风险，入市需谨慎。<br>© 2025 大卫私人海外基金. All rights reserved.
+  <!-- 页脚 -->
+  <footer class="bg-white border-t border-gray-200 text-center py-6 text-gray-500 text-sm">
+    投资有风险，入市需谨慎。<br />© 2025 大卫私人海外基金. All rights reserved.
   </footer>
 
-  </div>
-
-  <!-- Chart.js 配置 -->
   <script>
     const navValues = [1.0, 3.2, 6.72, 10.95, 19.16, 21.02];
     const ctx = document.getElementById('navChart').getContext('2d');
@@ -155,12 +142,15 @@
           label: "基金净值",
           data: navValues,
           borderColor: "#2563eb",
-          backgroundColor: "rgba(37,99,235,0.1)",
-          borderWidth: 2,
+          backgroundColor: "rgba(37, 99, 235, 0.1)",
+          borderWidth: 3,
           fill: true,
           tension: 0.3,
           pointRadius: 5,
-          pointHitRadius: 10
+          pointHoverRadius: 7,
+          pointBackgroundColor: "#2563eb",
+          pointBorderColor: "#fff",
+          pointHoverBorderWidth: 2
         }]
       },
       options: {
@@ -171,11 +161,12 @@
             enabled: true,
             mode: 'nearest',
             intersect: true,
-            position: 'nearest'
-          },
-          zoom: {
-            pan: { enabled: true, mode: 'x' },
-            zoom: { wheel: { enabled: true }, pinch: { enabled: true }, mode: 'x' }
+            position: 'nearest',
+            backgroundColor: 'rgba(37, 99, 235, 0.8)',
+            titleColor: '#fff',
+            bodyColor: '#fff',
+            cornerRadius: 4,
+            padding: 8
           }
         },
         interaction: {
@@ -183,7 +174,25 @@
           intersect: true
         },
         scales: {
-          y: { beginAtZero: false }
+          y: {
+            beginAtZero: false,
+            ticks: {
+              color: '#4b5563',
+              font: { size: 14 }
+            },
+            grid: {
+              color: '#e5e7eb'
+            }
+          },
+          x: {
+            ticks: {
+              color: '#4b5563',
+              font: { size: 14 }
+            },
+            grid: {
+              display: false
+            }
+          }
         }
       }
     });
@@ -195,7 +204,7 @@
     const cagr = (Math.pow(endValue / startValue, 1 / years) - 1) * 100;
 
     // 更新年化收益率显示
-    const cagrElement = document.querySelectorAll('section.max-w-5xl div')[1].querySelector('p.text-3xl');
+    const cagrElement = document.getElementById('cagr-value');
     cagrElement.textContent = cagr.toFixed(1) + '%';
   </script>
 
