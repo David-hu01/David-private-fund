@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>大卫私人海外基金</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -29,7 +29,7 @@
         </a>
         <div class="flex space-x-6">
           <a href="index.html" class="font-medium group">
-            <span class="bg-blue-600 text-white px-3 py-1 rounded transition-colors duration-150 group-hover:bg-blue-700">基金概览</span>
+            <span class="bg-blue-600 text-white px-4 py-3 sm:px-6 sm:py-4 rounded transition-colors duration-150 group-hover:bg-blue-700">基金概览</span>
           </a>
           <a href="report.html" class="text-gray-700 hover:text-blue-600 font-medium">全球经济周报</a>
         </div>
@@ -47,17 +47,17 @@
         本基金以AI、清洁能源等高成长产业为核心方向，专注长期价值投资，追求稳健回报。
       </p>
       <div class="flex justify-center mt-6 space-x-6">
-        <a href="invest.html" class="bg-blue-800 text-white font-bold rounded-lg shadow px-6 py-4 text-center hover:bg-blue-900 transition w-full sm:w-40">
+        <a href="invest.html" class="bg-blue-800 text-white font-bold rounded-lg shadow px-4 py-3 sm:px-6 sm:py-4 text-center hover:bg-blue-900 transition w-full sm:w-40">
           投资我们
         </a>
-        <a href="agreement.pdf" class="bg-green-600 text-white font-bold rounded-lg px-6 py-4 shadow text-center hover:bg-green-700 transition w-full sm:w-40">
+        <a href="agreement.pdf" class="bg-green-600 text-white font-bold rounded-lg px-4 py-3 sm:px-6 sm:py-4 shadow text-center hover:bg-green-700 transition w-full sm:w-40">
           合伙协议
         </a>
       </div>
     </header>
 
     <!-- 核心指标卡片 -->
-    <section class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+    <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-12">
       <div class="bg-white rounded-lg shadow p-6 text-center">
         <p class="text-gray-500 text-sm mb-1">最新净值</p>
         <p class="text-3xl font-semibold text-blue-700">21.02</p>
@@ -75,13 +75,13 @@
     <!-- 净值走势图表 -->
     <section class="bg-white rounded-lg shadow p-6 mb-12">
       <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">基金净值走势</h2>
-      <canvas id="navChart" class="w-full max-w-4xl mx-auto"></canvas>
+      <canvas id="navChart" class="w-full sm:max-w-4xl mx-auto"></canvas>
     </section>
 
     <!-- 成功案例表格 -->
     <section class="bg-white rounded-lg shadow p-6 mb-12">
       <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">成功案例</h2>
-      <div class="overflow-x-auto">
+      <div class="-mx-4 px-4 sm:mx-0 overflow-x-auto">
         <table class="min-w-full table-auto divide-y divide-gray-200">
           <thead class="bg-gray-50">
             <tr>
