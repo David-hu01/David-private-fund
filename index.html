@@ -65,11 +65,11 @@
     <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-12">
       <div class="bg-white rounded-lg shadow p-6 text-center">
         <p class="text-gray-500 text-sm mb-1">最新净值</p>
-        <p class="text-3xl font-semibold text-blue-700">21.02</p>
+        <p class="text-3xl font-semibold text-blue-700">35.36</p>
       </div>
       <div class="bg-white rounded-lg shadow p-6 text-center">
         <p class="text-gray-500 text-sm mb-1">年化收益率</p>
-        <p id="cagr-value" class="text-3xl font-semibold text-green-600">36.8%</p>
+        <p id="cagr-value" class="text-3xl font-semibold text-green-600">%</p>
       </div>
       <div class="bg-white rounded-lg shadow p-6 text-center">
         <p class="text-gray-500 text-sm mb-1">成立时间</p>
@@ -140,7 +140,7 @@
   </footer>
 
   <script>
-    const navValues = [1.0, 3.2, 6.72, 10.95, 19.16, 21.02];
+    const navValues = [1.0, 3.2, 6.72, 10.95, 19.16, 35.36];
     const ctx = document.getElementById('navChart').getContext('2d');
 
     const navChart = new Chart(ctx, {
