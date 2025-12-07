@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>未来动力基金 - 投资框架与方法标准化</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #60a5fa;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            background: var(--bg-gradient);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .header .meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 0.95rem;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .header .meta span {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-content {
+            background: white;
+            margin: -40px auto 0;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .section p {
+            text-align: left;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .section ul {
+            text-align: left;
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        .section ul li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.2s; }
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
+        .section:nth-child(4) { animation-delay: 0.8s; }
+        .section:nth-child(5) { animation-delay: 1.0s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .section-icon {
+            background: var(--bg-gradient);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.3rem;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .philosophy-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .philosophy-box::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 100px;
+            opacity: 0.1;
+        }
+
+        .philosophy-box p {
+            text-align: left !important;
+            max-width: 800px;
+            margin: 15px auto 0;
+        }
+
+        .core-concepts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .concept-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .concept-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--bg-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .concept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: var(--accent-color);
+        }
+
+        .concept-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .concept-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .concept-card .icon {
+            background: var(--bg-gradient);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .process-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .process-step {
+            background: linear-gradient(135deg, #f3f4f6 0%, #ffffff 100%);
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .process-step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .process-step:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            background: var(--bg-gradient);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .case-studies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .case-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .case-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .case-header {
+            background: var(--bg-gradient);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .case-content {
+            padding: 25px;
+        }
+
+        .case-content p {
+            text-align: left;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .case-metrics {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--success-color);
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        .portfolio-composition {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .portfolio-composition h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .allocation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .allocation-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .allocation-item p {
+            text-align: center !important;
+            margin: 10px 0 0;
+        }
+
+        .allocation-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .allocation-percentage {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .risk-indicators {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .risk-item {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .risk-item:hover {
+            border-color: var(--warning-color);
+            box-shadow: 0 5px 20px rgba(245, 158, 11, 0.2);
+        }
+
+        .risk-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .risk-low { background: #d1fae5; color: var(--success-color); }
+        .risk-medium { background: #fed7aa; color: var(--warning-color); }
+        .risk-high { background: #fee2e2; color: var(--danger-color); }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+            margin: 30px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-color);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 40px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 15px;
+            padding: 25px;
+            width: 45%;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: var(--bg-gradient);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+
+        .footer {
+            background: var(--bg-gradient);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .footer h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+            border-left: 4px solid var(--warning-color);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .highlight-box strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border-left: 4px solid var(--success-color);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .success-box p {
+            text-align: left !important;
+            margin: 10px 0 0;
+        }
+
+        .success-box h4 {
+            margin-bottom: 10px;
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-color);
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            background: var(--primary-color);
+            top: 60%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            background: var(--warning-color);
+            bottom: 20%;
+            left: 30%;
+            animation-delay: 6s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(20px) rotate(240deg); }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .header .meta {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .main-content {
+                padding: 20px;
+                margin-top: -20px;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+
+            .core-concepts {
+                grid-template-columns: 1fr;
+            }
+
+            .case-studies {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 60px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        .print-only {
+            display: none;
+        }
+
+        @media print {
+            .header, .footer {
+                background: white !important;
+                color: black !important;
+            }
+
+            .floating-shapes, .print-only {
+                display: none !important;
+            }
+
+            .main-content {
+                box-shadow: none;
+                margin: 0;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="header">
+        <div class="container">
+            <h1><i class="fas fa-chart-line"></i> 未来动力基金</h1>
+            <p class="subtitle">投资框架与方法标准化</p>
+            <div class="meta">
+                <span><i class="fas fa-calendar"></i> 2025年度报告</span>
+                <span><i class="fas fa-user-tie"></i> David Hu</span>
+                <span><i class="fas fa-trophy"></i> 生产力投资专家</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+            <!-- 引言部分 -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h2>1. 引言</h2>
+                </div>
+
+                <div class="philosophy-box">
+                    <h3><i class="fas fa-book"></i> 投资哲学</h3>
+                    <p style="margin-top: 15px; font-size: 1.1rem; line-height: 1.8;">
+                        我的投资哲学根植于马克思的《资本论》框架，认为生产力跃迁是决定长期价值的核心驱动力。通过深度理解技术变革与宏观经济周期，我致力于捕捉生产力与生产关系力量背后的市场机会，实现稳定的长期增长。
+                    </p>
+                </div>
+
+                <div class="success-box">
+                    <h4><i class="fas fa-star"></i> 核心理念：生产力投资</h4>
+                    <p style="margin-top: 10px;">
+                        将基金称为"未来动力基金"，专注于投资那些能够推动生产力革命的公司和领域，实现长期的价值增长。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 投资框架概述 -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h2>2. 投资框架概述</h2>
+                </div>
+
+                <div class="core-concepts">
+                    <div class="concept-card">
+                        <h3>
+                            <span class="icon"><i class="fas fa-rocket"></i></span>
+                            生产力跃迁
+                        </h3>
+                        <p>
+                            投资的核心是抓住那些能够推动生产力革命的公司或领域，例如AI芯片、新能源、自动化、数据中心等。专注于技术革新带来的指数级增长机会。
+                        </p>
+                    </div>
+
+                    <div class="concept-card">
+                        <h3>
+                            <span class="icon"><i class="fas fa-chart-area"></i></span>
+                            宏观经济理解
+                        </h3>
+                        <p>
+                            利用宏观经济数据，分析经济周期、货币政策等对投资的影响，判断哪些行业在不同周期内有较好的表现。
+                        </p>
+                    </div>
+
+                    <div class="concept-card">
+                        <h3>
+                            <span class="icon"><i class="fas fa-target"></i></span>
+                            投资目标
+                        </h3>
+                        <p>
+                            在长期（5–10年）内实现30%+年均复合增长率，主要投资于科技生产力领域，兼顾宏观经济周期。
+                        </p>
+                    </div>
+
+                    <div class="concept-card">
+                        <h3>
+                            <span class="icon"><i class="fas fa-cogs"></i></span>
+                            投资策略
+                        </h3>
+                        <p>
+                            利用人类社会发展趋势进行资产配置，关注那些真正解决人类社会发展痛点的企业。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 投资决策流程 -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h2>3. 投资决策流程</h2>
+                </div>
+
+                <div class="process-flow">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4><i class="fas fa-search"></i> 信息收集与分析</h4>
+                        <p>
+                            <strong>宏观经济分析：</strong>辩证分析宏观经济数据<br>
+                            <strong>行业分析：</strong>深入研究行业现状和新技术应用<br>
+                            <strong>公司分析：</strong>基于技术革新、商业模式等因素筛选
+                        </p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4><i class="fas fa-filter"></i> 投资标的筛选</h4>
+                        <p>
+                            <strong>选择标准：</strong>营收增长指数级增长，利润丰厚<br>
+                            <strong>估值方法：</strong>DCF模型+退出倍数<br>
+                            <strong>分析方法：</strong>定量分析与定性分析相结合
+                        </p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4><i class="fas fa-shield-alt"></i> 风险管理</h4>
+                        <p>
+                            <strong>仓位管理：</strong>长期视角下，100%仓位<br>
+                            <strong>止损机制：</strong>行业前景及公司发展实质性变化<br>
+                            <strong>投资策略：</strong>集中投资以规避不熟悉风险
+                        </p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4><i class="fas fa-briefcase"></i> 投资组合构建</h4>
+                        <p>
+                            <strong>科技组合：</strong>AI、半导体、数据中心领军公司<br>
+                            <strong>黄金资产：</strong>对冲地缘政治不确定性<br>
+                            <strong>动态调整：</strong>根据市场环境变化调整配置
+                        </p>
+                    </div>
+                </div>
+
+                <div class="portfolio-composition">
+                    <h3><i class="fas fa-pie-chart"></i> 投资组合构成</h3>
+                    <div class="allocation-grid">
+                        <div class="allocation-item">
+                            <div class="allocation-percentage">70%</div>
+                            <div class="allocation-label">科技生产力</div>
+                            <p>AI芯片、数据中心、自动化</p>
+                        </div>
+                        <div class="allocation-item">
+                            <div class="allocation-percentage">20%</div>
+                            <div class="allocation-label">新能源</div>
+                            <p>清洁能源、储能技术</p>
+                        </div>
+                        <div class="allocation-item">
+                            <div class="allocation-percentage">10%</div>
+                            <div class="allocation-label">黄金资产</div>
+                            <p>对冲不确定性风险</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="risk-indicators">
+                    <div class="risk-item">
+                        <div class="risk-icon risk-low">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <h4>技术风险</h4>
+                            <p>深度技术理解降低误判</p>
+                        </div>
+                    </div>
+                    <div class="risk-item">
+                        <div class="risk-icon risk-medium">
+                            <i class="fas fa-exclamation"></i>
+                        </div>
+                        <div>
+                            <h4>市场风险</h4>
+                            <p>通过黄金资产对冲</p>
+                        </div>
+                    </div>
+                    <div class="risk-item">
+                        <div class="risk-icon risk-low">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h4>流动性风险</h4>
+                            <p>专注优质龙头公司</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 过往案例回顾 -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h2>4. 过往案例回顾</h2>
+                </div>
+
+                <div class="case-studies">
+                    <div class="case-card">
+                        <div class="case-header">
+                            <i class="fas fa-microchip"></i> 案例1：投资NVIDIA
+                        </div>
+                        <div class="case-content">
+                            <p>
+                                2018年当NVIDIA股价下跌时，我通过分析其在AI、数据中心等领域的领先地位，预测未来几年将实现复苏。
+                            </p>
+                            <div class="case-metrics">
+                                <div class="metric">
+                                    <div class="metric-value">10倍+</div>
+                                    <div class="metric-label">投资回报</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">3年</div>
+                                    <div class="metric-label">持有周期</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">AI浪潮</div>
+                                    <div class="metric-label">投资主题</div>
+                                </div>
+                            </div>
+                            <div class="highlight-box">
+                                <strong>成功因素：</strong>深入理解AI技术趋势，把握了数据中心GPU需求的爆发性增长。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <div class="case-header">
+                            <i class="fas fa-coins"></i> 案例2：投资黄金
+                        </div>
+                        <div class="case-content">
+                            <p>
+                                在2020年全球疫情爆发时，我依据宏观经济政策和避险需求，提前增加黄金持仓，避开了股市暴跌的风险。
+                            </p>
+                            <div class="case-metrics">
+                                <div class="metric">
+                                    <div class="metric-value">40%+</div>
+                                    <div class="metric-label">避险收益</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">2020年</div>
+                                    <div class="metric-label">投资时机</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">宏观对冲</div>
+                                    <div class="metric-label">策略定位</div>
+                                </div>
+                            </div>
+                            <div class="highlight-box">
+                                <strong>成功因素：</strong>准确预判疫情对全球经济的冲击，及时调整资产配置。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="success-box">
+                    <h3><i class="fas fa-trophy"></i> 成功因素与经验总结</h3>
+                    <ul style="margin-top: 15px; padding-left: 20px;">
+                        <li><strong>深入了解产业趋势：</strong>持续关注技术变革和行业发展</li>
+                        <li><strong>宏观经济周期判断：</strong>结合经济环境调整投资策略</li>
+                        <li><strong>长期持有策略：</strong>坚持价值投资，避免短期波动干扰</li>
+                        <li><strong>提前布局长期趋势：</strong>专注于生产力革命的核心领域</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 总结与展望 -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h2>5. 总结与展望</h2>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3><i class="fas fa-flag-checkered"></i> 现在总结</h3>
+                            <p>
+                                通过深度理解技术变革与宏观经济周期，我致力于捕捉生产力与生产关系力量背后的市场机会。这种专注生产力革新的投资方式，历史上给我带来了非常理想的收益。
+                            </p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3><i class="fas fa-rocket"></i> 未来展望</h3>
+                            <p>
+                                未来5年，我将继续关注AI与新能源领域，尤其是在生产力革命中的领先公司。同时，我会根据全球货币政策变化，调整黄金配置比例。
+                            </p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3><i class="fas fa-bullseye"></i> 长期目标</h3>
+                            <p>
+                                成为生产力投资领域的标杆，通过持续的价值创造，为投资者带来稳定且丰厚的长期回报，同时推动社会生产力的进步。
+                            </p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h3><i class="fas fa-envelope"></i> 联系我们</h3>
+            <p>未来动力基金 - 专注生产力投资，共创美好未来</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+86 17623088409</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>david_hu01@outlook.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-globe"></i>
+                    <span>www.dicapitalpartners.top</span>
+                </div>
+            </div>
+            <p style="margin-top: 30px; opacity: 0.8;">
+                © 2025 未来动力基金. All rights reserved. | 基于生产力投资理念
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // 添加平滑滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 添加滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有section
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // 概念卡片点击效果
+        document.querySelectorAll('.concept-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+
+        // 打印功能
+        function printReport() {
+            window.print();
+        }
+
+        // 添加打印按钮（如果需要）
+        const printBtn = document.createElement('button');
+        printBtn.innerHTML = '<i class="fas fa-print"></i> 打印报告';
+        printBtn.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--bg-gradient);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        `;
+        printBtn.addEventListener('click', printReport);
+        printBtn.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)';
+        });
+        printBtn.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+            this.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+        });
+        document.body.appendChild(printBtn);
+    </script>
+</body>
+</html>
