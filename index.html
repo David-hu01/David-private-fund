@@ -84,7 +84,7 @@
 
     <!-- 净值走势图表 -->
     <section class="bg-white rounded-lg shadow p-6 mb-12">
-      <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">基金净值走势</h2>
+      <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">基金净值走势 & 持仓公司业绩增长</h2>
       <canvas id="navChart" class="w-full sm:max-w-4xl mx-auto"></canvas>
     </section>
 
@@ -170,54 +170,149 @@
     const navValues = [1.0, 3.2, 6.72, 10.95, 19.16, 35.36];
     const ctx = document.getElementById('navChart').getContext('2d');
 
+    // 真实财务数据（来源：公司官方财报）
+    // NVDA: https://investor.nvidia.com/financial-info/financial-reports/default.aspx
+    // ALAB: https://www.asteralabs.com/news/astera-labs-announces-financial-results-for-the-fourth-quarter-of-fiscal-year-2024/
+    const nvdaYoY = [null, null, 0.22, 125.9, 114.2, 59.7];  // 2020-2025 (2022-2025数据)
+    const alabYoY = [null, null, null, 44.93, 242.32, null];  // 2020-2025 (ALAB成立于2022)
+
     const navChart = new Chart(ctx, {
       type: 'line',
       data: {
         labels: ["2020", "2021", "2022", "2023", "2024", "2025"],
-        datasets: [{
-          label: "基金净值",
-          data: navValues,
-          borderColor: "#2563eb",
-          backgroundColor: "rgba(37, 99, 235, 0.1)",
-          borderWidth: 3,
-          fill: true,
-          tension: 0.3,
-          pointRadius: 5,
-          pointHoverRadius: 7,
-          pointBackgroundColor: "#2563eb",
-          pointBorderColor: "#fff",
-          pointHoverBorderWidth: 2
-        }]
+        datasets: [
+          {
+            label: "基金净值",
+            data: navValues,
+            borderColor: "#2563eb",
+            backgroundColor: "rgba(37, 99, 235, 0.1)",
+            borderWidth: 3,
+            fill: true,
+            tension: 0.3,
+            pointRadius: 5,
+            pointHoverRadius: 7,
+            pointBackgroundColor: "#2563eb",
+            pointBorderColor: "#fff",
+            pointHoverBorderWidth: 2,
+            yAxisID: 'y'
+          },
+          {
+            label: "NVDA 营收 YoY (%)",
+            data: nvdaYoY,
+            borderColor: "#10b981",
+            backgroundColor: "rgba(16, 185, 129, 0.1)",
+            borderWidth: 2,
+            fill: false,
+            tension: 0.3,
+            pointRadius: 4,
+            pointHoverRadius: 6,
+            pointBackgroundColor: "#10b981",
+            pointBorderColor: "#fff",
+            pointHoverBorderWidth: 2,
+            yAxisID: 'y1'
+          },
+          {
+            label: "ALAB 营收 YoY (%)",
+            data: alabYoY,
+            borderColor: "#8b5cf6",
+            backgroundColor: "rgba(139, 92, 246, 0.1)",
+            borderWidth: 2,
+            fill: false,
+            tension: 0.3,
+            pointRadius: 4,
+            pointHoverRadius: 6,
+            pointBackgroundColor: "#8b5cf6",
+            pointBorderColor: "#fff",
+            pointHoverBorderWidth: 2,
+            yAxisID: 'y1'
+          }
+        ]
       },
       options: {
         responsive: true,
+        interaction: {
+          mode: 'index',
+          intersect: false
+        },
         plugins: {
-          legend: { display: false },
+          legend: {
+            display: true,
+            position: 'top',
+            labels: {
+              padding: 15,
+              font: { size: 13 },
+              usePointStyle: true
+            }
+          },
           tooltip: {
             enabled: true,
-            mode: 'nearest',
-            intersect: true,
-            position: 'nearest',
-            backgroundColor: 'rgba(37, 99, 235, 0.8)',
+            mode: 'index',
+            intersect: false,
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
             titleColor: '#fff',
             bodyColor: '#fff',
-            cornerRadius: 4,
-            padding: 8
+            cornerRadius: 6,
+            padding: 12,
+            callbacks: {
+              label: function(context) {
+                let label = context.dataset.label || '';
+                if (label) {
+                  label += ': ';
+                }
+                if (context.parsed.y !== null) {
+                  if (context.dataset.yAxisID === 'y1') {
+                    label += context.parsed.y.toFixed(2) + '%';
+                  } else {
+                    label += context.parsed.y.toFixed(2);
+                  }
+                } else {
+                  label += 'N/A';
+                }
+                return label;
+              }
+            }
           }
-        },
-        interaction: {
-          mode: 'nearest',
-          intersect: true
         },
         scales: {
           y: {
+            type: 'linear',
+            display: true,
+            position: 'left',
             beginAtZero: false,
+            title: {
+              display: true,
+              text: '基金净值',
+              color: '#2563eb',
+              font: { size: 14, weight: 'bold' }
+            },
             ticks: {
               color: '#4b5563',
-              font: { size: 14 }
+              font: { size: 13 }
             },
             grid: {
               color: '#e5e7eb'
+            }
+          },
+          y1: {
+            type: 'linear',
+            display: true,
+            position: 'right',
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: '营收同比增长 (%)',
+              color: '#10b981',
+              font: { size: 14, weight: 'bold' }
+            },
+            ticks: {
+              color: '#4b5563',
+              font: { size: 13 },
+              callback: function(value) {
+                return value + '%';
+              }
+            },
+            grid: {
+              drawOnChartArea: false
             }
           },
           x: {
