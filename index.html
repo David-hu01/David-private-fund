@@ -172,9 +172,7 @@
 
     // 真实财务数据（来源：公司官方财报）
     // NVDA: https://investor.nvidia.com/financial-info/financial-reports/default.aspx
-    // ALAB: https://www.asteralabs.com/news/astera-labs-announces-financial-results-for-the-fourth-quarter-of-fiscal-year-2024/
     const nvdaYoY = [null, null, 0.22, 125.9, 114.2, 59.7];  // 2020-2025 (2022-2025数据)
-    const alabYoY = [null, null, null, 44.93, 242.32, null];  // 2020-2025 (ALAB成立于2022)
 
     const navChart = new Chart(ctx, {
       type: 'line',
@@ -207,21 +205,6 @@
             pointRadius: 4,
             pointHoverRadius: 6,
             pointBackgroundColor: "#10b981",
-            pointBorderColor: "#fff",
-            pointHoverBorderWidth: 2,
-            yAxisID: 'y1'
-          },
-          {
-            label: "ALAB 营收 YoY (%)",
-            data: alabYoY,
-            borderColor: "#8b5cf6",
-            backgroundColor: "rgba(139, 92, 246, 0.1)",
-            borderWidth: 2,
-            fill: false,
-            tension: 0.3,
-            pointRadius: 4,
-            pointHoverRadius: 6,
-            pointBackgroundColor: "#8b5cf6",
             pointBorderColor: "#fff",
             pointHoverBorderWidth: 2,
             yAxisID: 'y1'
