@@ -94,7 +94,7 @@
       <div class="w-full sm:max-w-2xl mx-auto">
         <canvas id="portfolioChart"></canvas>
       </div>
-      <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+      <div class="mt-6 grid grid-cols-2 sm:grid-cols-5 gap-4 text-center">
         <div class="bg-blue-50 rounded-lg p-4">
           <p class="text-lg font-bold text-blue-700">NVDA</p>
           <p class="text-2xl font-semibold text-blue-900">50%</p>
@@ -110,6 +110,10 @@
         <div class="bg-purple-50 rounded-lg p-4">
           <p class="text-lg font-bold text-purple-700">ALAB</p>
           <p class="text-2xl font-semibold text-purple-900">10%</p>
+        </div>
+        <div class="bg-gray-100 rounded-lg p-4">
+          <p class="text-lg font-bold text-gray-700">现金</p>
+          <p class="text-2xl font-semibold text-gray-900">3%</p>
         </div>
       </div>
     </section>
@@ -178,6 +182,10 @@
     // NVDA: https://investor.nvidia.com/financial-info/financial-reports/default.aspx
     const nvdaYoY = [null, null, 0.22, 125.9, 114.2, 59.7];  // 2020-2025 (2022-2025数据)
 
+    // ALAB (Astera Labs): https://www.asteralabs.com/news/astera-labs-announces-financial-results-for-the-third-quarter-of-fiscal-year-2025/
+    // 2022: ~$80M, 2023: ~$116M, 2024: $396.3M (YoY: 242%), 2025: 预期 $800M+
+    const alabYoY = [null, null, null, 45.0, 242.0, 103.9];  // 2020-2025
+
     const navChart = new Chart(ctx, {
       type: 'line',
       data: {
@@ -209,6 +217,21 @@
             pointRadius: 4,
             pointHoverRadius: 6,
             pointBackgroundColor: "#10b981",
+            pointBorderColor: "#fff",
+            pointHoverBorderWidth: 2,
+            yAxisID: 'y1'
+          },
+          {
+            label: "ALAB 营收 YoY (%)",
+            data: alabYoY,
+            borderColor: "#a855f7",
+            backgroundColor: "rgba(168, 85, 247, 0.1)",
+            borderWidth: 2,
+            fill: false,
+            tension: 0.3,
+            pointRadius: 4,
+            pointHoverRadius: 6,
+            pointBackgroundColor: "#a855f7",
             pointBorderColor: "#fff",
             pointHoverBorderWidth: 2,
             yAxisID: 'y1'
@@ -330,20 +353,22 @@
     const portfolioChart = new Chart(portfolioCtx, {
       type: 'doughnut',
       data: {
-        labels: ['NVDA', 'Gold', 'AG', 'ALAB'],
+        labels: ['NVDA', 'Gold', 'AG', 'ALAB', '现金'],
         datasets: [{
-          data: [50, 24, 13, 10],
+          data: [50, 24, 13, 10, 3],
           backgroundColor: [
             'rgba(37, 99, 235, 0.8)',
             'rgba(34, 197, 94, 0.8)',
             'rgba(249, 115, 22, 0.8)',
-            'rgba(168, 85, 247, 0.8)'
+            'rgba(168, 85, 247, 0.8)',
+            'rgba(107, 114, 128, 0.8)'
           ],
           borderColor: [
             'rgba(37, 99, 235, 1)',
             'rgba(34, 197, 94, 1)',
             'rgba(249, 115, 22, 1)',
-            'rgba(168, 85, 247, 1)'
+            'rgba(168, 85, 247, 1)',
+            'rgba(107, 114, 128, 1)'
           ],
           borderWidth: 2
         }]
