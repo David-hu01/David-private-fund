@@ -94,10 +94,10 @@
       <div class="w-full sm:max-w-2xl mx-auto">
         <canvas id="portfolioChart"></canvas>
       </div>
-      <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+      <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
         <div class="bg-blue-50 rounded-lg p-4">
           <p class="text-lg font-bold text-blue-700">NVDA</p>
-          <p class="text-2xl font-semibold text-blue-900">62%</p>
+          <p class="text-2xl font-semibold text-blue-900">50%</p>
         </div>
         <div class="bg-green-50 rounded-lg p-4">
           <p class="text-lg font-bold text-green-700">Gold</p>
@@ -106,6 +106,10 @@
         <div class="bg-orange-50 rounded-lg p-4">
           <p class="text-lg font-bold text-orange-700">AG</p>
           <p class="text-2xl font-semibold text-orange-900">13%</p>
+        </div>
+        <div class="bg-purple-50 rounded-lg p-4">
+          <p class="text-lg font-bold text-purple-700">ALAB</p>
+          <p class="text-2xl font-semibold text-purple-900">10%</p>
         </div>
       </div>
     </section>
@@ -326,18 +330,20 @@
     const portfolioChart = new Chart(portfolioCtx, {
       type: 'doughnut',
       data: {
-        labels: ['NVDA', 'Gold', 'AG'],
+        labels: ['NVDA', 'Gold', 'AG', 'ALAB'],
         datasets: [{
-          data: [62, 24, 13],
+          data: [50, 24, 13, 10],
           backgroundColor: [
             'rgba(37, 99, 235, 0.8)',
             'rgba(34, 197, 94, 0.8)',
-            'rgba(249, 115, 22, 0.8)'
+            'rgba(249, 115, 22, 0.8)',
+            'rgba(168, 85, 247, 0.8)'
           ],
           borderColor: [
             'rgba(37, 99, 235, 1)',
             'rgba(34, 197, 94, 1)',
-            'rgba(249, 115, 22, 1)'
+            'rgba(249, 115, 22, 1)',
+            'rgba(168, 85, 247, 1)'
           ],
           borderWidth: 2
         }]
