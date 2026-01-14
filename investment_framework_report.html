@@ -49,6 +49,31 @@
             overflow: hidden;
         }
 
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 100;
+        }
+
+        .home-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-3px);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
         .header::before {
             content: '';
             position: absolute;
@@ -628,6 +653,13 @@
         }
 
         @media (max-width: 768px) {
+            .home-link {
+                top: 15px;
+                left: 15px;
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+
             .header h1 {
                 font-size: 2rem;
             }
@@ -711,6 +743,11 @@
     </div>
 
     <div class="header">
+        <a href="index.html" class="home-link">
+            <i class="fas fa-arrow-left"></i>
+            <span>返回基金主页</span>
+        </a>
+
         <div class="container">
             <h1><i class="fas fa-chart-line"></i> 未来动力基金</h1>
             <p class="subtitle">投资框架与方法标准化</p>
