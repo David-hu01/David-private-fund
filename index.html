@@ -90,7 +90,10 @@
 
     <!-- 持仓分布图表 -->
     <section class="bg-white rounded-lg shadow p-6 mb-12">
-      <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">持仓分布</h2>
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-bold text-gray-900 text-center flex-1">持仓分布</h2>
+        <p id="update-time" class="text-sm text-gray-500">更新时间: 加载中...</p>
+      </div>
       <div class="w-full sm:max-w-2xl mx-auto">
         <canvas id="portfolioChart"></canvas>
       </div>
@@ -209,6 +212,21 @@
           portfolioData.data = data.portfolio.map(p => p.percentage);
           portfolioData.colors = data.portfolio.map(p => p.color);
           portfolioData.borderColors = data.portfolio.map(p => p.border_color);
+
+          // 显示更新时间
+          const updateTimeElement = document.getElementById('update-time');
+          if (updateTimeElement && data.last_updated) {
+            // 解析时间字符串并格式化
+            const updateTime = new Date(data.last_updated.replace(/-/g, '/'));
+            const formattedTime = updateTime.toLocaleString('zh-CN', {
+              year: 'numeric',
+              month: '2-digit',
+              day: '2-digit',
+              hour: '2-digit',
+              minute: '2-digit'
+            });
+            updateTimeElement.textContent = `更新时间: ${formattedTime}`;
+          }
 
           console.log('✅ 持仓数据加载成功 - 更新时间:', data.last_updated);
           console.log('账户净值: $' + data.account_value.toLocaleString());
