@@ -178,6 +178,47 @@
     const navValues = [1.0, 3.2, 6.72, 10.95, 19.16, 35.36];
     const ctx = document.getElementById('navChart').getContext('2d');
 
+    // 从JSON文件加载持仓数据
+    let portfolioData = {
+      labels: ['NVDA', 'Gold', 'AG', 'ALAB', '现金'],
+      data: [50, 24, 13, 10, 3],
+      colors: [
+        'rgba(37, 99, 235, 0.8)',
+        'rgba(34, 197, 94, 0.8)',
+        'rgba(249, 115, 22, 0.8)',
+        'rgba(168, 85, 247, 0.8)',
+        'rgba(107, 114, 128, 0.8)'
+      ],
+      borderColors: [
+        'rgba(37, 99, 235, 1)',
+        'rgba(34, 197, 94, 1)',
+        'rgba(249, 115, 22, 1)',
+        'rgba(168, 85, 247, 1)',
+        'rgba(107, 114, 128, 1)'
+      ]
+    };
+
+    // 异步加载持仓数据
+    async function loadPortfolioData() {
+      try {
+        const response = await fetch('portfolio_data.json');
+        const data = await response.json();
+
+        if (data.portfolio && data.portfolio.length > 0) {
+          portfolioData.labels = data.portfolio.map(p => p.ticker);
+          portfolioData.data = data.portfolio.map(p => p.percentage);
+          portfolioData.colors = data.portfolio.map(p => p.color);
+          portfolioData.borderColors = data.portfolio.map(p => p.border_color);
+
+          console.log('✅ 持仓数据加载成功 - 更新时间:', data.last_updated);
+          console.log('账户净值: $' + data.account_value.toLocaleString());
+        }
+      } catch (error) {
+        console.log('⚠️  无法加载portfolio_data.json，使用默认数据');
+        console.log('运行 python update_portfolio.py 来更新数据');
+      }
+    }
+
     // 真实财务数据（来源：公司官方财报）
     // NVDA: https://investor.nvidia.com/financial-info/financial-reports/default.aspx
     const nvdaYoY = [null, null, 0.22, 125.9, 114.2, 59.7];  // 2020-2025 (2022-2025数据)
@@ -349,59 +390,102 @@
     cagrElement.textContent = cagr.toFixed(1) + '%';
 
     // 持仓分布饼图
-    const portfolioCtx = document.getElementById('portfolioChart').getContext('2d');
-    const portfolioChart = new Chart(portfolioCtx, {
-      type: 'doughnut',
-      data: {
-        labels: ['NVDA', 'Gold', 'AG', 'ALAB', '现金'],
-        datasets: [{
-          data: [50, 24, 13, 10, 3],
-          backgroundColor: [
-            'rgba(37, 99, 235, 0.8)',
-            'rgba(34, 197, 94, 0.8)',
-            'rgba(249, 115, 22, 0.8)',
-            'rgba(168, 85, 247, 0.8)',
-            'rgba(107, 114, 128, 0.8)'
-          ],
-          borderColor: [
-            'rgba(37, 99, 235, 1)',
-            'rgba(34, 197, 94, 1)',
-            'rgba(249, 115, 22, 1)',
-            'rgba(168, 85, 247, 1)',
-            'rgba(107, 114, 128, 1)'
-          ],
-          borderWidth: 2
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            display: true,
-            position: 'bottom',
-            labels: {
-              padding: 20,
-              font: {
-                size: 14
+    let portfolioChart;
+
+    function createPortfolioChart() {
+      const portfolioCtx = document.getElementById('portfolioChart').getContext('2d');
+
+      portfolioChart = new Chart(portfolioCtx, {
+        type: 'doughnut',
+        data: {
+          labels: portfolioData.labels,
+          datasets: [{
+            data: portfolioData.data,
+            backgroundColor: portfolioData.colors,
+            borderColor: portfolioData.borderColors,
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: true,
+              position: 'bottom',
+              labels: {
+                padding: 20,
+                font: {
+                  size: 14
+                }
               }
-            }
-          },
-          tooltip: {
-            enabled: true,
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-            titleColor: '#fff',
-            bodyColor: '#fff',
-            padding: 12,
-            cornerRadius: 6,
-            callbacks: {
-              label: function(context) {
-                return context.label + ': ' + context.parsed + '%';
+            },
+            tooltip: {
+              enabled: true,
+              backgroundColor: 'rgba(0, 0, 0, 0.8)',
+              titleColor: '#fff',
+              bodyColor: '#fff',
+              padding: 12,
+              cornerRadius: 6,
+              callbacks: {
+                label: function(context) {
+                  return context.label + ': ' + context.parsed + '%';
+                }
               }
             }
           }
         }
-      }
-    });
+      });
+    }
+
+    // 更新持仓分布卡片显示
+    function updatePortfolioCards() {
+      const cardsContainer = document.querySelector('.mt-6.grid');
+      if (!cardsContainer) return;
+
+      cardsContainer.innerHTML = '';
+
+      portfolioData.labels.forEach((label, index) => {
+        const percentage = portfolioData.data[index];
+        const color = portfolioData.colors[index];
+
+        const bgClass = label === 'NVDA' ? 'bg-blue-50' :
+                       label === 'Gold' ? 'bg-green-50' :
+                       label === 'AG' ? 'bg-orange-50' :
+                       label === 'ALAB' ? 'bg-purple-50' :
+                       'bg-gray-100';
+
+        const titleClass = label === 'NVDA' ? 'text-blue-700' :
+                          label === 'Gold' ? 'text-green-700' :
+                          label === 'AG' ? 'text-orange-700' :
+                          label === 'ALAB' ? 'text-purple-700' :
+                          'text-gray-700';
+
+        const valueClass = label === 'NVDA' ? 'text-blue-900' :
+                          label === 'Gold' ? 'text-green-900' :
+                          label === 'AG' ? 'text-orange-900' :
+                          label === 'ALAB' ? 'text-purple-900' :
+                          'text-gray-900';
+
+        const card = document.createElement('div');
+        card.className = `${bgClass} rounded-lg p-4`;
+        card.innerHTML = `
+          <p class="text-lg font-bold ${titleClass}">${label}</p>
+          <p class="text-2xl font-semibold ${valueClass}">${percentage}%</p>
+        `;
+
+        cardsContainer.appendChild(card);
+      });
+    }
+
+    // 初始化
+    async function init() {
+      await loadPortfolioData();
+      createPortfolioChart();
+      updatePortfolioCards();
+    }
+
+    // 页面加载时执行
+    init();
   </script>
 
 </body>

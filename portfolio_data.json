@@ -1,0 +1,35 @@
+{
+  "last_updated": "2026-01-21 11:08:19",
+  "account_value": 0,
+  "total_market_value": 18010.1,
+  "portfolio": [
+    {
+      "ticker": "NVDA",
+      "percentage": 52.0,
+      "color": "rgba(37, 99, 235, 0.8)",
+      "border_color": "rgba(37, 99, 235, 1)",
+      "market_value": 9363.72
+    },
+    {
+      "ticker": "XAUUSD",
+      "percentage": 24.2,
+      "color": "rgba(107, 114, 128, 0.8)",
+      "border_color": "rgba(107, 114, 128, 1)",
+      "market_value": 4361.22
+    },
+    {
+      "ticker": "XAGUSD",
+      "percentage": 13.8,
+      "color": "rgba(107, 114, 128, 0.8)",
+      "border_color": "rgba(107, 114, 128, 1)",
+      "market_value": 2489.86
+    },
+    {
+      "ticker": "ALAB",
+      "percentage": 10.0,
+      "color": "rgba(168, 85, 247, 0.8)",
+      "border_color": "rgba(168, 85, 247, 1)",
+      "market_value": 1795.3
+    }
+  ]
+}
