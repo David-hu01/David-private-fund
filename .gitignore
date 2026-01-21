@@ -42,3 +42,6 @@ Thumbs.db
 
 # 日志文件
 *.log
+
+# 本地备份
+.backup/
