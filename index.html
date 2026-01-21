@@ -106,7 +106,7 @@
         <p id="update-time" class="text-sm text-gray-500 mt-2">更新时间: 加载中...</p>
       </div>
       <div class="flex items-center justify-center">
-        <div class="w-full sm:max-w-md mx-auto">
+        <div class="w-full sm:max-w-lg mx-auto" style="min-width: 350px;">
           <canvas id="portfolioChart"></canvas>
         </div>
       </div>
@@ -444,10 +444,12 @@
               display: true,
               position: 'bottom',
               labels: {
-                padding: 20,
+                padding: 12,
+                boxWidth: 12,
                 font: {
-                  size: 14
-                }
+                  size: 13
+                },
+                usePointStyle: true
               }
             },
             tooltip: {
