@@ -36,8 +36,8 @@
     {
       "ticker": "现金",
       "percentage": 0.4,
-      "color": "rgba(156, 163, 175, 0.8)",
-      "border_color": "rgba(156, 163, 175, 1)",
+      "color": "rgba(34, 197, 94, 0.8)",
+      "border_color": "rgba(34, 197, 94, 1)",
       "market_value": 73.41
     }
   ]

@@ -465,30 +465,20 @@
       portfolioData.labels.forEach((label, index) => {
         const percentage = portfolioData.data[index];
         const color = portfolioData.colors[index];
+        const borderColor = portfolioData.borderColors[index];
 
-        const bgClass = label === 'NVDA' ? 'bg-blue-50' :
-                       label === 'Gold' ? 'bg-green-50' :
-                       label === 'AG' ? 'bg-orange-50' :
-                       label === 'ALAB' ? 'bg-purple-50' :
-                       'bg-gray-100';
-
-        const titleClass = label === 'NVDA' ? 'text-blue-700' :
-                          label === 'Gold' ? 'text-green-700' :
-                          label === 'AG' ? 'text-orange-700' :
-                          label === 'ALAB' ? 'text-purple-700' :
-                          'text-gray-700';
-
-        const valueClass = label === 'NVDA' ? 'text-blue-900' :
-                          label === 'Gold' ? 'text-green-900' :
-                          label === 'AG' ? 'text-orange-900' :
-                          label === 'ALAB' ? 'text-purple-900' :
-                          'text-gray-900';
+        // 将 rgba 颜色转换为更浅的背景色
+        const bgColor = color.replace('0.8', '0.15');
+        const textColor = borderColor.replace('1)', '0.9)');
 
         const card = document.createElement('div');
-        card.className = `${bgClass} rounded-lg p-4`;
+        card.className = 'rounded-lg p-4';
+        card.style.backgroundColor = bgColor;
+        card.style.border = `2px solid ${borderColor}`;
+
         card.innerHTML = `
-          <p class="text-lg font-bold ${titleClass}">${label}</p>
-          <p class="text-2xl font-semibold ${valueClass}">${percentage}%</p>
+          <p class="text-lg font-bold" style="color: ${textColor}">${label}</p>
+          <p class="text-2xl font-semibold" style="color: ${textColor}">${percentage}%</p>
         `;
 
         cardsContainer.appendChild(card);
