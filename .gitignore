@@ -1,4 +1,7 @@
-# Python
+# Python 脚本和编译文件
+*.py
+*.sh
+*.bat
 __pycache__/
 *.py[cod]
 *$py.class
