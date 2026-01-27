@@ -1,71 +1,355 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
   <meta charset="utf-8" />
   <title>投资策略内参：宏观范式转移下的防御与进攻</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
-    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial; background:#f6f8fa; color:#0f172a; margin:0; padding:22px;}
-    .wrap{max-width:1100px;margin:20px auto;background:#fff;padding:32px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.08);}
-    .home-link{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;padding:10px 20px;background:linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);color:#fff;text-decoration:none;font-size:14px;font-weight:600;border-radius:8px;transition:all 0.3s ease;box-shadow:0 2px 8px rgba(59, 130, 246, 0.3);}
-    .home-link:hover{background:linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);transform:translateX(-3px);box-shadow:0 4px 12px rgba(59, 130, 246, 0.4);}
-    .home-link:before{content:"←";font-size:16px;font-weight:700;}
-    .header{border-bottom:3px solid #3b82f6;padding-bottom:20px;margin-bottom:24px;}
-    h1{margin:0 0 8px;font-size:26px;font-weight:700;color:#0f172a;}
-    .subtitle{font-size:16px;color:#64748b;margin-bottom:12px;}
-    .meta{color:#6b7280;font-size:13px;background:#f1f5f9;padding:8px 16px;border-radius:6px;display:inline-block;}
-    h2{font-size:19px;margin-top:28px;margin-bottom:16px;color:#0f172a;border-left:4px solid #3b82f6;padding-left:12px;font-weight:600;}
-    h3{font-size:16px;margin:16px 0 10px 0;color:#1e293b;font-weight:600;}
-    p,li{font-size:14px;line-height:1.75;color:#374151;}
-    ul,ol{margin-left:24px;margin-bottom:12px;}
-    li{margin-bottom:6px;}
-    .core-logic{background:#fffbeb;border-left:4px solid #f59e0b;padding:20px;margin:20px 0;border-radius:0 8px 8px 0;}
-    .core-logic h3{color:#92400e;margin-top:0;}
-    .strategy-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:18px 0;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
-    .strategy-card.nvidia{border-left:4px solid #76b900;}
-    .strategy-card.alab{border-left:4px solid #06b6d4;}
-    .strategy-card.gold{border-left:4px solid #fbbf24;}
-    .strategy-card h3{margin-top:0;color:#1e293b;}
-    .highlight{background:#dbeafe;color:#1e40af;padding:2px 6px;border-radius:4px;font-weight:600;}
-    .ticker{font-weight:700;color:#0f172a;}
-    .outlook{background:#ecfdf5;border:1px solid #10b981;padding:20px;border-radius:10px;margin:24px 0;}
-    .outlook h3{color:#065f46;margin-top:0;}
-    .sources{font-size:13px;color:#6b7280;margin-top:24px;padding-top:16px;border-top:1px solid #e5e7eb;}
-    footer{font-size:12px;color:#94a3b8;margin-top:20px;text-align:center;font-style:italic;}
-    .badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:600;margin-right:8px;}
-    .badge-strategy{background:#3b82f6;color:#fff;}
-    .badge-date{background:#64748b;color:#fff;}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
+      background: #f6f8fa;
+      color: #0f172a;
+      margin: 0;
+      padding: 22px;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(2, 6, 23, 0.08);
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    }
+
+    .home-link:hover {
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      transform: translateX(-3px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    }
+
+    .home-link:before {
+      content: "←";
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .header {
+      border-bottom: 3px solid #3b82f6;
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 26px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+
+    .meta {
+      color: #6b7280;
+      font-size: 13px;
+      background: #f1f5f9;
+      padding: 8px 16px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    h2 {
+      font-size: 19px;
+      margin-top: 28px;
+      margin-bottom: 16px;
+      color: #0f172a;
+      border-left: 4px solid #3b82f6;
+      padding-left: 12px;
+      font-weight: 600;
+    }
+
+    h3 {
+      font-size: 16px;
+      margin: 16px 0 10px 0;
+      color: #1e293b;
+      font-weight: 600;
+    }
+
+    p,
+    li {
+      font-size: 14px;
+      line-height: 1.75;
+      color: #374151;
+    }
+
+    ul,
+    ol {
+      margin-left: 24px;
+      margin-bottom: 12px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .core-logic {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .core-logic h3 {
+      color: #92400e;
+      margin-top: 0;
+    }
+
+    .strategy-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 18px 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .strategy-card.nvidia {
+      border-left: 4px solid #76b900;
+    }
+
+    .strategy-card.alab {
+      border-left: 4px solid #06b6d4;
+    }
+
+    .strategy-card.gold {
+      border-left: 4px solid #fbbf24;
+    }
+
+    .strategy-card h3 {
+      margin-top: 0;
+      color: #1e293b;
+    }
+
+    .highlight {
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .ticker {
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .outlook {
+      background: #ecfdf5;
+      border: 1px solid #10b981;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 24px 0;
+    }
+
+    .outlook h3 {
+      color: #065f46;
+      margin-top: 0;
+    }
+
+    .sources {
+      font-size: 13px;
+      color: #6b7280;
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    footer {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 20px;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+
+    .badge-strategy {
+      background: #3b82f6;
+      color: #fff;
+    }
+
+    .badge-date {
+      background: #64748b;
+      color: #fff;
+    }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <a href="index.html" class="home-link">返回基金主页</a>
 
     <div class="header">
-      <h1>投资策略内参：宏观范式转移下的防御与进攻</h1>
-      <div class="subtitle">预防性降息预期 · 通缩压力下的成本革命 · 全球信用风险对冲</div>
+      <h1>投资策略内参：美国内政矛盾与地缘博弈下的不确定性对冲</h1>
+      <div class="subtitle">赤字困局 · 远交近攻战略 · 通缩与通胀双重风险 · AI基建与白银避险双主线</div>
       <div class="meta">
         <span class="badge badge-strategy">内部参考文件</span>
-        <span class="badge badge-date">2026年1月14日</span>
+        <span class="badge badge-date">2026年1月27日</span>
       </div>
     </div>
 
     <section>
-      <h2>核心宏观逻辑：总需求收缩的连锁反应</h2>
+      <h2>一、美国内政：核心矛盾与政策应对</h2>
 
       <div class="core-logic">
-        <p>当前，美国经济正处于一个极其微妙的<strong>"结构性减速"</strong>窗口。我们观察到三大压力源正在合力挤压社会总需求：</p>
-        <ol>
-          <li><strong>政策干预与信贷收缩：</strong>特朗普政府最新提出的<span class="highlight">10%信用卡利率上限</span>（拟于2026年1月20日实施）虽旨在减轻选民负担，但其副作用是银行由于无法覆盖坏账风险，将大规模收紧对中低收入人群的信贷。这意味着依赖信贷支撑的消费性需求将面临剧烈收缩。</li>
-          <li><strong>AI替代与劳动力阵痛：</strong>生成式AI对白领岗位的替代已从预测变为现实。尽管长期看好AI创造新职业，但在"新岗位"出现前的真空期，白领阶层的就业不稳定性导致预防性储蓄增加，直接削弱了劳动力收入（Labor Income）对消费的贡献。</li>
-          <li><strong>通缩风险与资本支出谨慎：</strong>需求下滑带来的通缩风险，使得实业企业在扩大再生产上表现得极其谨慎。企业目前的决策核心已从"扩张"转向"控本"。</li>
-        </ol>
+        <h3>核心矛盾：赤字困局 vs 资本技术杠杆发展</h3>
+        <p>
+          当前美国面临的根本矛盾在于：<strong>庞大的财政赤字与资本技术杠杆发展需求之间的冲突</strong>。一方面，政府需要巨额资金支持AI等新兴技术的基础设施建设以维持全球科技霸权；另一方面，不断膨胀的赤字限制了财政空间，迫使政府必须采取激进的"开源节流"策略。
+        </p>
+
+        <h3 style="margin-top: 20px;">政策应对：开源与节流双管齐下</h3>
+
+        <p><strong>节流端：削减国内开支</strong></p>
+        <ul>
+          <li><span class="highlight">严格移民政策</span>：通过限制移民流入，减少社会福利支出压力，降低医疗、教育等公共服务负担</li>
+          <li><span class="highlight">DOGE效率裁员</span>：大规模政府部门效率优化与裁员，压缩行政开支</li>
+          <li><strong>目标</strong>：在不影响科技投资的前提下，最大限度降低非生产性支出</li>
+        </ul>
+
+        <p style="margin-top: 16px;"><strong>开源端：多维度创收</strong></p>
+        <ul>
+          <li><span class="highlight">关税政策</span>：通过加征关税增加政府收入，同时保护国内产业</li>
+          <li><span class="highlight">资源掠夺</span>：积极谋求能源与战略资源控制权
+            <ul style="margin-top: 8px;">
+              <li>委内瑞拉：全球最大石油储量国</li>
+              <li>格陵兰：稀土等战略矿产资源</li>
+              <li>中东：传统能源控制与地缘影响力</li>
+            </ul>
+          </li>
+          <li><span class="highlight">AI基础设施投资</span>：通过国家主导的AI基建项目，创造新的经济增长点与税收来源</li>
+        </ul>
       </div>
     </section>
 
     <section>
-      <h2>三大投资主线及持仓逻辑</h2>
-      <p>基于上述逻辑，我们通过以下三条主线构建组合，以实现<span class="highlight">"宏观对冲+行业高贝塔"</span>的平衡：</p>
+      <h2>二、国际反应：地缘战略格局演变</h2>
+
+      <div
+        style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0;">
+        <h3 style="color: #92400e; margin-top: 0;">远交近攻：美国新地缘战略</h3>
+        <p>美国的激进政策正在塑造一种<strong>"远交近攻"</strong>的地缘格局：对近邻区域（拉美、北美）采取资源掠夺与控制策略，同时与远距离盟友（欧洲部分国家、印太盟友）保持战略合作以对冲全球竞争压力。</p>
+
+        <div style="text-align: center; margin: 24px 0;">
+          <img
+            src="/Users/davidhu/.gemini/antigravity/brain/05d7cd6f-8f29-44c2-9ac3-8b124958fb19/geopolitical_strategy_map.png"
+            alt="美国地缘战略格局图"
+            style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
+          <p style="font-size: 13px; color: #78716c; margin-top: 12px; font-style: italic;">图：全球地缘战略格局 - 远交近攻态势</p>
+        </div>
+
+        <p><strong>主要特征：</strong></p>
+        <ul>
+          <li><strong>近攻目标</strong>：格陵兰、委内瑞拉等近邻资源丰富地区成为直接施压对象</li>
+          <li><strong>远交盟友</strong>：与欧洲（三晋体系）、俄罗斯（燕国体系）等保持战术性合作</li>
+          <li><strong>战略竞争</strong>：将中国定位为主要战略竞争对手（楚国体系）</li>
+        </ul>
+      </div>
+
+      <h3>全球连锁反应</h3>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px;">
+        <div style="background: #fef2f2; padding: 16px; border-radius: 8px; border: 1px solid #fecaca;">
+          <h4 style="margin: 0 0 10px 0; color: #991b1b; font-size: 14px;">🌍 民族主义崛起</h4>
+          <p style="margin: 0; font-size: 13px; color: #374151;">美国单边主义引发全球民族主义浪潮，各国优先考虑本国利益，国际合作难度加大</p>
+        </div>
+        <div style="background: #fef2f2; padding: 16px; border-radius: 8px; border: 1px solid #fecaca;">
+          <h4 style="margin: 0 0 10px 0; color: #991b1b; font-size: 14px;">⛓️ 供应链扰乱</h4>
+          <p style="margin: 0; font-size: 13px; color: #374151;">关税政策与地缘冲突导致全球供应链重组，物流成本上升，不确定性激增</p>
+        </div>
+        <div style="background: #fffbeb; padding: 16px; border-radius: 8px; border: 1px solid #fde68a;">
+          <h4 style="margin: 0 0 10px 0; color: #78350f; font-size: 14px;">🥇 贵金属飙升</h4>
+          <p style="margin: 0; font-size: 13px; color: #374151;">地缘风险与信用担忧推动黄金、白银大涨，避险需求激增</p>
+        </div>
+        <div style="background: #fffbeb; padding: 16px; border-radius: 8px; border: 1px solid #fde68a;">
+          <h4 style="margin: 0 0 10px 0; color: #78350f; font-size: 14px;">📈 市场波动性</h4>
+          <p style="margin: 0; font-size: 13px; color: #374151;">政策不确定性与地缘紧张推高VIX，市场进入高波动周期</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>三、宏观经济展望：双重风险与不确定性升级</h2>
+
+      <div style="background: #fef3c7; border: 2px solid #f59e0b; padding: 24px; margin: 20px 0; border-radius: 10px;">
+        <h3 style="color: #92400e; margin-top: 0;">⚠️ 通缩与通胀的双重威胁</h3>
+
+        <p><strong>当前风险：通缩压力</strong></p>
+        <ul>
+          <li>需求疲软、信贷收缩、AI替代就业等因素共同作用下，<span class="highlight">通缩风险</span>成为近期主要担忧</li>
+          <li>企业谨慎扩张，消费者预防性储蓄增加，总需求持续承压</li>
+        </ul>
+
+        <p style="margin-top: 16px;"><strong>潜在风险：资本流向白银引发通胀</strong></p>
+        <p>白银的<strong>双重属性</strong>使其成为当前最受关注的资产：</p>
+        <div style="background: #fff; padding: 16px; border-radius: 6px; margin: 12px 0;">
+          <ol>
+            <li><strong>避险战略物资</strong>：地缘风险与信用担忧下，白银作为传统避险资产吸引大量资金</li>
+            <li><strong>AI基建必需材料</strong>：
+              <ul style="margin-top: 8px;">
+                <li>数据中心散热系统需要大量白银</li>
+                <li>光伏、新能源基础设施建设需求旺盛</li>
+                <li>5G、物联网等配套设施对白银需求激增</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+
+        <p><strong style="color: #dc2626;">⚡ 风险推演：</strong>主流资本大量流向白银 → 白银价格飙升 → 推升AI基建成本 → 工业品价格传导 → <span
+            class="highlight" style="background: #fee2e2; color: #dc2626;">可能触发通胀风险</span></p>
+
+        <p
+          style="margin-top: 16px; padding: 16px; background: #fef2f2; border-radius: 6px; border-left: 4px solid #dc2626;">
+          <strong>结论：</strong>市场正处于<strong>"通缩与通胀双重不确定性"</strong>叠加期，传统的单向宏观判断框架失效，不确定性达到近年来最高水平。
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>四、2026年投资主线：不确定性对冲与AI标的</h2>
+      <p
+        style="background: #eff6ff; padding: 16px; border-left: 4px solid #3b82f6; border-radius: 0 8px 8px 0; margin-bottom: 20px;">
+        <strong>核心投资主题：</strong>在通缩与通胀双重不确定性叠加、地缘风险升级的背景下，<span class="highlight">找到优质AI投资标的</span>与<span
+          class="highlight">有效对冲不确定性</span>将是今年的投资主线。我们通过以下三条主线构建组合，以实现<strong>"AI确定性增长+白银双重属性对冲"</strong>的平衡策略。
+      </p>
 
       <div class="strategy-card nvidia">
         <h3>主线一：AI生产力革命 —— 捕捉"新需求"的确定性</h3>
@@ -108,74 +392,134 @@
       </div>
 
       <div class="strategy-card gold">
-        <h3>主线三：信用风险与政策不确定性 —— 贵金属的避险回归</h3>
-        <p><strong>核心逻辑：</strong>庞大的财政赤字不仅推高了信用风险，也限制了联储的政策空间。</p>
-        <p><strong>持仓聚焦：</strong><span class="ticker">黄金/白银（贵金属）</span></p>
+        <h3>主线三：双重属性资产 —— 白银的战略对冲价值</h3>
+        <p><strong>核心逻辑：</strong>白银是唯一同时具备<strong>避险属性</strong>与<strong>AI基建需求</strong>的战略资产，在当前不确定性环境下具有极高配置价值。</p>
+        <p><strong>持仓聚焦：</strong><span class="ticker">白银（Silver）</span> 为主，黄金为辅</p>
         <p><strong>投资理由：</strong></p>
         <ul>
-          <li><strong>预防性降息：</strong>为了防止总需求崩塌，联储大概率会在AI新岗位大规模出现前进行"预防性降息"，这将降低持有贵金属的机会成本。</li>
-          <li><strong>信用对冲：</strong>巨额赤字叠加政策的不确定性（如利率强行干预），使得传统信用资产的安全性下降，贵金属作为"无违约风险"资产的价值凸显。</li>
-          <li><strong>避险需求：</strong>地缘政治紧张与市场波动增加，黄金作为传统避险资产的吸引力上升。</li>
+          <li><strong>避险战略物资：</strong>
+            <ul style="margin-top: 8px;">
+              <li>地缘风险与信用担忧推动避险需求激增</li>
+              <li>美国赤字困局与政策不确定性降低传统信用资产吸引力</li>
+              <li>作为无违约风险资产，白银在系统性风险中表现优异</li>
+            </ul>
+          </li>
+          <li><strong>AI基建必需材料：</strong>
+            <ul style="margin-top: 8px;">
+              <li><span class="highlight">数据中心</span>：散热系统、高性能连接器大量使用白银</li>
+              <li><span class="highlight">新能源基建</span>：光伏面板、储能系统对白银需求旺盛</li>
+              <li><span class="highlight">5G/物联网</span>：通信基础设施建设推升工业需求</li>
+              <li>AI基建热潮下，工业需求与投资需求共振</li>
+            </ul>
+          </li>
+          <li><strong>供需结构支撑：</strong>主流资本流向白银，供应相对有限，价格上行动力强劲</li>
         </ul>
         <div class="action">
-          <strong>关键指标：</strong>
+          <strong style="color: #dc2626;">⚠️ 关键风险：</strong>
+          <p style="margin: 8px 0 0 0; font-size: 13px;">白银价格飙升可能推升AI基建成本，进而引发通胀压力，需密切监控价格传导机制</p>
+          <strong style="margin-top: 12px; display: block;">监控指标：</strong>
           <ul>
             <li>实际利率走向（TIPS收益率）</li>
-            <li>美元指数强弱</li>
-            <li>央行购金节奏与规模</li>
-            <li>财政赤字与债务上限动态</li>
+            <li>白银工业需求数据（LBMA、COMEX库存）</li>
+            <li>AI基建项目投资进度</li>
+            <li>金银比价（历史区间：15-80）</li>
           </ul>
         </div>
       </div>
     </section>
 
     <div class="outlook">
-      <h3>战略展望：等待"预防性降息"到"AI新岗位"的接力</h3>
-      <p>我们认为，最好的投资场景是：<strong>政府通过预防性降息支撑住总需求，直到AI技术催生出足以抵消白领流失的新工作岗位。</strong></p>
-      <p>在这一过渡期，我们的组合通过以下方式实现风险收益平衡：</p>
-      <ul>
-        <li>通过 <span class="ticker">NVDA</span> 获取AI基础设施的结构性增长潜力</li>
-        <li>通过 <span class="ticker">ALAB</span> 对冲企业在通缩环境下的成本敏感性</li>
-        <li>通过 <span class="ticker">贵金属</span> 抵御宏观信用坍塌与政策不确定性风险</li>
-      </ul>
+      <h3>2026战略定位：在极致不确定性中寻找确定性</h3>
+      <p>我们认为，在当前<strong>通缩与通胀双重风险叠加、地缘冲突升级、政策路径不明朗</strong>的环境下，投资组合必须同时具备：</p>
+      <ol style="margin-top: 12px;">
+        <li><strong>增长确定性</strong>：AI基础设施建设是少数具有明确增长路径的领域，无论宏观环境如何演变</li>
+        <li><strong>不确定性对冲</strong>：白银的双重属性（避险+工业需求）使其成为最佳对冲工具</li>
+        <li><strong>动态平衡</strong>：根据宏观风险演变，在AI进攻与白银防御之间灵活调整</li>
+      </ol>
+
+      <p style="margin-top: 16px;"><strong>🎯 2026年投资主线双核心：</strong></p>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 12px;">
+        <div style="background: #dbeafe; padding: 16px; border-radius: 8px; border-left: 4px solid #3b82f6;">
+          <h4 style="margin: 0 0 10px 0; color: #1e40af; font-size: 15px;">🚀 找到优质AI标的</h4>
+          <p style="margin: 0; font-size: 13px; color: #1e293b;">
+            重点关注：<br />
+            • 高端AI芯片（NVDA）<br />
+            • 数据中心优化（ALAB）<br />
+            • AI基础设施产业链机会
+          </p>
+        </div>
+        <div style="background: #fef3c7; padding: 16px; border-radius: 8px; border-left: 4px solid #f59e0b;">
+          <h4 style="margin: 0 0 10px 0; color: #92400e; font-size: 15px;">🛡️ 对冲不确定性</h4>
+          <p style="margin: 0; font-size: 13px; color: #1e293b;">
+            核心配置：<br />
+            • 白银（避险+AI基建双属性）<br />
+            • 黄金（传统避险补充）<br />
+            • 持续监控通胀/通缩风险切换
+          </p>
+        </div>
+      </div>
+
       <p style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #10b981;">
-        <strong>组合定位：</strong>本策略旨在宏观动荡期构建防御性进攻组合，以"AI确定性+成本敏感性+信用避险"形成三角支撑，在控制下行风险的同时捕捉结构性机会。
+        <strong>组合定位：</strong>本策略旨在<strong>极致不确定性环境</strong>下构建"AI确定性增长+白银双重对冲"的攻守兼备组合。通过NVDA与ALAB捕捉AI基建浪潮，通过白银应对地缘风险、通缩/通胀双重威胁、信用担忧等多重不确定性，实现在动荡中寻找alpha的目标。
       </p>
     </div>
 
     <section>
-      <h2>关键监控指标</h2>
+      <h2>五、关键监控指标</h2>
       <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px;">
         <div style="background: #f8fafc; padding: 16px; border-radius: 8px;">
-          <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 14px;">政策与信贷</h4>
+          <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 14px;">🌍 地缘与政策风险</h4>
           <ul style="margin: 0; font-size: 13px;">
-            <li>信用卡利率上限政策实施进展</li>
-            <li>美联储FOMC会议纪要与利率决议</li>
-            <li>银行信贷投放数据与违约率</li>
+            <li>美国关税政策进展与影响</li>
+            <li>委内瑞拉、格陵兰等资源争夺动态</li>
+            <li>全球供应链扰乱程度</li>
+            <li>民族主义政策动向</li>
           </ul>
         </div>
         <div style="background: #f8fafc; padding: 16px; border-radius: 8px;">
-          <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 14px;">AI产业链</h4>
+          <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 14px;">💰 财政与信用风险</h4>
           <ul style="margin: 0; font-size: 13px;">
-            <li>数据中心资本开支与建设进度</li>
+            <li>美国财政赤字与债务上限</li>
+            <li>DOGE效率裁员进展</li>
+            <li>移民政策实施与福利开支</li>
+            <li>信用卡违约率与信贷数据</li>
+          </ul>
+        </div>
+        <div style="background: #f8fafc; padding: 16px; border-radius: 8px;">
+          <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 14px;">🤖 AI产业链</h4>
+          <ul style="margin: 0; font-size: 13px;">
+            <li>AI基础设施投资规模与进度</li>
+            <li>数据中心资本开支（CAPEX）</li>
             <li>芯片出口管制政策调整</li>
-            <li>主要云厂商AI基础设施投入</li>
+            <li>NVDA、ALAB等核心标的财报表现</li>
           </ul>
         </div>
         <div style="background: #f8fafc; padding: 16px; border-radius: 8px;">
-          <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 14px;">宏观与就业</h4>
+          <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 14px;">⚖️ 通胀/通缩切换</h4>
           <ul style="margin: 0; font-size: 13px;">
-            <li>非农就业与劳动力参与率</li>
-            <li>CPI/PPI通胀数据</li>
-            <li>AI替代对白领就业的影响</li>
+            <li>CPI/PPI数据与通胀预期</li>
+            <li>实际利率（TIPS收益率）</li>
+            <li>需求端数据（零售、消费）</li>
+            <li>美联储政策立场与降息预期</li>
+          </ul>
+        </div>
+        <div style="background: #fef3c7; padding: 16px; border-radius: 8px; border: 2px solid #f59e0b;">
+          <h4 style="margin: 0 0 10px 0; color: #92400e; font-size: 14px;">🥈 白银市场（核心关注）</h4>
+          <ul style="margin: 0; font-size: 13px;">
+            <li><strong>价格</strong>：LBMA、COMEX白银价格与成交量</li>
+            <li><strong>库存</strong>：COMEX库存、ETF持仓量</li>
+            <li><strong>工业需求</strong>：光伏、AI基建白银消耗数据</li>
+            <li><strong>金银比</strong>：历史区间15-80，当前比值分析</li>
+            <li><strong>资金流向</strong>：白银ETF净流入/流出</li>
           </ul>
         </div>
         <div style="background: #f8fafc; padding: 16px; border-radius: 8px;">
-          <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 14px;">避险资产</h4>
+          <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 14px;">📊 市场情绪</h4>
           <ul style="margin: 0; font-size: 13px;">
-            <li>实际利率（TIPS）与美元指数</li>
-            <li>全球央行黄金储备变化</li>
             <li>VIX波动率指数</li>
+            <li>美元指数（DXY）</li>
+            <li>央行储备资产配置动向</li>
+            <li>跨资产相关性变化</li>
           </ul>
         </div>
       </div>
@@ -191,4 +535,5 @@
     </footer>
   </div>
 </body>
+
 </html>
