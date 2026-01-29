@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>投资笔记 - 大卫私人基金</title>
+    <title>Blog - 大卫私人基金</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="shortcut icon" href="favicon-96x96.png" type="image/png" />
@@ -14,7 +14,7 @@
     <style>
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #fef3c7 100%);
             min-height: 100vh;
         }
 
@@ -46,17 +46,17 @@
         .blog-card:hover {
             transform: translateX(8px) translateY(-4px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            border-left-color: #667eea;
+            border-left-color: #0891b2;
         }
 
         .blog-card.featured {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
             color: white;
         }
 
         .blog-card.featured:hover {
             transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 25px 50px rgba(8, 145, 178, 0.3);
         }
 
         .blog-card.featured .blog-date,
@@ -95,14 +95,14 @@
         }
 
         .new-post-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 4px 15px rgba(8, 145, 178, 0.3);
         }
 
         .new-post-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+            box-shadow: 0 6px 25px rgba(8, 145, 178, 0.4);
         }
 
         .search-box {
@@ -111,8 +111,8 @@
         }
 
         .search-box:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: #0891b2;
+            box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
             outline: none;
         }
 
@@ -122,28 +122,28 @@
             margin: 4px;
             border-radius: 25px;
             background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
+            color: #0891b2;
+            border: 2px solid #0891b2;
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: 500;
         }
 
         .category-filter:hover {
-            background: #667eea;
+            background: #0891b2;
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 4px 12px rgba(8, 145, 178, 0.25);
         }
 
         .category-filter.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
             color: white;
             border-color: transparent;
         }
 
         .blog-header {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
             border-radius: 20px;
             padding: 2rem;
             margin-bottom: 2rem;
@@ -175,23 +175,23 @@
                     <span class="font-bold text-xl text-gray-900">大卫私人基金</span>
                 </a>
                 <div class="flex flex-nowrap space-x-2 sm:space-x-6 items-center justify-center">
-                    <a href="index.html" class="flex-1 min-w-0 text-gray-700 hover:text-blue-600 font-medium group">
+                    <a href="index.html" class="flex-1 min-w-0 font-medium group">
                         <span
-                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded truncate">基金概览</span>
+                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded truncate bg-blue-600 text-white transition-colors duration-150 group-hover:bg-blue-700">基金概览</span>
                     </a>
                     <a href="investment_framework_report.html" class="flex-1 font-medium group">
                         <span
-                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap flex-shrink-0 bg-green-500 text-white">
+                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap flex-shrink-0 bg-green-500 text-white transition-colors duration-150 group-hover:bg-green-600">
                             未来动力新基金
                         </span>
                     </a>
-                    <a href="report.html" class="flex-1 min-w-0 text-gray-700 hover:text-blue-600 font-medium">
+                    <a href="report.html" class="flex-1 min-w-0 font-medium group">
                         <span
-                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded truncate">内部参考</span>
+                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded truncate bg-orange-500 text-white transition-colors duration-150 group-hover:bg-orange-600">内部参考</span>
                     </a>
                     <a href="blog.html" class="flex-1 min-w-0 font-medium group">
                         <span
-                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded truncate bg-purple-600 text-white transition-colors duration-150 group-hover:bg-purple-700">投资笔记</span>
+                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded truncate bg-teal-500 text-white transition-colors duration-150 group-hover:bg-teal-600">Blog</span>
                     </a>
                 </div>
             </div>
@@ -204,7 +204,7 @@
         <!-- 博客头部 -->
         <div class="blog-header">
             <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-3">
-                📝 投资笔记
+                📝 Blog
             </h1>
             <p class="text-lg text-gray-600 mb-6">
                 记录投资思考、市场洞察与策略分析
