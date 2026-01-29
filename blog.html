@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>投资笔记 - 大卫私人基金</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="shortcut icon" href="favicon-96x96.png" type="image/png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .blog-container {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .blog-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            background: white;
+            border-left: 4px solid transparent;
+        }
+
+        .blog-card:hover {
+            transform: translateX(8px) translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-left-color: #667eea;
+        }
+
+        .blog-card.featured {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .blog-card.featured:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.4);
+        }
+
+        .blog-card.featured .blog-date,
+        .blog-card.featured .blog-excerpt {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .blog-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-featured {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .badge-analysis {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .badge-market {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+        }
+
+        .badge-strategy {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+
+        .new-post-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .new-post-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .search-box {
+            transition: all 0.3s ease;
+            border: 2px solid #e5e7eb;
+        }
+
+        .search-box:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            outline: none;
+        }
+
+        .category-filter {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 4px;
+            border-radius: 25px;
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .category-filter:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .category-filter.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+        }
+
+        .blog-header {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #9ca3af;
+        }
+
+        .empty-state svg {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1rem;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+    <!-- 顶部导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="logo.png" alt="Logo" class="h-10 w-auto" />
+                    <span class="font-bold text-xl text-gray-900">大卫私人基金</span>
+                </a>
+                <div class="flex flex-nowrap space-x-2 sm:space-x-6 items-center justify-center">
+                    <a href="index.html" class="flex-1 min-w-0 text-gray-700 hover:text-blue-600 font-medium group">
+                        <span
+                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded truncate">基金概览</span>
+                    </a>
+                    <a href="investment_framework_report.html" class="flex-1 font-medium group">
+                        <span
+                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap flex-shrink-0 bg-green-500 text-white">
+                            未来动力新基金
+                        </span>
+                    </a>
+                    <a href="report.html" class="flex-1 min-w-0 text-gray-700 hover:text-blue-600 font-medium">
+                        <span
+                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded truncate">内部参考</span>
+                    </a>
+                    <a href="blog.html" class="flex-1 min-w-0 font-medium group">
+                        <span
+                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded truncate bg-purple-600 text-white transition-colors duration-150 group-hover:bg-purple-700">投资笔记</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面主内容 -->
+    <main class="flex-grow pt-24 pb-12 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- 博客头部 -->
+        <div class="blog-header">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-3">
+                📝 投资笔记
+            </h1>
+            <p class="text-lg text-gray-600 mb-6">
+                记录投资思考、市场洞察与策略分析
+            </p>
+
+            <!-- 搜索和新建按钮 -->
+            <div class="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+                <input type="text" id="searchInput" placeholder="🔍 搜索文章标题、内容..."
+                    class="search-box flex-1 px-4 py-3 rounded-lg text-gray-700" />
+                <button class="new-post-btn text-white font-bold px-6 py-3 rounded-lg">
+                    ✍️ 撰写新文章
+                </button>
+            </div>
+        </div>
+
+        <!-- 分类筛选 -->
+        <div class="mb-8 text-center">
+            <button class="category-filter active" data-category="all">全部</button>
+            <button class="category-filter" data-category="featured">精选</button>
+            <button class="category-filter" data-category="analysis">深度分析</button>
+            <button class="category-filter" data-category="market">市场观察</button>
+            <button class="category-filter" data-category="strategy">投资策略</button>
+        </div>
+
+        <!-- 博客文章列表 -->
+        <div id="blogList" class="space-y-6">
+
+            <!-- 精选文章 -->
+            <article class="blog-card featured rounded-xl p-8 shadow-lg">
+                <div class="mb-4">
+                    <span class="blog-badge badge-featured">⭐ 精选</span>
+                </div>
+                <h2 class="text-3xl font-bold mb-3">
+                    2025年AI基础设施投资机会深度解析
+                </h2>
+                <p class="blog-date text-sm mb-4">
+                    📅 2026年1月29日 · ✍️ David
+                </p>
+                <p class="blog-excerpt text-base leading-relaxed mb-4">
+                    随着AI技术的快速发展，基础设施建设成为关键投资赛道。本文深入分析了GPU、网络芯片、存储等细分领域的投资机会，并结合宏观经济环境，提出了2025年的投资策略建议...
+                </p>
+                <div class="flex items-center justify-between">
+                    <div class="flex gap-2">
+                        <span class="text-xs bg-white bg-opacity-20 px-3 py-1 rounded-full">AI</span>
+                        <span class="text-xs bg-white bg-opacity-20 px-3 py-1 rounded-full">半导体</span>
+                        <span class="text-xs bg-white bg-opacity-20 px-3 py-1 rounded-full">投资策略</span>
+                    </div>
+                    <span class="text-sm font-semibold">阅读全文 →</span>
+                </div>
+            </article>
+
+            <!-- 普通文章 -->
+            <article class="blog-card rounded-xl p-6 shadow-md">
+                <div class="mb-3">
+                    <span class="blog-badge badge-analysis">📊 深度分析</span>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">
+                    NVDA持仓思考：从数据中心到AI的演进路径
+                </h2>
+                <p class="blog-date text-sm text-gray-500 mb-3">
+                    📅 2026年1月25日 · ✍️ David
+                </p>
+                <p class="blog-excerpt text-gray-700 leading-relaxed mb-4">
+                    回顾NVDA从2020年至今的持仓历程，分析其在AI革命中的核心地位。从数据中心GPU到AI训练芯片，NVDA如何构建了难以撼动的生态护城河...
+                </p>
+                <div class="flex items-center justify-between">
+                    <div class="flex gap-2">
+                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">NVDA</span>
+                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">持仓分析</span>
+                    </div>
+                    <span class="text-sm font-semibold text-blue-600">阅读全文 →</span>
+                </div>
+            </article>
+
+            <article class="blog-card rounded-xl p-6 shadow-md">
+                <div class="mb-3">
+                    <span class="blog-badge badge-market">📈 市场观察</span>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">
+                    黄金与白银：通胀对冲还是避险资产？
+                </h2>
+                <p class="blog-date text-sm text-gray-500 mb-3">
+                    📅 2026年1月20日 · ✍️ David
+                </p>
+                <p class="blog-excerpt text-gray-700 leading-relaxed mb-4">
+                    在当前宏观环境下，贵金属的配置逻辑发生了变化。黄金作为避险资产的同时，白银因其工业属性在AI基础设施建设中扮演着重要角色...
+                </p>
+                <div class="flex items-center justify-between">
+                    <div class="flex gap-2">
+                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">黄金</span>
+                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">白银</span>
+                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">大宗商品</span>
+                    </div>
+                    <span class="text-sm font-semibold text-blue-600">阅读全文 →</span>
+                </div>
+            </article>
+
+            <article class="blog-card rounded-xl p-6 shadow-md">
+                <div class="mb-3">
+                    <span class="blog-badge badge-strategy">💡 投资策略</span>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">
+                    从BYD到TSLA：新能源汽车投资的得与失
+                </h2>
+                <p class="blog-date text-sm text-gray-500 mb-3">
+                    📅 2026年1月15日 · ✍️ David
+                </p>
+                <p class="blog-excerpt text-gray-700 leading-relaxed mb-4">
+                    回顾基金在新能源汽车领域的投资历程，分析BYD和TSLA两笔成功退出案例背后的投资逻辑，以及为什么在2024年选择退出该赛道...
+                </p>
+                <div class="flex items-center justify-between">
+                    <div class="flex gap-2">
+                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">新能源</span>
+                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">案例分析</span>
+                    </div>
+                    <span class="text-sm font-semibold text-blue-600">阅读全文 →</span>
+                </div>
+            </article>
+
+            <article class="blog-card rounded-xl p-6 shadow-md">
+                <div class="mb-3">
+                    <span class="blog-badge badge-analysis">📊 深度分析</span>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">
+                    Astera Labs (ALAB)：AI网络芯片的隐藏宝石
+                </h2>
+                <p class="blog-date text-sm text-gray-500 mb-3">
+                    📅 2026年1月10日 · ✍️ David
+                </p>
+                <p class="blog-excerpt text-gray-700 leading-relaxed mb-4">
+                    深入分析ALAB的业务模式、技术优势和增长潜力。作为AI数据中心连接解决方案的领导者，ALAB如何在巨头林立的市场中找到自己的定位...
+                </p>
+                <div class="flex items-center justify-between">
+                    <div class="flex gap-2">
+                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">ALAB</span>
+                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">网络芯片</span>
+                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">AI</span>
+                    </div>
+                    <span class="text-sm font-semibold text-blue-600">阅读全文 →</span>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- 空状态（当搜索无结果时显示） -->
+        <div id="emptyState" class="empty-state hidden">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <h3 class="text-xl font-semibold mb-2">暂无相关文章</h3>
+            <p>尝试使用其他关键词搜索，或浏览所有分类</p>
+        </div>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-white border-t border-gray-200 text-center py-6 text-gray-500 text-sm">
+        投资有风险，入市需谨慎。<br />© 2025 大卫私人基金. All rights reserved.
+    </footer>
+
+    <script>
+        // 分类筛选功能
+        const categoryFilters = document.querySelectorAll('.category-filter');
+        const blogCards = document.querySelectorAll('.blog-card');
+
+        categoryFilters.forEach(filter => {
+            filter.addEventListener('click', () => {
+                // 更新激活状态
+                categoryFilters.forEach(f => f.classList.remove('active'));
+                filter.classList.add('active');
+
+                const category = filter.dataset.category;
+
+                // 筛选文章
+                blogCards.forEach(card => {
+                    if (category === 'all') {
+                        card.style.display = 'block';
+                    } else if (category === 'featured' && card.classList.contains('featured')) {
+                        card.style.display = 'block';
+                    } else if (category !== 'featured' && !card.classList.contains('featured')) {
+                        const badge = card.querySelector('.blog-badge');
+                        if (badge && badge.classList.contains(`badge-${category}`)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                checkEmptyState();
+            });
+        });
+
+        // 搜索功能
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+
+            blogCards.forEach(card => {
+                const title = card.querySelector('h2').textContent.toLowerCase();
+                const excerpt = card.querySelector('.blog-excerpt').textContent.toLowerCase();
+
+                if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            checkEmptyState();
+        });
+
+        // 检查是否显示空状态
+        function checkEmptyState() {
+            const visibleCards = Array.from(blogCards).filter(card => card.style.display !== 'none');
+            const emptyState = document.getElementById('emptyState');
+            const blogList = document.getElementById('blogList');
+
+            if (visibleCards.length === 0) {
+                blogList.style.display = 'none';
+                emptyState.classList.remove('hidden');
+            } else {
+                blogList.style.display = 'block';
+                emptyState.classList.add('hidden');
+            }
+        }
+
+        // 新建文章按钮
+        document.querySelector('.new-post-btn').addEventListener('click', () => {
+            alert('博客编辑功能将在未来版本中推出！\n\n目前您可以：\n1. 手动编辑 blog.html 添加新文章\n2. 或创建独立的文章页面');
+        });
+
+        // 文章卡片点击
+        blogCards.forEach(card => {
+            card.addEventListener('click', () => {
+                alert('文章详情页面将在未来版本中推出！\n\n您可以创建独立的文章页面（例如：blog-post-1.html）来展示完整内容。');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
