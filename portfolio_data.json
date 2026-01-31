@@ -1,44 +1,44 @@
 {
-  "last_updated": "2026-01-29 14:35:33",
+  "last_updated": "2026-01-31 10:04:53",
   "account_value": 0,
-  "cash_value": 92.0,
-  "total_market_value": 20525.52,
-  "total_assets": 20617.52,
+  "cash_value": 91.96,
+  "total_market_value": 17798.11,
+  "total_assets": 17890.07,
   "portfolio": [
     {
       "ticker": "NVDA",
-      "percentage": 33.4,
+      "percentage": 38.5,
       "color": "rgba(6, 182, 212, 0.8)",
       "border_color": "rgba(6, 182, 212, 1)",
-      "market_value": 6894.72
-    },
-    {
-      "ticker": "Silver",
-      "percentage": 30.9,
-      "color": "rgba(148, 163, 184, 0.8)",
-      "border_color": "rgba(148, 163, 184, 1)",
-      "market_value": 6366.62
+      "market_value": 6880.68
     },
     {
       "ticker": "Gold",
-      "percentage": 27.1,
+      "percentage": 27.4,
       "color": "rgba(251, 191, 36, 0.8)",
       "border_color": "rgba(251, 191, 36, 1)",
-      "market_value": 5585.18
+      "market_value": 4894.33
+    },
+    {
+      "ticker": "Silver",
+      "percentage": 25.2,
+      "color": "rgba(148, 163, 184, 0.8)",
+      "border_color": "rgba(148, 163, 184, 1)",
+      "market_value": 4516.9
     },
     {
       "ticker": "ALAB",
-      "percentage": 8.1,
+      "percentage": 8.4,
       "color": "rgba(236, 72, 153, 0.8)",
       "border_color": "rgba(236, 72, 153, 1)",
-      "market_value": 1679.0
+      "market_value": 1506.2
     },
     {
       "ticker": "现金",
-      "percentage": 0.4,
+      "percentage": 0.5,
       "color": "rgba(34, 197, 94, 0.8)",
       "border_color": "rgba(34, 197, 94, 1)",
-      "market_value": 92.0
+      "market_value": 91.96
     }
   ]
 }
