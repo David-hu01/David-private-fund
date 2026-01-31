@@ -2,16 +2,24 @@
 <html lang="zh">
 
 <head>
-  <meta charset="utf-8" />
-  <title>投资策略内参：宏观范式转移下的防御与进攻</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>投资策略内参：宏观范式转移下的防御与进攻 - 大卫私人基金</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="shortcut icon" href="favicon-96x96.png" type="image/png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png" />
+  <link rel="apple-touch-icon" sizes="192x192" href="https://www.dicapitalpartners.top/web-app-manifest-192x192.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="https://www.dicapitalpartners.top/web-app-manifest-512x512.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
       background: #f6f8fa;
       color: #0f172a;
       margin: 0;
-      padding: 22px;
+      padding: 0;
     }
 
     .wrap {
@@ -21,34 +29,6 @@
       padding: 32px;
       border-radius: 12px;
       box-shadow: 0 8px 30px rgba(2, 6, 23, 0.08);
-    }
-
-    .home-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 16px;
-      padding: 10px 20px;
-      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-      color: #fff;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
-    }
-
-    .home-link:hover {
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-      transform: translateX(-3px);
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
-    }
-
-    .home-link:before {
-      content: "←";
-      font-size: 16px;
-      font-weight: 700;
     }
 
     .header {
@@ -215,339 +195,381 @@
   </style>
 </head>
 
-<body>
-  <div class="wrap">
-    <a href="index.html" class="home-link">返回基金主页</a>
+<body class="flex flex-col min-h-screen">
 
-    <div class="header">
-      <h1>投资策略内参：美国内政矛盾与地缘博弈下的不确定性对冲</h1>
-      <div class="subtitle">赤字困局 · 远交近攻战略 · 通缩与通胀双重风险 · AI基建与白银避险双主线</div>
-      <div class="meta">
-        <span class="badge badge-strategy">内部参考文件</span>
-        <span class="badge badge-date">2026年1月27日</span>
+  <!-- 顶部导航栏 -->
+  <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center space-x-3">
+          <img src="logo.png" alt="Logo" class="h-10 w-auto" />
+          <span class="font-bold text-xl text-gray-900">大卫私人基金</span>
+        </a>
+        <div class="flex flex-nowrap space-x-2 sm:space-x-6 items-center justify-center">
+          <a href="index.html" class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
+            <span
+              class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-blue-600 text-white transition-colors duration-150 group-hover:bg-blue-700">基金概览</span>
+          </a>
+          <a href="investment_framework_report.html" class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
+            <span
+              class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-green-500 text-white transition-colors duration-150 group-hover:bg-green-600">
+              未来动力新基金
+            </span>
+          </a>
+          <a href="report.html" class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
+            <span
+              class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-orange-500 text-white transition-colors duration-150 group-hover:bg-orange-600">内部参考</span>
+          </a>
+          <a href="blog.html" class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
+            <span
+              class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-teal-500 text-white transition-colors duration-150 group-hover:bg-teal-600">Blog</span>
+          </a>
+        </div>
       </div>
     </div>
+  </nav>
 
-    <section>
-      <h2>一、美国内政：核心矛盾与政策应对</h2>
+  <!-- 页面主内容 -->
+  <main class="flex-grow pt-20 w-full">
+    <div class="wrap" style="margin-top: 20px;">
 
-      <div class="core-logic">
-        <h3>核心矛盾：赤字困局 vs 资本技术杠杆发展</h3>
-        <p>
-          当前美国面临的根本矛盾在于：<strong>庞大的财政赤字与资本技术杠杆发展需求之间的冲突</strong>。一方面，政府需要巨额资金支持AI等新兴技术的基础设施建设以维持全球科技霸权；另一方面，不断膨胀的赤字限制了财政空间，迫使政府必须采取激进的"开源节流"策略。
-        </p>
-
-        <h3 style="margin-top: 20px;">政策应对：开源与节流双管齐下</h3>
-
-        <p><strong>节流端：削减国内开支</strong></p>
-        <ul>
-          <li><span class="highlight">严格移民政策</span>：通过限制移民流入，减少社会福利支出压力，降低医疗、教育等公共服务负担</li>
-          <li><span class="highlight">DOGE效率裁员</span>：大规模政府部门效率优化与裁员，压缩行政开支</li>
-          <li><strong>目标</strong>：在不影响科技投资的前提下，最大限度降低非生产性支出</li>
-        </ul>
-
-        <p style="margin-top: 16px;"><strong>开源端：多维度创收</strong></p>
-        <ul>
-          <li><span class="highlight">关税政策</span>：通过加征关税增加政府收入，同时保护国内产业</li>
-          <li><span class="highlight">资源掠夺</span>：积极谋求能源与战略资源控制权
-            <ul style="margin-top: 8px;">
-              <li>委内瑞拉：全球最大石油储量国</li>
-              <li>格陵兰：稀土等战略矿产资源</li>
-              <li>中东：传统能源控制与地缘影响力</li>
-            </ul>
-          </li>
-          <li><span class="highlight">AI基础设施投资</span>：通过国家主导的AI基建项目，创造新的经济增长点与税收来源</li>
-        </ul>
-      </div>
-    </section>
-
-    <section>
-      <h2>二、国际反应：地缘战略格局演变</h2>
-
-      <div
-        style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0;">
-        <h3 style="color: #92400e; margin-top: 0;">远交近攻：美国新地缘战略</h3>
-        <p>
-          美国的激进政策正在破坏<strong>以美国为中心的国际经济秩序</strong>使其向<strong>以美国为中心的政治经济国际秩序</strong>转变,一种<strong>"远交近攻"</strong>的反常地缘格局正在形成：对传统盟友（欧盟）采取资源施压与控制策略，同时与战略竞争对手（俄罗斯、中国）保持战术性缓和关系。
-        </p>
-
-        <div style="text-align: center; margin: 24px 0;">
-          <img src="geopolitical_strategy_map.png" alt="美国地缘战略格局图"
-            style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
-          <p style="font-size: 13px; color: #78716c; margin-top: 12px; font-style: italic;">图：全球地缘战略格局 - 远交近攻态势</p>
-        </div>
-
-        <p><strong>主要特征：</strong></p>
-        <ul>
-          <li><strong>近攻传统盟友</strong>：
-            <ul style="margin-top: 8px;">
-              <li><span class="highlight">格陵兰</span>：虽属丹麦（欧盟成员），美国仍强势谋求资源控制</li>
-              <li><span class="highlight">委内瑞拉</span>：拉美近邻，石油资源掠夺目标</li>
-              <li>对欧盟施加关税压力，削弱传统盟友经济实力</li>
-            </ul>
-          </li>
-          <li><strong>远交战略对手</strong>：
-            <ul style="margin-top: 8px;">
-              <li><span class="highlight">俄罗斯</span>：特朗普多次强调与普京关系良好，战术性缓和</li>
-              <li><span class="highlight">中国</span>：尽管存在竞争，特朗普强调与习近平个人关系，保持沟通渠道</li>
-              <li>通过远交大国，制衡欧盟，获取谈判筹码</li>
-            </ul>
-          </li>
-        </ul>
-        <p style="margin-top: 12px; padding: 12px; background: #fff3cd; border-radius: 6px;">
-          <strong>🔍 战略解读：</strong>这种"近攻盟友、远交对手"的反常态势，反映了美国优先主义下的实用主义外交——谁能提供资源、谁能制衡欧盟，就与谁合作，传统盟友关系让位于短期利益最大化。
-        </p>
-      </div>
-
-      <h3>全球连锁反应</h3>
-      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px;">
-        <div style="background: #fef2f2; padding: 16px; border-radius: 8px; border: 1px solid #fecaca;">
-          <h4 style="margin: 0 0 10px 0; color: #991b1b; font-size: 14px;">🌍 民族主义崛起</h4>
-          <p style="margin: 0; font-size: 13px; color: #374151;">美国单边主义引发全球民族主义浪潮，各国优先考虑本国利益，国际合作难度加大</p>
-        </div>
-        <div style="background: #fef2f2; padding: 16px; border-radius: 8px; border: 1px solid #fecaca;">
-          <h4 style="margin: 0 0 10px 0; color: #991b1b; font-size: 14px;">⛓️ 供应链扰乱</h4>
-          <p style="margin: 0; font-size: 13px; color: #374151;">关税政策与地缘冲突导致全球供应链重组，物流成本上升，不确定性激增</p>
-        </div>
-        <div style="background: #fffbeb; padding: 16px; border-radius: 8px; border: 1px solid #fde68a;">
-          <h4 style="margin: 0 0 10px 0; color: #78350f; font-size: 14px;">🥇 贵金属飙升</h4>
-          <p style="margin: 0; font-size: 13px; color: #374151;">地缘风险与信用担忧推动黄金、白银大涨，避险需求激增</p>
-        </div>
-        <div style="background: #fffbeb; padding: 16px; border-radius: 8px; border: 1px solid #fde68a;">
-          <h4 style="margin: 0 0 10px 0; color: #78350f; font-size: 14px;">📈 市场波动性</h4>
-          <p style="margin: 0; font-size: 13px; color: #374151;">政策不确定性与地缘紧张推高VIX，市场进入高波动周期</p>
+      <div class="header">
+        <h1>投资策略内参：美国内政矛盾与地缘博弈下的不确定性对冲</h1>
+        <div class="subtitle">赤字困局 · 远交近攻战略 · 通缩与通胀双重风险 · AI基建与白银避险双主线</div>
+        <div class="meta">
+          <span class="badge badge-strategy">内部参考文件</span>
+          <span class="badge badge-date">2026年1月27日</span>
         </div>
       </div>
-    </section>
 
-    <section>
-      <h2>三、宏观经济展望：双重风险与不确定性升级</h2>
+      <section>
+        <h2>一、美国内政：核心矛盾与政策应对</h2>
 
-      <div style="background: #fef3c7; border: 2px solid #f59e0b; padding: 24px; margin: 20px 0; border-radius: 10px;">
-        <h3 style="color: #92400e; margin-top: 0;">⚠️ 通缩与通胀的双重威胁</h3>
+        <div class="core-logic">
+          <h3>核心矛盾：赤字困局 vs 资本技术杠杆发展</h3>
+          <p>
+            当前美国面临的根本矛盾在于：<strong>庞大的财政赤字与资本技术杠杆发展需求之间的冲突</strong>。一方面，政府需要巨额资金支持AI等新兴技术的基础设施建设以维持全球科技霸权；另一方面，不断膨胀的赤字限制了财政空间，迫使政府必须采取激进的"开源节流"策略。
+          </p>
 
-        <p><strong>当前风险：通缩压力</strong></p>
-        <ul>
-          <li>需求疲软、信贷收缩、AI替代就业等因素共同作用下，<span class="highlight">通缩风险</span>成为近期主要担忧</li>
-          <li>企业谨慎扩张，消费者预防性储蓄增加，总需求持续承压</li>
-        </ul>
+          <h3 style="margin-top: 20px;">政策应对：开源与节流双管齐下</h3>
 
-        <p style="margin-top: 16px;"><strong>潜在风险：资本流向白银引发通胀</strong></p>
-        <p>白银的<strong>双重属性</strong>使其成为当前最受关注的资产：</p>
-        <div style="background: #fff; padding: 16px; border-radius: 6px; margin: 12px 0;">
-          <ol>
-            <li><strong>避险战略物资</strong>：地缘风险与信用担忧下，白银作为传统避险资产吸引大量资金</li>
-            <li><strong>AI基建必需材料</strong>：
+          <p><strong>节流端：削减国内开支</strong></p>
+          <ul>
+            <li><span class="highlight">严格移民政策</span>：通过限制移民流入，减少社会福利支出压力，降低医疗、教育等公共服务负担</li>
+            <li><span class="highlight">DOGE效率裁员</span>：大规模政府部门效率优化与裁员，压缩行政开支</li>
+            <li><strong>目标</strong>：在不影响科技投资的前提下，最大限度降低非生产性支出</li>
+          </ul>
+
+          <p style="margin-top: 16px;"><strong>开源端：多维度创收</strong></p>
+          <ul>
+            <li><span class="highlight">关税政策</span>：通过加征关税增加政府收入，同时保护国内产业</li>
+            <li><span class="highlight">资源掠夺</span>：积极谋求能源与战略资源控制权
               <ul style="margin-top: 8px;">
-                <li>数据中心散热系统需要大量白银</li>
-                <li>光伏、新能源基础设施建设需求旺盛</li>
-                <li>5G、物联网等配套设施对白银需求激增</li>
+                <li>委内瑞拉：全球最大石油储量国</li>
+                <li>格陵兰：稀土等战略矿产资源</li>
+                <li>中东：传统能源控制与地缘影响力</li>
               </ul>
             </li>
-          </ol>
+            <li><span class="highlight">AI基础设施投资</span>：通过国家主导的AI基建项目，创造新的经济增长点与税收来源</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>二、国际反应：地缘战略格局演变</h2>
+
+        <div
+          style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0;">
+          <h3 style="color: #92400e; margin-top: 0;">远交近攻：美国新地缘战略</h3>
+          <p>
+            美国的激进政策正在破坏<strong>以美国为中心的国际经济秩序</strong>使其向<strong>以美国为中心的政治经济国际秩序</strong>转变,一种<strong>"远交近攻"</strong>的反常地缘格局正在形成：对传统盟友（欧盟）采取资源施压与控制策略，同时与战略竞争对手（俄罗斯、中国）保持战术性缓和关系。
+          </p>
+
+          <div style="text-align: center; margin: 24px 0;">
+            <img src="geopolitical_strategy_map.png" alt="美国地缘战略格局图"
+              style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
+            <p style="font-size: 13px; color: #78716c; margin-top: 12px; font-style: italic;">图：全球地缘战略格局 - 远交近攻态势</p>
+          </div>
+
+          <p><strong>主要特征：</strong></p>
+          <ul>
+            <li><strong>近攻传统盟友</strong>：
+              <ul style="margin-top: 8px;">
+                <li><span class="highlight">格陵兰</span>：虽属丹麦（欧盟成员），美国仍强势谋求资源控制</li>
+                <li><span class="highlight">委内瑞拉</span>：拉美近邻，石油资源掠夺目标</li>
+                <li>对欧盟施加关税压力，削弱传统盟友经济实力</li>
+              </ul>
+            </li>
+            <li><strong>远交战略对手</strong>：
+              <ul style="margin-top: 8px;">
+                <li><span class="highlight">俄罗斯</span>：特朗普多次强调与普京关系良好，战术性缓和</li>
+                <li><span class="highlight">中国</span>：尽管存在竞争，特朗普强调与习近平个人关系，保持沟通渠道</li>
+                <li>通过远交大国，制衡欧盟，获取谈判筹码</li>
+              </ul>
+            </li>
+          </ul>
+          <p style="margin-top: 12px; padding: 12px; background: #fff3cd; border-radius: 6px;">
+            <strong>🔍 战略解读：</strong>这种"近攻盟友、远交对手"的反常态势，反映了美国优先主义下的实用主义外交——谁能提供资源、谁能制衡欧盟，就与谁合作，传统盟友关系让位于短期利益最大化。
+          </p>
         </div>
 
-        <p><strong style="color: #dc2626;">⚡ 风险推演：</strong>主流资本大量流向白银 → 白银价格飙升 → 推升AI基建成本 → 工业品价格传导 → <span
-            class="highlight" style="background: #fee2e2; color: #dc2626;">可能触发通胀风险</span></p>
+        <h3>全球连锁反应</h3>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px;">
+          <div style="background: #fef2f2; padding: 16px; border-radius: 8px; border: 1px solid #fecaca;">
+            <h4 style="margin: 0 0 10px 0; color: #991b1b; font-size: 14px;">🌍 民族主义崛起</h4>
+            <p style="margin: 0; font-size: 13px; color: #374151;">美国单边主义引发全球民族主义浪潮，各国优先考虑本国利益，国际合作难度加大</p>
+          </div>
+          <div style="background: #fef2f2; padding: 16px; border-radius: 8px; border: 1px solid #fecaca;">
+            <h4 style="margin: 0 0 10px 0; color: #991b1b; font-size: 14px;">⛓️ 供应链扰乱</h4>
+            <p style="margin: 0; font-size: 13px; color: #374151;">关税政策与地缘冲突导致全球供应链重组，物流成本上升，不确定性激增</p>
+          </div>
+          <div style="background: #fffbeb; padding: 16px; border-radius: 8px; border: 1px solid #fde68a;">
+            <h4 style="margin: 0 0 10px 0; color: #78350f; font-size: 14px;">🥇 贵金属飙升</h4>
+            <p style="margin: 0; font-size: 13px; color: #374151;">地缘风险与信用担忧推动黄金、白银大涨，避险需求激增</p>
+          </div>
+          <div style="background: #fffbeb; padding: 16px; border-radius: 8px; border: 1px solid #fde68a;">
+            <h4 style="margin: 0 0 10px 0; color: #78350f; font-size: 14px;">📈 市场波动性</h4>
+            <p style="margin: 0; font-size: 13px; color: #374151;">政策不确定性与地缘紧张推高VIX，市场进入高波动周期</p>
+          </div>
+        </div>
+      </section>
 
+      <section>
+        <h2>三、宏观经济展望：双重风险与不确定性升级</h2>
+
+        <div
+          style="background: #fef3c7; border: 2px solid #f59e0b; padding: 24px; margin: 20px 0; border-radius: 10px;">
+          <h3 style="color: #92400e; margin-top: 0;">⚠️ 通缩与通胀的双重威胁</h3>
+
+          <p><strong>当前风险：通缩压力</strong></p>
+          <ul>
+            <li>需求疲软、信贷收缩、AI替代就业等因素共同作用下，<span class="highlight">通缩风险</span>成为近期主要担忧</li>
+            <li>企业谨慎扩张，消费者预防性储蓄增加，总需求持续承压</li>
+          </ul>
+
+          <p style="margin-top: 16px;"><strong>潜在风险：资本流向白银引发通胀</strong></p>
+          <p>白银的<strong>双重属性</strong>使其成为当前最受关注的资产：</p>
+          <div style="background: #fff; padding: 16px; border-radius: 6px; margin: 12px 0;">
+            <ol>
+              <li><strong>避险战略物资</strong>：地缘风险与信用担忧下，白银作为传统避险资产吸引大量资金</li>
+              <li><strong>AI基建必需材料</strong>：
+                <ul style="margin-top: 8px;">
+                  <li>数据中心散热系统需要大量白银</li>
+                  <li>光伏、新能源基础设施建设需求旺盛</li>
+                  <li>5G、物联网等配套设施对白银需求激增</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+
+          <p><strong style="color: #dc2626;">⚡ 风险推演：</strong>主流资本大量流向白银 → 白银价格飙升 → 推升AI基建成本 → 工业品价格传导 → <span
+              class="highlight" style="background: #fee2e2; color: #dc2626;">可能触发通胀风险</span></p>
+
+          <p
+            style="margin-top: 16px; padding: 16px; background: #fef2f2; border-radius: 6px; border-left: 4px solid #dc2626;">
+            <strong>结论：</strong>市场正处于<strong>"通缩与通胀双重不确定性"</strong>叠加期，传统的单向宏观判断框架失效，不确定性达到近年来最高水平。
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>四、2026年投资主线：不确定性对冲与AI标的</h2>
         <p
-          style="margin-top: 16px; padding: 16px; background: #fef2f2; border-radius: 6px; border-left: 4px solid #dc2626;">
-          <strong>结论：</strong>市场正处于<strong>"通缩与通胀双重不确定性"</strong>叠加期，传统的单向宏观判断框架失效，不确定性达到近年来最高水平。
+          style="background: #eff6ff; padding: 16px; border-left: 4px solid #3b82f6; border-radius: 0 8px 8px 0; margin-bottom: 20px;">
+          <strong>核心投资主题：</strong>在通缩与通胀双重不确定性叠加、地缘风险升级的背景下，<span class="highlight">找到优质AI投资标的</span>与<span
+            class="highlight">有效对冲不确定性</span>将是今年的投资主线。我们通过以下三条主线构建组合，以实现<strong>"AI确定性增长+白银双重属性对冲"</strong>的平衡策略。
+        </p>
+
+        <div class="strategy-card nvidia">
+          <h3>主线一：AI生产力革命 —— 捕捉"新需求"的确定性</h3>
+          <p><strong>核心逻辑：</strong>尽管传统需求疲软，但AI是当前唯一具有"创造新职业、新产业"能力的引擎。</p>
+          <p><strong>持仓聚焦：</strong><span class="ticker">NVDA (英伟达)</span> 等高端AI芯片</p>
+          <p><strong>投资理由：</strong></p>
+          <ul>
+            <li>无论社会结构如何调整，AI基础设施的建设是不可逆的。</li>
+            <li>高端算力芯片是通往下一阶段"AI创造岗位"时代的门票，具有极强的溢价能力和护城河。</li>
+            <li>数据中心的长期资本开支为NVDA提供了结构性增长支撑。</li>
+          </ul>
+          <div class="action">
+            <strong>风险监控：</strong>
+            <ul>
+              <li>对华出口管制政策变化</li>
+              <li>AI基础设施投资周期性波动</li>
+              <li>竞争格局与技术迭代速度</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="strategy-card alab">
+          <h3>主线二：通缩时代的"控本"王者 —— 精细化AI架构</h3>
+          <p><strong>核心逻辑：</strong>在实业企业普遍关注成本的通缩背景下，昂贵的通用算力并非所有企业的唯一解。市场急需"灵活组合、成本可控"的AI方案。</p>
+          <p><strong>持仓聚焦：</strong><span class="ticker">ALAB (Astera Labs)</span> 等数据中心连接与优化框架</p>
+          <p><strong>投资理由：</strong></p>
+          <ul>
+            <li>ALAB提供的连接方案能有效提升现有算力集群的效率并降低能耗。</li>
+            <li>在企业对ROI（投资回报率）极其敏感的当下，能够帮助客户"省钱且增效"的技术平台将获得超额收益。</li>
+            <li>数据中心互连技术是AI基础设施的重要组成部分，具有高进入壁垒。</li>
+          </ul>
+          <div class="action">
+            <strong>竞争优势：</strong>
+            <ul>
+              <li> PCIe/CXL互连技术的领先地位</li>
+              <li>与主要云服务提供商的深度合作</li>
+              <li>能效优化方案契合企业降本需求</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="strategy-card gold">
+          <h3>主线三：双重属性资产 —— 白银的战略对冲价值</h3>
+          <p><strong>核心逻辑：</strong>白银是唯一同时具备<strong>避险属性</strong>与<strong>AI基建需求</strong>的战略资产，在当前不确定性环境下具有极高配置价值。</p>
+          <p><strong>持仓聚焦：</strong><span class="ticker">白银（Silver）</span> 为主，黄金为辅</p>
+          <p><strong>投资理由：</strong></p>
+          <ul>
+            <li><strong>避险战略物资：</strong>
+              <ul style="margin-top: 8px;">
+                <li>地缘风险与信用担忧推动避险需求激增</li>
+                <li>美国赤字困局与政策不确定性降低传统信用资产吸引力</li>
+                <li>作为无违约风险资产，白银在系统性风险中表现优异</li>
+              </ul>
+            </li>
+            <li><strong>AI基建必需材料：</strong>
+              <ul style="margin-top: 8px;">
+                <li><span class="highlight">数据中心</span>：散热系统、高性能连接器大量使用白银</li>
+                <li><span class="highlight">新能源基建</span>：光伏面板、储能系统对白银需求旺盛</li>
+                <li><span class="highlight">5G/物联网</span>：通信基础设施建设推升工业需求</li>
+                <li>AI基建热潮下，工业需求与投资需求共振</li>
+              </ul>
+            </li>
+            <li><strong>供需结构支撑：</strong>主流资本流向白银，供应相对有限，价格上行动力强劲</li>
+          </ul>
+          <div class="action">
+            <strong style="color: #dc2626;">⚠️ 关键风险：</strong>
+            <p style="margin: 8px 0 0 0; font-size: 13px;">白银价格飙升可能推升AI基建成本，进而引发通胀压力，需密切监控价格传导机制</p>
+            <strong style="margin-top: 12px; display: block;">监控指标：</strong>
+            <ul>
+              <li>实际利率走向（TIPS收益率）</li>
+              <li>白银工业需求数据（LBMA、COMEX库存）</li>
+              <li>AI基建项目投资进度</li>
+              <li>金银比价（历史区间：15-80）</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="outlook">
+        <h3>2026战略定位：在极致不确定性中寻找确定性</h3>
+        <p>我们认为，在当前<strong>通缩与通胀双重风险叠加、地缘冲突升级、政策路径不明朗</strong>的环境下，投资组合必须同时具备：</p>
+        <ol style="margin-top: 12px;">
+          <li><strong>增长确定性</strong>：AI基础设施建设是少数具有明确增长路径的领域，无论宏观环境如何演变</li>
+          <li><strong>不确定性对冲</strong>：白银的双重属性（避险+工业需求）使其成为最佳对冲工具</li>
+          <li><strong>动态平衡</strong>：根据宏观风险演变，在AI进攻与白银防御之间灵活调整</li>
+        </ol>
+
+        <p style="margin-top: 16px;"><strong>🎯 2026年投资主线双核心：</strong></p>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 12px;">
+          <div style="background: #dbeafe; padding: 16px; border-radius: 8px; border-left: 4px solid #3b82f6;">
+            <h4 style="margin: 0 0 10px 0; color: #1e40af; font-size: 15px;">🚀 找到优质AI标的</h4>
+            <p style="margin: 0; font-size: 13px; color: #1e293b;">
+              重点关注：<br />
+              • 高端AI芯片（NVDA）<br />
+              • 数据中心优化（ALAB）<br />
+              • AI基础设施产业链机会
+            </p>
+          </div>
+          <div style="background: #fef3c7; padding: 16px; border-radius: 8px; border-left: 4px solid #f59e0b;">
+            <h4 style="margin: 0 0 10px 0; color: #92400e; font-size: 15px;">🛡️ 对冲不确定性</h4>
+            <p style="margin: 0; font-size: 13px; color: #1e293b;">
+              核心配置：<br />
+              • 白银（避险+AI基建双属性）<br />
+              • 黄金（传统避险补充）<br />
+              • 持续监控通胀/通缩风险切换
+            </p>
+          </div>
+        </div>
+
+        <p style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #10b981;">
+          <strong>组合定位：</strong>本策略旨在<strong>极致不确定性环境</strong>下构建"AI确定性增长+白银双重对冲"的攻守兼备组合。通过NVDA与ALAB捕捉AI基建浪潮，通过白银应对地缘风险、通缩/通胀双重威胁、信用担忧等多重不确定性，实现在动荡中寻找alpha的目标。
         </p>
       </div>
-    </section>
 
-    <section>
-      <h2>四、2026年投资主线：不确定性对冲与AI标的</h2>
-      <p
-        style="background: #eff6ff; padding: 16px; border-left: 4px solid #3b82f6; border-radius: 0 8px 8px 0; margin-bottom: 20px;">
-        <strong>核心投资主题：</strong>在通缩与通胀双重不确定性叠加、地缘风险升级的背景下，<span class="highlight">找到优质AI投资标的</span>与<span
-          class="highlight">有效对冲不确定性</span>将是今年的投资主线。我们通过以下三条主线构建组合，以实现<strong>"AI确定性增长+白银双重属性对冲"</strong>的平衡策略。
-      </p>
-
-      <div class="strategy-card nvidia">
-        <h3>主线一：AI生产力革命 —— 捕捉"新需求"的确定性</h3>
-        <p><strong>核心逻辑：</strong>尽管传统需求疲软，但AI是当前唯一具有"创造新职业、新产业"能力的引擎。</p>
-        <p><strong>持仓聚焦：</strong><span class="ticker">NVDA (英伟达)</span> 等高端AI芯片</p>
-        <p><strong>投资理由：</strong></p>
-        <ul>
-          <li>无论社会结构如何调整，AI基础设施的建设是不可逆的。</li>
-          <li>高端算力芯片是通往下一阶段"AI创造岗位"时代的门票，具有极强的溢价能力和护城河。</li>
-          <li>数据中心的长期资本开支为NVDA提供了结构性增长支撑。</li>
-        </ul>
-        <div class="action">
-          <strong>风险监控：</strong>
-          <ul>
-            <li>对华出口管制政策变化</li>
-            <li>AI基础设施投资周期性波动</li>
-            <li>竞争格局与技术迭代速度</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="strategy-card alab">
-        <h3>主线二：通缩时代的"控本"王者 —— 精细化AI架构</h3>
-        <p><strong>核心逻辑：</strong>在实业企业普遍关注成本的通缩背景下，昂贵的通用算力并非所有企业的唯一解。市场急需"灵活组合、成本可控"的AI方案。</p>
-        <p><strong>持仓聚焦：</strong><span class="ticker">ALAB (Astera Labs)</span> 等数据中心连接与优化框架</p>
-        <p><strong>投资理由：</strong></p>
-        <ul>
-          <li>ALAB提供的连接方案能有效提升现有算力集群的效率并降低能耗。</li>
-          <li>在企业对ROI（投资回报率）极其敏感的当下，能够帮助客户"省钱且增效"的技术平台将获得超额收益。</li>
-          <li>数据中心互连技术是AI基础设施的重要组成部分，具有高进入壁垒。</li>
-        </ul>
-        <div class="action">
-          <strong>竞争优势：</strong>
-          <ul>
-            <li> PCIe/CXL互连技术的领先地位</li>
-            <li>与主要云服务提供商的深度合作</li>
-            <li>能效优化方案契合企业降本需求</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="strategy-card gold">
-        <h3>主线三：双重属性资产 —— 白银的战略对冲价值</h3>
-        <p><strong>核心逻辑：</strong>白银是唯一同时具备<strong>避险属性</strong>与<strong>AI基建需求</strong>的战略资产，在当前不确定性环境下具有极高配置价值。</p>
-        <p><strong>持仓聚焦：</strong><span class="ticker">白银（Silver）</span> 为主，黄金为辅</p>
-        <p><strong>投资理由：</strong></p>
-        <ul>
-          <li><strong>避险战略物资：</strong>
-            <ul style="margin-top: 8px;">
-              <li>地缘风险与信用担忧推动避险需求激增</li>
-              <li>美国赤字困局与政策不确定性降低传统信用资产吸引力</li>
-              <li>作为无违约风险资产，白银在系统性风险中表现优异</li>
+      <section>
+        <h2>五、关键监控指标</h2>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px;">
+          <div style="background: #f8fafc; padding: 16px; border-radius: 8px;">
+            <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 14px;">🌍 地缘与政策风险</h4>
+            <ul style="margin: 0; font-size: 13px;">
+              <li>美国关税政策进展与影响</li>
+              <li>委内瑞拉、格陵兰等资源争夺动态</li>
+              <li>全球供应链扰乱程度</li>
+              <li>民族主义政策动向</li>
             </ul>
-          </li>
-          <li><strong>AI基建必需材料：</strong>
-            <ul style="margin-top: 8px;">
-              <li><span class="highlight">数据中心</span>：散热系统、高性能连接器大量使用白银</li>
-              <li><span class="highlight">新能源基建</span>：光伏面板、储能系统对白银需求旺盛</li>
-              <li><span class="highlight">5G/物联网</span>：通信基础设施建设推升工业需求</li>
-              <li>AI基建热潮下，工业需求与投资需求共振</li>
+          </div>
+          <div style="background: #f8fafc; padding: 16px; border-radius: 8px;">
+            <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 14px;">💰 财政与信用风险</h4>
+            <ul style="margin: 0; font-size: 13px;">
+              <li>美国财政赤字与债务上限</li>
+              <li>DOGE效率裁员进展</li>
+              <li>移民政策实施与福利开支</li>
+              <li>信用卡违约率与信贷数据</li>
             </ul>
-          </li>
-          <li><strong>供需结构支撑：</strong>主流资本流向白银，供应相对有限，价格上行动力强劲</li>
-        </ul>
-        <div class="action">
-          <strong style="color: #dc2626;">⚠️ 关键风险：</strong>
-          <p style="margin: 8px 0 0 0; font-size: 13px;">白银价格飙升可能推升AI基建成本，进而引发通胀压力，需密切监控价格传导机制</p>
-          <strong style="margin-top: 12px; display: block;">监控指标：</strong>
-          <ul>
-            <li>实际利率走向（TIPS收益率）</li>
-            <li>白银工业需求数据（LBMA、COMEX库存）</li>
-            <li>AI基建项目投资进度</li>
-            <li>金银比价（历史区间：15-80）</li>
-          </ul>
+          </div>
+          <div style="background: #f8fafc; padding: 16px; border-radius: 8px;">
+            <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 14px;">🤖 AI产业链</h4>
+            <ul style="margin: 0; font-size: 13px;">
+              <li>AI基础设施投资规模与进度</li>
+              <li>数据中心资本开支（CAPEX）</li>
+              <li>芯片出口管制政策调整</li>
+              <li>NVDA、ALAB等核心标的财报表现</li>
+            </ul>
+          </div>
+          <div style="background: #f8fafc; padding: 16px; border-radius: 8px;">
+            <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 14px;">⚖️ 通胀/通缩切换</h4>
+            <ul style="margin: 0; font-size: 13px;">
+              <li>CPI/PPI数据与通胀预期</li>
+              <li>实际利率（TIPS收益率）</li>
+              <li>需求端数据（零售、消费）</li>
+              <li>美联储政策立场与降息预期</li>
+            </ul>
+          </div>
+          <div style="background: #fef3c7; padding: 16px; border-radius: 8px; border: 2px solid #f59e0b;">
+            <h4 style="margin: 0 0 10px 0; color: #92400e; font-size: 14px;">🥈 白银市场（核心关注）</h4>
+            <ul style="margin: 0; font-size: 13px;">
+              <li><strong>价格</strong>：LBMA、COMEX白银价格与成交量</li>
+              <li><strong>库存</strong>：COMEX库存、ETF持仓量</li>
+              <li><strong>工业需求</strong>：光伏、AI基建白银消耗数据</li>
+              <li><strong>金银比</strong>：历史区间15-80，当前比值分析</li>
+              <li><strong>资金流向</strong>：白银ETF净流入/流出</li>
+            </ul>
+          </div>
+          <div style="background: #f8fafc; padding: 16px; border-radius: 8px;">
+            <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 14px;">📊 市场情绪</h4>
+            <ul style="margin: 0; font-size: 13px;">
+              <li>VIX波动率指数</li>
+              <li>美元指数（DXY）</li>
+              <li>央行储备资产配置动向</li>
+              <li>跨资产相关性变化</li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <div class="outlook">
-      <h3>2026战略定位：在极致不确定性中寻找确定性</h3>
-      <p>我们认为，在当前<strong>通缩与通胀双重风险叠加、地缘冲突升级、政策路径不明朗</strong>的环境下，投资组合必须同时具备：</p>
-      <ol style="margin-top: 12px;">
-        <li><strong>增长确定性</strong>：AI基础设施建设是少数具有明确增长路径的领域，无论宏观环境如何演变</li>
-        <li><strong>不确定性对冲</strong>：白银的双重属性（避险+工业需求）使其成为最佳对冲工具</li>
-        <li><strong>动态平衡</strong>：根据宏观风险演变，在AI进攻与白银防御之间灵活调整</li>
-      </ol>
-
-      <p style="margin-top: 16px;"><strong>🎯 2026年投资主线双核心：</strong></p>
-      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 12px;">
-        <div style="background: #dbeafe; padding: 16px; border-radius: 8px; border-left: 4px solid #3b82f6;">
-          <h4 style="margin: 0 0 10px 0; color: #1e40af; font-size: 15px;">🚀 找到优质AI标的</h4>
-          <p style="margin: 0; font-size: 13px; color: #1e293b;">
-            重点关注：<br />
-            • 高端AI芯片（NVDA）<br />
-            • 数据中心优化（ALAB）<br />
-            • AI基础设施产业链机会
-          </p>
-        </div>
-        <div style="background: #fef3c7; padding: 16px; border-radius: 8px; border-left: 4px solid #f59e0b;">
-          <h4 style="margin: 0 0 10px 0; color: #92400e; font-size: 15px;">🛡️ 对冲不确定性</h4>
-          <p style="margin: 0; font-size: 13px; color: #1e293b;">
-            核心配置：<br />
-            • 白银（避险+AI基建双属性）<br />
-            • 黄金（传统避险补充）<br />
-            • 持续监控通胀/通缩风险切换
-          </p>
-        </div>
+      <div class="sources">
+        <p><strong>免责声明：</strong>本报告仅供内部参考使用，不构成任何投资建议或邀约。投资涉及风险，过往表现不代表未来业绩。投资者应根据自身风险承受能力谨慎决策。</p>
+        <p style="margin-top: 12px;"><strong>信息来源：</strong>公开市场数据、美联储公告、公司财报、宏观经济研究报告等综合分析</p>
       </div>
 
-      <p style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #10b981;">
-        <strong>组合定位：</strong>本策略旨在<strong>极致不确定性环境</strong>下构建"AI确定性增长+白银双重对冲"的攻守兼备组合。通过NVDA与ALAB捕捉AI基建浪潮，通过白银应对地缘风险、通缩/通胀双重威胁、信用担忧等多重不确定性，实现在动荡中寻找alpha的目标。
-      </p>
+      <div style="font-size: 12px; color: #94a3b8; margin-top: 20px; text-align: center; font-style: italic;">
+        Internal Strategy Reference · For Authorized Investors Only · © 2026 David Private Fund
+      </div>
     </div>
+  </main>
 
-    <section>
-      <h2>五、关键监控指标</h2>
-      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px;">
-        <div style="background: #f8fafc; padding: 16px; border-radius: 8px;">
-          <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 14px;">🌍 地缘与政策风险</h4>
-          <ul style="margin: 0; font-size: 13px;">
-            <li>美国关税政策进展与影响</li>
-            <li>委内瑞拉、格陵兰等资源争夺动态</li>
-            <li>全球供应链扰乱程度</li>
-            <li>民族主义政策动向</li>
-          </ul>
-        </div>
-        <div style="background: #f8fafc; padding: 16px; border-radius: 8px;">
-          <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 14px;">💰 财政与信用风险</h4>
-          <ul style="margin: 0; font-size: 13px;">
-            <li>美国财政赤字与债务上限</li>
-            <li>DOGE效率裁员进展</li>
-            <li>移民政策实施与福利开支</li>
-            <li>信用卡违约率与信贷数据</li>
-          </ul>
-        </div>
-        <div style="background: #f8fafc; padding: 16px; border-radius: 8px;">
-          <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 14px;">🤖 AI产业链</h4>
-          <ul style="margin: 0; font-size: 13px;">
-            <li>AI基础设施投资规模与进度</li>
-            <li>数据中心资本开支（CAPEX）</li>
-            <li>芯片出口管制政策调整</li>
-            <li>NVDA、ALAB等核心标的财报表现</li>
-          </ul>
-        </div>
-        <div style="background: #f8fafc; padding: 16px; border-radius: 8px;">
-          <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 14px;">⚖️ 通胀/通缩切换</h4>
-          <ul style="margin: 0; font-size: 13px;">
-            <li>CPI/PPI数据与通胀预期</li>
-            <li>实际利率（TIPS收益率）</li>
-            <li>需求端数据（零售、消费）</li>
-            <li>美联储政策立场与降息预期</li>
-          </ul>
-        </div>
-        <div style="background: #fef3c7; padding: 16px; border-radius: 8px; border: 2px solid #f59e0b;">
-          <h4 style="margin: 0 0 10px 0; color: #92400e; font-size: 14px;">🥈 白银市场（核心关注）</h4>
-          <ul style="margin: 0; font-size: 13px;">
-            <li><strong>价格</strong>：LBMA、COMEX白银价格与成交量</li>
-            <li><strong>库存</strong>：COMEX库存、ETF持仓量</li>
-            <li><strong>工业需求</strong>：光伏、AI基建白银消耗数据</li>
-            <li><strong>金银比</strong>：历史区间15-80，当前比值分析</li>
-            <li><strong>资金流向</strong>：白银ETF净流入/流出</li>
-          </ul>
-        </div>
-        <div style="background: #f8fafc; padding: 16px; border-radius: 8px;">
-          <h4 style="margin: 0 0 10px 0; color: #1e293b; font-size: 14px;">📊 市场情绪</h4>
-          <ul style="margin: 0; font-size: 13px;">
-            <li>VIX波动率指数</li>
-            <li>美元指数（DXY）</li>
-            <li>央行储备资产配置动向</li>
-            <li>跨资产相关性变化</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <!-- 页脚 -->
+  <footer class="bg-white border-t border-gray-200 text-center py-6 text-gray-500 text-sm">
+    投资有风险，入市需谨慎。<br />© 2025 大卫私人基金. All rights reserved.
+  </footer>
 
-    <div class="sources">
-      <p><strong>免责声明：</strong>本报告仅供内部参考使用，不构成任何投资建议或邀约。投资涉及风险，过往表现不代表未来业绩。投资者应根据自身风险承受能力谨慎决策。</p>
-      <p style="margin-top: 12px;"><strong>信息来源：</strong>公开市场数据、美联储公告、公司财报、宏观经济研究报告等综合分析</p>
-    </div>
-
-    <footer>
-      Internal Strategy Reference · For Authorized Investors Only · © 2026 David Private Fund
-    </footer>
-  </div>
 </body>
 
 </html>

@@ -14,7 +14,7 @@
     <style>
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #fef3c7 100%);
+            background: linear-gradient(135deg, #fef9e7 0%, #fef5c7 50%, #fff9e6 100%);
             min-height: 100vh;
         }
 
@@ -161,7 +161,61 @@
             margin: 0 auto 1rem;
             opacity: 0.3;
         }
+
+        .quick-post-container {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(8, 145, 178, 0.1);
+        }
+
+        .quick-post-textarea {
+            width: 100%;
+            border: none;
+            resize: none;
+            font-size: 1.1rem;
+            color: #374151;
+            padding: 0.5rem;
+            min-height: 100px;
+            outline: none;
+        }
+
+        .quick-post-textarea::placeholder {
+            color: #9ca3af;
+        }
+
+        .post-action-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #f3f4f6;
+            margin-top: 0.5rem;
+        }
+
+        .btn-post {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            font-weight: 700;
+            padding: 0.6rem 2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(8, 145, 178, 0.2);
+        }
+
+        .btn-post:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(8, 145, 178, 0.3);
+            filter: brightness(1.1);
+        }
+
+        .btn-post:active {
+            transform: translateY(0);
+        }
     </style>
+    <script src="blog-loader.js" defer></script>
 </head>
 
 <body class="flex flex-col min-h-screen">
@@ -175,23 +229,24 @@
                     <span class="font-bold text-xl text-gray-900">大卫私人基金</span>
                 </a>
                 <div class="flex flex-nowrap space-x-2 sm:space-x-6 items-center justify-center">
-                    <a href="index.html" class="flex-1 min-w-0 font-medium group">
+                    <a href="index.html" class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
                         <span
-                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded truncate bg-blue-600 text-white transition-colors duration-150 group-hover:bg-blue-700">基金概览</span>
+                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-blue-600 text-white transition-colors duration-150 group-hover:bg-blue-700">基金概览</span>
                     </a>
-                    <a href="investment_framework_report.html" class="flex-1 font-medium group">
+                    <a href="investment_framework_report.html"
+                        class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
                         <span
-                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap flex-shrink-0 bg-green-500 text-white transition-colors duration-150 group-hover:bg-green-600">
+                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-green-500 text-white transition-colors duration-150 group-hover:bg-green-600">
                             未来动力新基金
                         </span>
                     </a>
-                    <a href="report.html" class="flex-1 min-w-0 font-medium group">
+                    <a href="report.html" class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
                         <span
-                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded truncate bg-orange-500 text-white transition-colors duration-150 group-hover:bg-orange-600">内部参考</span>
+                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-orange-500 text-white transition-colors duration-150 group-hover:bg-orange-600">内部参考</span>
                     </a>
-                    <a href="blog.html" class="flex-1 min-w-0 font-medium group">
+                    <a href="blog.html" class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
                         <span
-                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded truncate bg-teal-500 text-white transition-colors duration-150 group-hover:bg-teal-600">Blog</span>
+                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-teal-500 text-white transition-colors duration-150 group-hover:bg-teal-600">Blog</span>
                     </a>
                 </div>
             </div>
@@ -210,143 +265,23 @@
                 记录投资思考、市场洞察与策略分析
             </p>
 
-            <!-- 搜索和新建按钮 -->
+            <!-- 搜索框 -->
             <div class="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
-                <input type="text" id="searchInput" placeholder="🔍 搜索文章标题、内容..."
+                <input type="text" id="searchInput" placeholder="🔍 搜索文章内容..."
                     class="search-box flex-1 px-4 py-3 rounded-lg text-gray-700" />
-                <button class="new-post-btn text-white font-bold px-6 py-3 rounded-lg">
-                    ✍️ 撰写新文章
-                </button>
             </div>
         </div>
 
-        <!-- 分类筛选 -->
-        <div class="mb-8 text-center">
-            <button class="category-filter active" data-category="all">全部</button>
-            <button class="category-filter" data-category="featured">精选</button>
-            <button class="category-filter" data-category="analysis">深度分析</button>
-            <button class="category-filter" data-category="market">市场观察</button>
-            <button class="category-filter" data-category="strategy">投资策略</button>
-        </div>
+
+
+
 
         <!-- 博客文章列表 -->
         <div id="blogList" class="space-y-6">
-
-            <!-- 精选文章 -->
-            <article class="blog-card featured rounded-xl p-8 shadow-lg">
-                <div class="mb-4">
-                    <span class="blog-badge badge-featured">⭐ 精选</span>
-                </div>
-                <h2 class="text-3xl font-bold mb-3">
-                    2025年AI基础设施投资机会深度解析
-                </h2>
-                <p class="blog-date text-sm mb-4">
-                    📅 2026年1月29日 · ✍️ David
-                </p>
-                <p class="blog-excerpt text-base leading-relaxed mb-4">
-                    随着AI技术的快速发展，基础设施建设成为关键投资赛道。本文深入分析了GPU、网络芯片、存储等细分领域的投资机会，并结合宏观经济环境，提出了2025年的投资策略建议...
-                </p>
-                <div class="flex items-center justify-between">
-                    <div class="flex gap-2">
-                        <span class="text-xs bg-white bg-opacity-20 px-3 py-1 rounded-full">AI</span>
-                        <span class="text-xs bg-white bg-opacity-20 px-3 py-1 rounded-full">半导体</span>
-                        <span class="text-xs bg-white bg-opacity-20 px-3 py-1 rounded-full">投资策略</span>
-                    </div>
-                    <span class="text-sm font-semibold">阅读全文 →</span>
-                </div>
-            </article>
-
-            <!-- 普通文章 -->
-            <article class="blog-card rounded-xl p-6 shadow-md">
-                <div class="mb-3">
-                    <span class="blog-badge badge-analysis">📊 深度分析</span>
-                </div>
-                <h2 class="text-2xl font-bold text-gray-900 mb-2">
-                    NVDA持仓思考：从数据中心到AI的演进路径
-                </h2>
-                <p class="blog-date text-sm text-gray-500 mb-3">
-                    📅 2026年1月25日 · ✍️ David
-                </p>
-                <p class="blog-excerpt text-gray-700 leading-relaxed mb-4">
-                    回顾NVDA从2020年至今的持仓历程，分析其在AI革命中的核心地位。从数据中心GPU到AI训练芯片，NVDA如何构建了难以撼动的生态护城河...
-                </p>
-                <div class="flex items-center justify-between">
-                    <div class="flex gap-2">
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">NVDA</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">持仓分析</span>
-                    </div>
-                    <span class="text-sm font-semibold text-blue-600">阅读全文 →</span>
-                </div>
-            </article>
-
-            <article class="blog-card rounded-xl p-6 shadow-md">
-                <div class="mb-3">
-                    <span class="blog-badge badge-market">📈 市场观察</span>
-                </div>
-                <h2 class="text-2xl font-bold text-gray-900 mb-2">
-                    黄金与白银：通胀对冲还是避险资产？
-                </h2>
-                <p class="blog-date text-sm text-gray-500 mb-3">
-                    📅 2026年1月20日 · ✍️ David
-                </p>
-                <p class="blog-excerpt text-gray-700 leading-relaxed mb-4">
-                    在当前宏观环境下，贵金属的配置逻辑发生了变化。黄金作为避险资产的同时，白银因其工业属性在AI基础设施建设中扮演着重要角色...
-                </p>
-                <div class="flex items-center justify-between">
-                    <div class="flex gap-2">
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">黄金</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">白银</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">大宗商品</span>
-                    </div>
-                    <span class="text-sm font-semibold text-blue-600">阅读全文 →</span>
-                </div>
-            </article>
-
-            <article class="blog-card rounded-xl p-6 shadow-md">
-                <div class="mb-3">
-                    <span class="blog-badge badge-strategy">💡 投资策略</span>
-                </div>
-                <h2 class="text-2xl font-bold text-gray-900 mb-2">
-                    从BYD到TSLA：新能源汽车投资的得与失
-                </h2>
-                <p class="blog-date text-sm text-gray-500 mb-3">
-                    📅 2026年1月15日 · ✍️ David
-                </p>
-                <p class="blog-excerpt text-gray-700 leading-relaxed mb-4">
-                    回顾基金在新能源汽车领域的投资历程，分析BYD和TSLA两笔成功退出案例背后的投资逻辑，以及为什么在2024年选择退出该赛道...
-                </p>
-                <div class="flex items-center justify-between">
-                    <div class="flex gap-2">
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">新能源</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">案例分析</span>
-                    </div>
-                    <span class="text-sm font-semibold text-blue-600">阅读全文 →</span>
-                </div>
-            </article>
-
-            <article class="blog-card rounded-xl p-6 shadow-md">
-                <div class="mb-3">
-                    <span class="blog-badge badge-analysis">📊 深度分析</span>
-                </div>
-                <h2 class="text-2xl font-bold text-gray-900 mb-2">
-                    Astera Labs (ALAB)：AI网络芯片的隐藏宝石
-                </h2>
-                <p class="blog-date text-sm text-gray-500 mb-3">
-                    📅 2026年1月10日 · ✍️ David
-                </p>
-                <p class="blog-excerpt text-gray-700 leading-relaxed mb-4">
-                    深入分析ALAB的业务模式、技术优势和增长潜力。作为AI数据中心连接解决方案的领导者，ALAB如何在巨头林立的市场中找到自己的定位...
-                </p>
-                <div class="flex items-center justify-between">
-                    <div class="flex gap-2">
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">ALAB</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">网络芯片</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">AI</span>
-                    </div>
-                    <span class="text-sm font-semibold text-blue-600">阅读全文 →</span>
-                </div>
-            </article>
-
+            <!-- 文章将从 blog-articles.json 动态加载 -->
+            <div class="text-center py-12">
+                <p class="text-gray-500">正在加载文章...</p>
+            </div>
         </div>
 
         <!-- 空状态（当搜索无结果时显示） -->
@@ -435,17 +370,9 @@
             }
         }
 
-        // 新建文章按钮
-        document.querySelector('.new-post-btn').addEventListener('click', () => {
-            alert('博客编辑功能将在未来版本中推出！\n\n目前您可以：\n1. 手动编辑 blog.html 添加新文章\n2. 或创建独立的文章页面');
-        });
 
-        // 文章卡片点击
-        blogCards.forEach(card => {
-            card.addEventListener('click', () => {
-                alert('文章详情页面将在未来版本中推出！\n\n您可以创建独立的文章页面（例如：blog-post-1.html）来展示完整内容。');
-            });
-        });
+
+        // 文章卡片点击 (由 blog-loader.js 处理)
     </script>
 
 </body>

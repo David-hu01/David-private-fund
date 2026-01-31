@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -11,10 +12,43 @@
     }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased">
+
+<body class="bg-gray-50 text-gray-800 antialiased flex flex-col min-h-screen">
+
+  <!-- 顶部导航栏 -->
+  <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center space-x-3">
+          <img src="logo.png" alt="Logo" class="h-10 w-auto" />
+          <span class="font-bold text-xl text-gray-900">大卫私人基金</span>
+        </a>
+        <div class="flex flex-nowrap space-x-2 sm:space-x-6 items-center justify-center">
+          <a href="index.html" class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
+            <span
+              class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-blue-600 text-white transition-colors duration-150 group-hover:bg-blue-700">基金概览</span>
+          </a>
+          <a href="investment_framework_report.html" class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
+            <span
+              class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-green-500 text-white transition-colors duration-150 group-hover:bg-green-600">
+              未来动力新基金
+            </span>
+          </a>
+          <a href="report.html" class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
+            <span
+              class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-orange-500 text-white transition-colors duration-150 group-hover:bg-orange-600">内部参考</span>
+          </a>
+          <a href="blog.html" class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
+            <span
+              class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-teal-500 text-white transition-colors duration-150 group-hover:bg-teal-600">Blog</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
 
   <!-- 页面主体 -->
-  <main class="max-w-4xl mx-auto px-6 py-12">
+  <main class="flex-grow pt-24 max-w-4xl mx-auto px-6 py-12">
     <section class="bg-white rounded-xl shadow-md p-8">
       <h1 class="text-3xl font-bold text-center text-gray-900 mb-6">投资我们</h1>
       <p class="text-gray-600 mb-8 text-center">欢迎通过以下方式联系我们，我们通常在工作日 24 小时内回复。</p>
@@ -29,7 +63,8 @@
             <p class="text-sm text-gray-500">联系电话</p>
             <div class="mt-1 flex items-center gap-3">
               <a href="tel:17623088409" class="text-lg font-semibold text-blue-700 hover:underline">176-2308-8409</a>
-              <button onclick="copyText('17623088409')" class="px-3 py-1.5 rounded-md bg-gray-100 hover:bg-gray-200 text-sm text-gray-700">复制</button>
+              <button onclick="copyText('17623088409')"
+                class="px-3 py-1.5 rounded-md bg-gray-100 hover:bg-gray-200 text-sm text-gray-700">复制</button>
             </div>
           </div>
 
@@ -38,7 +73,8 @@
             <p class="text-sm text-gray-500">微信公众号</p>
             <div class="mt-1 flex items-center gap-3">
               <span class="text-lg font-semibold text-gray-900">DI宏观资本</span>
-              <button onclick="copyText('DI宏观资本')" class="px-3 py-1.5 rounded-md bg-gray-100 hover:bg-gray-200 text-sm text-gray-700">复制</button>
+              <button onclick="copyText('DI宏观资本')"
+                class="px-3 py-1.5 rounded-md bg-gray-100 hover:bg-gray-200 text-sm text-gray-700">复制</button>
             </div>
           </div>
 
@@ -47,7 +83,8 @@
             <p class="text-sm text-gray-500">微信号</p>
             <div class="mt-1 flex items-center gap-3">
               <span class="text-lg font-semibold text-gray-900">Newdw520</span>
-              <button onclick="copyText('Newdw520')" class="px-3 py-1.5 rounded-md bg-gray-100 hover:bg-gray-200 text-sm text-gray-700">复制</button>
+              <button onclick="copyText('Newdw520')"
+                class="px-3 py-1.5 rounded-md bg-gray-100 hover:bg-gray-200 text-sm text-gray-700">复制</button>
             </div>
           </div>
         </div>
@@ -69,7 +106,8 @@
   </footer>
 
   <!-- 提示气泡 -->
-  <div id="toast" class="fixed right-6 bottom-6 bg-gray-900 text-white px-4 py-2 rounded-md shadow-md opacity-0 pointer-events-none">
+  <div id="toast"
+    class="fixed right-6 bottom-6 bg-gray-900 text-white px-4 py-2 rounded-md shadow-md opacity-0 pointer-events-none">
     已复制到剪贴板
   </div>
 
@@ -84,4 +122,5 @@
     }
   </script>
 </body>
+
 </html>

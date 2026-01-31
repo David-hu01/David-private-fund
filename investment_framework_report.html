@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>未来动力基金 - 投资框架与方法标准化</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -81,20 +83,25 @@
             left: -100%;
             width: 200%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
             animation: shimmer 3s infinite;
         }
 
         @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 100%; }
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
         }
 
         .header h1 {
             font-size: 3rem;
             margin-bottom: 15px;
             font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             animation: fadeInUp 0.8s ease;
         }
 
@@ -114,7 +121,7 @@
         }
 
         .header .meta span {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             padding: 8px 16px;
             border-radius: 20px;
             backdrop-filter: blur(10px);
@@ -125,6 +132,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -135,7 +143,7 @@
             background: white;
             margin: -40px auto 0;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
             position: relative;
             z-index: 10;
             padding: 40px;
@@ -164,15 +172,36 @@
             line-height: 1.6;
         }
 
-        .section:nth-child(1) { animation-delay: 0.2s; }
-        .section:nth-child(2) { animation-delay: 0.4s; }
-        .section:nth-child(3) { animation-delay: 0.6s; }
-        .section:nth-child(4) { animation-delay: 0.8s; }
-        .section:nth-child(5) { animation-delay: 1.0s; }
+        .section:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .section:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .section:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .section:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        .section:nth-child(5) {
+            animation-delay: 1.0s;
+        }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .section-header {
@@ -260,7 +289,7 @@
 
         .concept-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border-color: var(--accent-color);
         }
 
@@ -319,7 +348,7 @@
 
         .process-step:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
         .step-number {
@@ -353,7 +382,7 @@
 
         .case-card:hover {
             transform: scale(1.02);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
         .case-header {
@@ -436,7 +465,7 @@
 
         .allocation-item:hover {
             transform: translateX(5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
         .allocation-percentage {
@@ -479,9 +508,20 @@
             font-size: 1.2rem;
         }
 
-        .risk-low { background: #d1fae5; color: var(--success-color); }
-        .risk-medium { background: #fed7aa; color: var(--warning-color); }
-        .risk-high { background: #fee2e2; color: var(--danger-color); }
+        .risk-low {
+            background: #d1fae5;
+            color: var(--success-color);
+        }
+
+        .risk-medium {
+            background: #fed7aa;
+            color: var(--warning-color);
+        }
+
+        .risk-high {
+            background: #fee2e2;
+            color: var(--danger-color);
+        }
 
         .timeline {
             position: relative;
@@ -523,7 +563,7 @@
 
         .timeline-content:hover {
             transform: scale(1.02);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .timeline-dot {
@@ -563,7 +603,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             padding: 10px 20px;
             border-radius: 20px;
             backdrop-filter: blur(10px);
@@ -647,9 +687,19 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            33% { transform: translateY(-20px) rotate(120deg); }
-            66% { transform: translateY(20px) rotate(240deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-20px) rotate(120deg);
+            }
+
+            66% {
+                transform: translateY(20px) rotate(240deg);
+            }
         }
 
         @media (max-width: 768px) {
@@ -718,12 +768,15 @@
         }
 
         @media print {
-            .header, .footer {
+
+            .header,
+            .footer {
                 background: white !important;
                 color: black !important;
             }
 
-            .floating-shapes, .print-only {
+            .floating-shapes,
+            .print-only {
                 display: none !important;
             }
 
@@ -735,19 +788,49 @@
         }
     </style>
 </head>
-<body>
+
+<body class="bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- 顶部导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="logo.png" alt="Logo" class="h-10 w-auto" />
+                    <span class="font-bold text-xl text-gray-900">大卫私人基金</span>
+                </a>
+                <div class="flex flex-nowrap space-x-2 sm:space-x-6 items-center justify-center">
+                    <a href="index.html" class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
+                        <span
+                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-blue-600 text-white transition-colors duration-150 group-hover:bg-blue-700">基金概览</span>
+                    </a>
+                    <a href="investment_framework_report.html"
+                        class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
+                        <span
+                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-green-500 text-white transition-colors duration-150 group-hover:bg-green-600">
+                            未来动力新基金
+                        </span>
+                    </a>
+                    <a href="report.html" class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
+                        <span
+                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-orange-500 text-white transition-colors duration-150 group-hover:bg-orange-600">内部参考</span>
+                    </a>
+                    <a href="blog.html" class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
+                        <span
+                            class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-teal-500 text-white transition-colors duration-150 group-hover:bg-teal-600">Blog</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <div class="floating-shapes">
         <div class="shape"></div>
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
 
-    <div class="header">
-        <a href="index.html" class="home-link">
-            <i class="fas fa-arrow-left"></i>
-            <span>返回基金主页</span>
-        </a>
-
+    <div class="header" style="padding-top: 100px;">
         <div class="container">
             <h1><i class="fas fa-chart-line"></i> 未来动力基金</h1>
             <p class="subtitle">投资框架与方法标准化</p>
@@ -1101,7 +1184,7 @@
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver(function (entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
@@ -1120,7 +1203,7 @@
 
         // 概念卡片点击效果
         document.querySelectorAll('.concept-card').forEach(card => {
-            card.addEventListener('click', function() {
+            card.addEventListener('click', function () {
                 this.style.transform = 'scale(0.95)';
                 setTimeout(() => {
                     this.style.transform = '';
@@ -1133,33 +1216,7 @@
             window.print();
         }
 
-        // 添加打印按钮（如果需要）
-        const printBtn = document.createElement('button');
-        printBtn.innerHTML = '<i class="fas fa-print"></i> 打印报告';
-        printBtn.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--bg-gradient);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-        `;
-        printBtn.addEventListener('click', printReport);
-        printBtn.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-2px)';
-            this.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)';
-        });
-        printBtn.addEventListener('mouseleave', function() {
-            this.style.transform = '';
-            this.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
-        });
-        document.body.appendChild(printBtn);
     </script>
 </body>
+
 </html>
