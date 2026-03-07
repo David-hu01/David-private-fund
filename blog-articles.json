@@ -1,6 +1,16 @@
 {
   "articles": [
     {
+      "id": 7,
+      "title": "不确定性逐渐明显，市场处于杀估值阶段，保持定力，研究行业及公司前景",
+      "category": "strategy",
+      "tags": [],
+      "author": "David",
+      "date": "2026-03-07",
+      "excerpt": "美以侵略伊朗，造成中东动荡，同时失业率上升（虽然非农jobs远超预期），同时关税及战争带来的石油价格飙升对通胀带来压力。  Claude Code skills 对SaaS等软件公司等冲击带来 private credit逐步上升，public credit spreads 维持稳定状态，VIX 波...",
+      "content": "美以侵略伊朗，造成中东动荡，同时失业率上升（虽然非农jobs远超预期），同时关税及战争带来的石油价格飙升对通胀带来压力。\n\nClaude Code skills 对SaaS等软件公司等冲击带来 private credit逐步上升，public credit spreads 维持稳定状态，VIX 波动性处于较高水平。\n\n市场在降息与不降息之间矛盾抉择，普遍存在杀估值阶段，risk上升lead DCF FV 下降。\n\n我们对deflation的主要矛盾判断并没有出错，而当前战争及政治造成短期的inflation risk，造成市场动荡。\n\n预计本月仍然会处于波动性较高的阶段，多种基金互为作用，放大波动性。\n\n我们仍然看好AI前景， 同时需要明确AI是worker，是解决实际需求问题的，专注在实际需求上，对于国内的OPC等solo developer的前景不看好，不过有利于全民创新，有利于整体社会生产效率提升。\n\n科技变化很快，人类的需求变化会更加丰富，同时一些旧的低效率的需求会逐渐被AI消除。\n\n管理dashboard（交易）+基金网站（战略）形成于德一基金的文化基因-不忘初心，做未来的合伙人！"
+    },
+    {
       "id": 6,
       "title": "白银本身最高目标是120$,但是我没有减少我手中的Long头",
       "category": "market",
@@ -81,5 +91,5 @@
       "content": "# Astera Labs (ALAB)：AI网络芯片的隐藏宝石\n\n## 公司简介\n\nAstera Labs是AI数据中心连接解决方案的领导者，专注于高速互连技术。\n\n## 业务分析\n\n1. **PCIe/CXL Retimers**：核心产品线\n2. **客户基础**：云服务商和OEM厂商\n3. **增长驱动**：AI数据中心建设需求\n\n## 投资亮点\n\n- 营收高速增长（YoY +240%）\n- 技术壁垒较高\n- 受益于AI基础设施建设浪潮\n\n## 风险提示\n\n客户集中度较高，需关注大客户订单变化。"
     }
   ],
-  "last_updated": "2026-01-31T09:54:39.685246"
+  "last_updated": "2026-03-07T08:54:19.156Z"
 }
