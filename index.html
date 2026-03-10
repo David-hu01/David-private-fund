@@ -30,6 +30,18 @@
       transform: translateY(-8px) scale(1.05);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
+
+    /* 隐藏滚动条但保留滚动功能 */
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
   </style>
 </head>
 
@@ -38,29 +50,29 @@
   <!-- 顶部导航栏 -->
   <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <a href="index.html" class="flex items-center space-x-3">
-          <img src="logo.png" alt="Logo" class="h-10 w-auto" />
-          <span class="font-bold text-xl text-gray-900">大卫私人基金</span>
+      <div class="flex flex-col sm:flex-row items-center justify-between py-3 sm:h-16 sm:py-0">
+        <a href="index.html"
+          class="flex items-center space-x-3 mb-3 sm:mb-0 w-full sm:w-auto justify-center sm:justify-start">
+          <img src="logo.png" alt="Logo" class="h-8 sm:h-10 w-auto" />
+          <span class="font-bold text-xl text-gray-900 whitespace-nowrap">大卫私人基金</span>
         </a>
-        <div class="flex flex-nowrap space-x-2 sm:space-x-6 items-center justify-center">
-          <a href="index.html" class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
+        <div
+          class="flex overflow-x-auto w-full sm:w-auto space-x-2 sm:space-x-6 items-center justify-start sm:justify-center pb-2 sm:pb-0 hide-scrollbar">
+          <a href="index.html" class="flex-none font-medium group">
             <span
-              class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-blue-600 text-white transition-colors duration-150 group-hover:bg-blue-700">基金概览</span>
+              class="block text-center text-xs sm:text-sm px-3 py-1.5 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-blue-600 text-white transition-colors duration-150 group-hover:bg-blue-700">基金概览</span>
           </a>
-          <a href="investment_framework_report.html" class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
+          <a href="investment_framework_report.html" class="flex-none font-medium group">
             <span
-              class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-green-500 text-white transition-colors duration-150 group-hover:bg-green-600">
-              未来动力新基金
-            </span>
+              class="block text-center text-xs sm:text-sm px-3 py-1.5 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-green-500 text-white transition-colors duration-150 group-hover:bg-green-600">未来动力新基金</span>
           </a>
-          <a href="report.html" class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
+          <a href="report.html" class="flex-none font-medium group">
             <span
-              class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-orange-500 text-white transition-colors duration-150 group-hover:bg-orange-600">内部参考</span>
+              class="block text-center text-xs sm:text-sm px-3 py-1.5 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-orange-500 text-white transition-colors duration-150 group-hover:bg-orange-600">内部参考</span>
           </a>
-          <a href="blog.html" class="flex-1 min-w-[70px] sm:min-w-[120px] font-medium group">
+          <a href="blog.html" class="flex-none font-medium group">
             <span
-              class="block text-center text-xs sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-teal-500 text-white transition-colors duration-150 group-hover:bg-teal-600">Blog</span>
+              class="block text-center text-xs sm:text-sm px-4 py-1.5 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-teal-500 text-white transition-colors duration-150 group-hover:bg-teal-600">Blog</span>
           </a>
         </div>
       </div>
@@ -68,7 +80,7 @@
   </nav>
 
   <!-- 页面主内容 -->
-  <main class="flex-grow pt-20 w-full sm:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <main class="flex-grow pt-28 sm:pt-20 w-full sm:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- 头部信息 -->
     <header class="text-center mb-12">
