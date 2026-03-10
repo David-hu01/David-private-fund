@@ -274,13 +274,15 @@
       }
     }
 
-    // 真实财务数据（来源：公司官方财报）
-    // NVDA: https://investor.nvidia.com/financial-info/financial-reports/default.aspx
-    const nvdaYoY = [null, null, 0.22, 125.9, 114.2, 59.7];  // 2020-2025 (2022-2025数据)
+    // 真实财务数据（来源：公司官方财报、MacroTrends、Stock Analysis）
+    // NVDA: FY2021-FY2026 映射到 CY2020-CY2025
+    const nvdaYoY = [52.7, 61.4, 0.2, 125.9, 114.2, 65.5];  // 2020-2025
 
-    // ALAB (Astera Labs): https://www.asteralabs.com/news/astera-labs-announces-financial-results-for-the-third-quarter-of-fiscal-year-2025/
-    // 2022: ~$80M, 2023: ~$116M, 2024: $396.3M (YoY: 242%), 2025: 预期 $800M+
-    const alabYoY = [null, null, null, 45.0, 242.0, 103.9];  // 2020-2025
+    // GOOGL: FY2020-FY2025
+    const googlYoY = [12.8, 41.2, 9.8, 8.7, 13.9, 15.1];  // 2020-2025
+
+    // WMT: FY2021-FY2026 映射到 CY2020-CY2025
+    const wmtYoY = [6.7, 2.4, 6.7, 6.0, 5.1, 4.7];  // 2020-2025
 
     const navChart = new Chart(ctx, {
       type: 'line',
@@ -318,16 +320,31 @@
             yAxisID: 'y1'
           },
           {
-            label: "ALAB 营收 YoY (%)",
-            data: alabYoY,
-            borderColor: "#a855f7",
-            backgroundColor: "rgba(168, 85, 247, 0.1)",
+            label: "GOOGL 营收 YoY (%)",
+            data: googlYoY,
+            borderColor: "#6366f1",
+            backgroundColor: "rgba(99, 102, 241, 0.1)",
             borderWidth: 2,
             fill: false,
             tension: 0.3,
             pointRadius: 4,
             pointHoverRadius: 6,
-            pointBackgroundColor: "#a855f7",
+            pointBackgroundColor: "#6366f1",
+            pointBorderColor: "#fff",
+            pointHoverBorderWidth: 2,
+            yAxisID: 'y1'
+          },
+          {
+            label: "WMT 营收 YoY (%)",
+            data: wmtYoY,
+            borderColor: "#f97316",
+            backgroundColor: "rgba(249, 115, 22, 0.1)",
+            borderWidth: 2,
+            fill: false,
+            tension: 0.3,
+            pointRadius: 4,
+            pointHoverRadius: 6,
+            pointBackgroundColor: "#f97316",
             pointBorderColor: "#fff",
             pointHoverBorderWidth: 2,
             yAxisID: 'y1'
