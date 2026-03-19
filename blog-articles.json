@@ -1,6 +1,18 @@
 {
   "articles": [
     {
+      "id": 8,
+      "title": "市场波动继续增强，deflation展现波折性，同时deflation risk下降",
+      "category": "featured",
+      "tags": [
+        "市场观察，观点更新"
+      ],
+      "author": "David",
+      "date": "2026-03-19",
+      "excerpt": "credit spreads 持续增大，private credit leaded by AI 冲击Saas, VIX leaded by war btw 美以Iran.  - AI 带来的工作替代性，会随着时间推移慢慢变小，所以deflation risk 反倒减少 - 当前AI冲击Saas le...",
+      "content": "credit spreads 持续增大，private credit leaded by AI 冲击Saas, VIX leaded by war btw 美以Iran.\n\n- AI 带来的工作替代性，会随着时间推移慢慢变小，所以deflation risk 反倒减少\n- 当前AI冲击Saas lead private credit spreads expand ，但是和前项一样是属于decrease over time\n- war lead crude oil price jump and 影响inflation , inflation risk jump in short term but deficit which is the root cause of it not fixed.\nIn other words, US will keep war to fix the deficit problem.\n\nso there will be the high volatility on US stock in 3-5years.\n\nmaybe we will focus on whether it will be decline , but I have high confidence to trust the people power in USA, otherwise is not US.\n\n** so there is one thing left , don't fomo and wait the nice price to invest the company. **"
+    },
+    {
       "id": 7,
       "title": "不确定性逐渐明显，市场处于杀估值阶段，保持定力，研究行业及公司前景",
       "category": "strategy",
@@ -91,5 +103,5 @@
       "content": "# Astera Labs (ALAB)：AI网络芯片的隐藏宝石\n\n## 公司简介\n\nAstera Labs是AI数据中心连接解决方案的领导者，专注于高速互连技术。\n\n## 业务分析\n\n1. **PCIe/CXL Retimers**：核心产品线\n2. **客户基础**：云服务商和OEM厂商\n3. **增长驱动**：AI数据中心建设需求\n\n## 投资亮点\n\n- 营收高速增长（YoY +240%）\n- 技术壁垒较高\n- 受益于AI基础设施建设浪潮\n\n## 风险提示\n\n客户集中度较高，需关注大客户订单变化。"
     }
   ],
-  "last_updated": "2026-03-07T08:54:19.156Z"
+  "last_updated": "2026-03-19T02:47:23.935Z"
 }
