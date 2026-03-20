@@ -1,44 +1,44 @@
 {
-  "last_updated": "2026-03-15 19:19:03",
+  "last_updated": "2026-03-20 09:04:07",
   "account_value": 0,
-  "cash_value": 9205.08,
-  "total_market_value": 7791.59,
-  "total_assets": 16996.67,
+  "cash_value": 8005.03,
+  "total_market_value": 8598.83,
+  "total_assets": 16603.86,
   "portfolio": [
     {
       "ticker": "现金",
-      "percentage": 54.2,
+      "percentage": 48.2,
       "color": "rgba(34, 197, 94, 0.8)",
       "border_color": "rgba(34, 197, 94, 1)",
-      "market_value": 9205.08
+      "market_value": 8005.03
     },
     {
       "ticker": "NVDA",
-      "percentage": 14.8,
+      "percentage": 17.0,
       "color": "rgba(6, 182, 212, 0.8)",
       "border_color": "rgba(6, 182, 212, 1)",
-      "market_value": 2523.5
-    },
-    {
-      "ticker": "GOOGL",
-      "percentage": 10.7,
-      "color": "rgba(99, 102, 241, 0.8)",
-      "border_color": "rgba(99, 102, 241, 1)",
-      "market_value": 1813.68
+      "market_value": 2817.6
     },
     {
       "ticker": "WMT",
-      "percentage": 10.4,
+      "percentage": 15.1,
       "color": "rgba(249, 115, 22, 0.8)",
       "border_color": "rgba(249, 115, 22, 1)",
-      "market_value": 1771.28
+      "market_value": 2502.36
+    },
+    {
+      "ticker": "GOOGL",
+      "percentage": 10.9,
+      "color": "rgba(99, 102, 241, 0.8)",
+      "border_color": "rgba(99, 102, 241, 1)",
+      "market_value": 1814.58
     },
     {
       "ticker": "Silver",
-      "percentage": 9.9,
+      "percentage": 8.8,
       "color": "rgba(148, 163, 184, 0.8)",
       "border_color": "rgba(148, 163, 184, 1)",
-      "market_value": 1683.13
+      "market_value": 1464.29
     }
   ]
 }
