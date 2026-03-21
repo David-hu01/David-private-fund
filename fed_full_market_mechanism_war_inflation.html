@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>宏观机制 in war - 大卫私人基金</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="shortcut icon" href="favicon-96x96.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    .w {
+      font-family: var(--font-sans);
+      padding: 1rem 0
+    }
+
+    .ctrls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 1rem
+    }
+
+    .ctrls label {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      white-space: nowrap
+    }
+
+    .ctrls input[type=range] {
+      flex: 1;
+      min-width: 120px
+    }
+
+    .rate-out {
+      font-size: 14px;
+      font-weight: 500;
+      min-width: 44px;
+      text-align: right
+    }
+
+    .war-btn {
+      padding: 6px 14px;
+      border-radius: var(--border-radius-md);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .25s;
+      border: 1.5px solid var(--color-border-secondary);
+      background: transparent;
+      color: var(--color-text-primary)
+    }
+
+    .war-btn.active {
+      background: #FCEBEB;
+      border-color: #A32D2D;
+      color: #791F1F
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 1rem
+    }
+
+    .m {
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      padding: 10px 12px;
+      transition: background .4s
+    }
+
+    .m .l {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      margin-bottom: 2px
+    }
+
+    .m .v {
+      font-size: 18px;
+      font-weight: 500;
+      transition: color .3s
+    }
+
+    .m.hot {
+      background: #FCEBEB
+    }
+
+    .mkts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 12px
+    }
+
+    .mkt {
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 12px 14px;
+      transition: border-color .3s, background .3s
+    }
+
+    .mkt-hdr {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px
+    }
+
+    .mkt-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-primary)
+    }
+
+    .mkt-badge {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: var(--border-radius-md);
+      font-weight: 500
+    }
+
+    .mkt-bar {
+      height: 6px;
+      border-radius: 3px;
+      background: var(--color-background-secondary);
+      overflow: hidden;
+      margin-bottom: 6px
+    }
+
+    .mkt-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width .5s, background .3s
+    }
+
+    .mkt-desc {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      line-height: 1.5
+    }
+
+    .mkt-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-top: 4px;
+      color: var(--color-text-secondary)
+    }
+
+    .mkt-row .val {
+      font-weight: 500;
+      color: var(--color-text-primary)
+    }
+
+    .chain {
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 14px;
+      margin-bottom: 12px;
+      transition: border-color .4s
+    }
+
+    .chain.war-active {
+      border-color: #A32D2D
+    }
+
+    .chain-title {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: var(--color-text-primary)
+    }
+
+    .steps {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap
+    }
+
+    .step {
+      font-size: 12px;
+      padding: 5px 10px;
+      border-radius: var(--border-radius-md);
+      white-space: nowrap;
+      transition: all .4s;
+      background: var(--color-background-secondary);
+      color: var(--color-text-secondary)
+    }
+
+    .step.lit {
+      background: #FCEBEB;
+      color: #791F1F
+    }
+
+    .arr-r {
+      font-size: 14px;
+      color: var(--color-border-secondary);
+      padding: 0 2px;
+      transition: color .3s
+    }
+
+    .arr-r.lit {
+      color: #A32D2D
+    }
+
+    .inf-gauge {
+      position: relative;
+      height: 28px;
+      border-radius: 14px;
+      background: var(--color-background-secondary);
+      overflow: hidden;
+      margin-top: 6px
+    }
+
+    .inf-fill {
+      height: 100%;
+      border-radius: 14px;
+      transition: width .6s, background .4s;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 10px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #fff;
+      min-width: 60px
+    }
+
+    .sendp {
+      font-size: 12px;
+      color: var(--color-text-info);
+      cursor: pointer;
+      display: inline;
+      border: none;
+      background: none;
+      padding: 0;
+      text-decoration: underline
+    }
+
+    .legend {
+      display: flex;
+      gap: 14px;
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      flex-wrap: wrap;
+      margin-top: 8px
+    }
+
+    .ldot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 4px;
+      vertical-align: middle
+    }
+
+    /* 隐藏滚动条但保留滚动功能 */
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+
+<body class="flex flex-col min-h-screen bg-gray-50 text-gray-800 antialiased">
+
+  <!-- 顶部导航栏 -->
+  <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between py-3 sm:h-16 sm:py-0">
+        <a href="index.html"
+          class="flex items-center space-x-3 mb-3 sm:mb-0 w-full sm:w-auto justify-center sm:justify-start">
+          <img src="logo.png" alt="Logo" class="h-8 sm:h-10 w-auto" />
+          <span class="font-bold text-xl text-gray-900 whitespace-nowrap">大卫私人基金</span>
+        </a>
+        <div
+          class="flex overflow-x-auto w-full sm:w-auto space-x-2 sm:space-x-6 items-center justify-start sm:justify-center pb-2 sm:pb-0 hide-scrollbar">
+          <a href="index.html" class="flex-none font-medium group">
+            <span
+              class="block text-center text-xs sm:text-sm px-3 py-1.5 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-blue-600 text-white transition-colors duration-150 group-hover:bg-blue-700">基金概览</span>
+          </a>
+          <a href="investment_framework_report.html" class="flex-none font-medium group">
+            <span
+              class="block text-center text-xs sm:text-sm px-3 py-1.5 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-green-500 text-white transition-colors duration-150 group-hover:bg-green-600">未来动力新基金</span>
+          </a>
+          <a href="report.html" class="flex-none font-medium group">
+            <span
+              class="block text-center text-xs sm:text-sm px-3 py-1.5 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-orange-500 text-white transition-colors duration-150 group-hover:bg-orange-600">内部参考</span>
+          </a>
+          <a href="blog.html" class="flex-none font-medium group">
+            <span
+              class="block text-center text-xs sm:text-sm px-4 py-1.5 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-teal-500 text-white transition-colors duration-150 group-hover:bg-teal-600">Blog</span>
+          </a>
+          <a href="fed_full_market_mechanism_war_inflation.html" class="flex-none font-medium group">
+            <span
+              class="block text-center text-xs sm:text-sm px-4 py-1.5 sm:px-4 sm:py-2 rounded whitespace-nowrap bg-purple-500 text-white transition-colors duration-150 group-hover:bg-purple-600">宏观机制</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 页面主体 -->
+  <main class="flex-grow pt-28 sm:pt-24 max-w-4xl mx-auto px-6 py-12 w-full">
+    <section class="bg-white rounded-xl shadow-md p-8">
+      <h1 class="text-3xl font-bold text-center text-gray-900 mb-6">宏观机制推演</h1>
+      <div class="w">
+        <div class="ctrls">
+          <label>Fed funds rate</label>
+          <input type="range" id="rate" min="0" max="800" value="250" step="25" oninput="recalc()">
+          <span class="rate-out" id="rate-out">2.50%</span>
+          <button class="war-btn" id="war-btn" onclick="toggleWar()">War / crisis: off</button>
+        </div>
+
+        <div class="metrics">
+          <div class="m" id="m-inf">
+            <div class="l">CPI inflation</div>
+            <div class="v" id="v-inf">2.1%</div>
+          </div>
+          <div class="m" id="m-usd">
+            <div class="l">USD strength</div>
+            <div class="v" id="v-usd">Stable</div>
+          </div>
+          <div class="m" id="m-yld">
+            <div class="l">10Y Treasury yield</div>
+            <div class="v" id="v-yld">3.8%</div>
+          </div>
+          <div class="m" id="m-gdp">
+            <div class="l">GDP growth signal</div>
+            <div class="v" id="v-gdp">+2.4%</div>
+          </div>
+        </div>
+
+        <div class="mkts">
+          <div class="mkt" id="mkt-stock">
+            <div class="mkt-hdr">
+              <span class="mkt-name">Stock market</span>
+              <span class="mkt-badge" id="b-stock" style="background:#E6F1FB;color:#0C447C">Neutral</span>
+            </div>
+            <div class="mkt-bar">
+              <div class="mkt-fill" id="fill-stock" style="width:55%;background:#378ADD"></div>
+            </div>
+            <div class="mkt-desc" id="desc-stock">Equity valuations reflect discount rate expectations. Higher Fed rate
+              compresses P/E multiples.</div>
+            <div class="mkt-row"><span>S&P 500 direction</span><span class="val" id="sp-dir">Sideways</span></div>
+            <div class="mkt-row"><span>Earnings pressure</span><span class="val" id="sp-earn">Moderate</span></div>
+          </div>
+
+          <div class="mkt" id="mkt-bond">
+            <div class="mkt-hdr">
+              <span class="mkt-name">Bond market</span>
+              <span class="mkt-badge" id="b-bond" style="background:#EEEDFE;color:#3C3489">Neutral</span>
+            </div>
+            <div class="mkt-bar">
+              <div class="mkt-fill" id="fill-bond" style="width:50%;background:#7F77DD"></div>
+            </div>
+            <div class="mkt-desc" id="desc-bond">Bond prices move inversely to yields. Fed hikes push existing bond
+              prices down as new issuances offer higher coupons.</div>
+            <div class="mkt-row"><span>Price movement</span><span class="val" id="bd-price">Flat</span></div>
+            <div class="mkt-row"><span>Flight to safety</span><span class="val" id="bd-safe">Low</span></div>
+          </div>
+
+          <div class="mkt" id="mkt-cmdty">
+            <div class="mkt-hdr">
+              <span class="mkt-name">Commodities</span>
+              <span class="mkt-badge" id="b-cmdty" style="background:#FAEEDA;color:#633806">Neutral</span>
+            </div>
+            <div class="mkt-bar">
+              <div class="mkt-fill" id="fill-cmdty" style="width:40%;background:#BA7517"></div>
+            </div>
+            <div class="mkt-desc" id="desc-cmdty">Oil, gold, wheat respond to dollar strength and supply disruptions.
+              War is the primary shock driver here.</div>
+            <div class="mkt-row"><span>Oil (WTI)</span><span class="val" id="cm-oil">$78</span></div>
+            <div class="mkt-row"><span>Gold</span><span class="val" id="cm-gold">$2,050</span></div>
+          </div>
+
+          <div class="mkt" id="mkt-mm">
+            <div class="mkt-hdr">
+              <span class="mkt-name">Money market funds</span>
+              <span class="mkt-badge" id="b-mm" style="background:#E1F5EE;color:#085041">Neutral</span>
+            </div>
+            <div class="mkt-bar">
+              <div class="mkt-fill" id="fill-mm" style="width:50%;background:#1D9E75"></div>
+            </div>
+            <div class="mkt-desc" id="desc-mm">Short-term yield vehicles track the Fed rate closely. Higher rates make
+              money markets more attractive vs equities.</div>
+            <div class="mkt-row"><span>MMF yield</span><span class="val" id="mm-yld">2.4%</span></div>
+            <div class="mkt-row"><span>Inflows</span><span class="val" id="mm-flow">Moderate</span></div>
+          </div>
+        </div>
+
+        <div class="chain" id="chain-war">
+          <div class="chain-title">War / crisis inflation transmission chain</div>
+          <div class="steps">
+            <span class="step" id="s1">War breaks out</span>
+            <span class="arr-r" id="a1">&rarr;</span>
+            <span class="step" id="s2">Oil supply shock</span>
+            <span class="arr-r" id="a2">&rarr;</span>
+            <span class="step" id="s3">Energy costs spike</span>
+            <span class="arr-r" id="a3">&rarr;</span>
+            <span class="step" id="s4">Transport + food costs rise</span>
+            <span class="arr-r" id="a4">&rarr;</span>
+            <span class="step" id="s5">CPI inflation surges</span>
+            <span class="arr-r" id="a5">&rarr;</span>
+            <span class="step" id="s6">Fed forced to hike</span>
+            <span class="arr-r" id="a6">&rarr;</span>
+            <span class="step" id="s7">Stocks + bonds sell off</span>
+            <span class="arr-r" id="a7">&rarr;</span>
+            <span class="step" id="s8">Gold + cash surge</span>
+          </div>
+          <div style="margin-top:10px">
+            <div
+              style="display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--color-text-secondary)">
+              <span>Inflation pressure</span>
+              <span id="inf-pct" style="font-weight:500">2.1%</span>
+            </div>
+            <div class="inf-gauge">
+              <div class="inf-fill" id="inf-bar" style="width:14%;background:#1D9E75">2.1%</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="sendp"
+            onclick="sendPrompt('How should I position my portfolio during wartime inflation?')">Portfolio positioning
+            in war &nearr;</button>
+          <button class="sendp"
+            onclick="sendPrompt('Explain the relationship between Fed rate hikes and bond prices')">Fed rates vs bonds
+            &nearr;</button>
+          <button class="sendp" onclick="sendPrompt('Why does gold go up during wars and crises?')">Why gold rises in
+            crisis &nearr;</button>
+          <button class="sendp"
+            onclick="sendPrompt('What happens to money market funds when the Fed raises rates?')">MMF and rate hikes
+            &nearr;</button>
+        </div>
+
+        <div class="legend" style="margin-top:12px">
+          <span><span class="ldot" style="background:#378ADD"></span>Stocks</span>
+          <span><span class="ldot" style="background:#7F77DD"></span>Bonds</span>
+          <span><span class="ldot" style="background:#BA7517"></span>Commodities</span>
+          <span><span class="ldot" style="background:#1D9E75"></span>Money market</span>
+          <span><span class="ldot" style="background:#A32D2D"></span>Crisis pressure</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="border-t border-gray-200 bg-white text-center py-6 text-gray-500 text-sm">
+    © 2025 大卫私人海外基金。投资有风险，入市需谨慎。
+  </footer>
+
+  <script>
+    let war = false;
+    let chainTimer = null;
+
+    function toggleWar() {
+      war = !war;
+      const btn = document.getElementById('war-btn');
+      btn.textContent = war ? 'War / crisis: ON' : 'War / crisis: off';
+      btn.classList.toggle('active', war);
+      document.getElementById('chain-war').classList.toggle('war-active', war);
+      if (war) animateChain(); else resetChain();
+      recalc();
+    }
+
+    function animateChain() {
+      resetChain();
+      const steps = 8;
+      let i = 0;
+      chainTimer = setInterval(() => {
+        if (i < steps) {
+          document.getElementById('s' + (i + 1)).classList.add('lit');
+          if (i > 0) document.getElementById('a' + i).classList.add('lit');
+        }
+        i++;
+        if (i > steps) { clearInterval(chainTimer); chainTimer = null; }
+      }, 320);
+    }
+
+    function resetChain() {
+      if (chainTimer) { clearInterval(chainTimer); chainTimer = null; }
+      for (let i = 1; i <= 8; i++) document.getElementById('s' + i).classList.remove('lit');
+      for (let i = 1; i <= 7; i++) document.getElementById('a' + i).classList.remove('lit');
+    }
+
+    function recalc() {
+      const r = Number(document.getElementById('rate').value);
+      const pct = (r / 100).toFixed(2);
+      document.getElementById('rate-out').textContent = pct + '%';
+
+      const warAdd = war ? 1 : 0;
+      const warOilAdd = war ? 62 : 0;
+      const warGoldAdd = war ? 680 : 0;
+
+      const baseInf = 1.2 + (8 - r / 100) * 0.25;
+      const inf = Math.max(0.5, baseInf + (war ? 4.8 : 0));
+      const yld = Math.max(0.5, r / 100 * 0.8 + 1.2 + (war ? 1.2 : 0));
+      const gdp = Math.max(-3, 3.5 - r / 100 * 0.45 - (war ? 2.2 : 0));
+      const oil = Math.round(55 + r / 100 * 3 + warOilAdd);
+      const gold = Math.round(1800 + (8 - r / 100) * 50 + warGoldAdd);
+      const mmYld = Math.max(0.1, r / 100 * 0.95 + 0.05);
+
+      document.getElementById('v-inf').textContent = inf.toFixed(1) + '%';
+      document.getElementById('v-inf').style.color = inf > 5 ? '#A32D2D' : inf > 3 ? '#854F0B' : 'var(--color-text-primary)';
+      document.getElementById('m-inf').classList.toggle('hot', inf > 5);
+
+      const usdStrength = r > 400 ? 'Strong' : r > 200 ? 'Stable' : 'Weak';
+      document.getElementById('v-usd').textContent = war ? (r > 400 ? 'Mixed' : 'Weakening') : usdStrength;
+
+      document.getElementById('v-yld').textContent = yld.toFixed(1) + '%';
+      document.getElementById('v-gdp').textContent = (gdp >= 0 ? '+' : '') + gdp.toFixed(1) + '%';
+      document.getElementById('v-gdp').style.color = gdp < 0 ? '#A32D2D' : gdp < 1 ? '#854F0B' : 'var(--color-text-primary)';
+
+      const stockScore = Math.max(5, Math.min(95, 80 - r / 100 * 8 - (war ? 25 : 0)));
+      const stockLbl = stockScore > 60 ? 'Bullish' : stockScore > 40 ? 'Neutral' : 'Bearish';
+      const stockClr = stockScore > 60 ? ['#E6F1FB', '#0C447C', '#378ADD'] : stockScore > 40 ? ['#FAEEDA', '#633806', '#BA7517'] : ['#FCEBEB', '#791F1F', '#E24B4A'];
+      document.getElementById('fill-stock').style.width = stockScore + '%';
+      document.getElementById('fill-stock').style.background = stockClr[2];
+      document.getElementById('b-stock').textContent = stockLbl;
+      document.getElementById('b-stock').style.background = stockClr[0];
+      document.getElementById('b-stock').style.color = stockClr[1];
+      document.getElementById('sp-dir').textContent = stockScore > 60 ? 'Rally' : stockScore > 40 ? 'Sideways' : 'Sell-off';
+      document.getElementById('sp-earn').textContent = war ? 'Severe' : r > 400 ? 'High' : r > 200 ? 'Moderate' : 'Low';
+
+      const bondScore = Math.max(5, Math.min(95, 70 - r / 100 * 7 + (war ? 10 : 0)));
+      const bondLbl = war ? 'Flight to safety' : bondScore > 55 ? 'Rally' : bondScore > 35 ? 'Neutral' : 'Sell-off';
+      const bondClr = war ? ['#EEEDFE', '#3C3489', '#7F77DD'] : bondScore > 55 ? ['#EEEDFE', '#3C3489', '#7F77DD'] : bondScore > 35 ? ['#F1EFE8', '#444441', '#888780'] : ['#FCEBEB', '#791F1F', '#E24B4A'];
+      document.getElementById('fill-bond').style.width = bondScore + '%';
+      document.getElementById('fill-bond').style.background = bondClr[2];
+      document.getElementById('b-bond').textContent = bondLbl;
+      document.getElementById('b-bond').style.background = bondClr[0];
+      document.getElementById('b-bond').style.color = bondClr[1];
+      document.getElementById('bd-price').textContent = bondScore > 55 ? 'Rising' : bondScore > 35 ? 'Flat' : 'Falling';
+      document.getElementById('bd-safe').textContent = war ? 'Extreme' : 'Low';
+
+      const cmdtyScore = Math.max(5, Math.min(95, 30 + r / 100 * 2 + (war ? 50 : 0)));
+      const cmdtyLbl = cmdtyScore > 65 ? 'Surging' : cmdtyScore > 40 ? 'Neutral' : 'Soft';
+      const cmdtyClr = cmdtyScore > 65 ? ['#FCEBEB', '#791F1F', '#E24B4A'] : cmdtyScore > 40 ? ['#FAEEDA', '#633806', '#BA7517'] : ['#EAF3DE', '#27500A', '#639922'];
+      document.getElementById('fill-cmdty').style.width = cmdtyScore + '%';
+      document.getElementById('fill-cmdty').style.background = cmdtyClr[2];
+      document.getElementById('b-cmdty').textContent = cmdtyLbl;
+      document.getElementById('b-cmdty').style.background = cmdtyClr[0];
+      document.getElementById('b-cmdty').style.color = cmdtyClr[1];
+      document.getElementById('cm-oil').textContent = '$' + oil;
+      document.getElementById('cm-gold').textContent = '$' + gold.toLocaleString();
+
+      const mmScore = Math.max(5, Math.min(95, 20 + r / 100 * 10));
+      const mmLbl = mmScore > 55 ? 'Attractive' : mmScore > 30 ? 'Neutral' : 'Low yield';
+      const mmClr = mmScore > 55 ? ['#E1F5EE', '#085041', '#1D9E75'] : mmScore > 30 ? ['#F1EFE8', '#444441', '#888780'] : ['#FAEEDA', '#633806', '#BA7517'];
+      document.getElementById('fill-mm').style.width = mmScore + '%';
+      document.getElementById('fill-mm').style.background = mmClr[2];
+      document.getElementById('b-mm').textContent = mmLbl;
+      document.getElementById('b-mm').style.background = mmClr[0];
+      document.getElementById('b-mm').style.color = mmClr[1];
+      document.getElementById('mm-yld').textContent = mmYld.toFixed(1) + '%';
+      document.getElementById('mm-flow').textContent = mmScore > 55 ? 'Strong inflows' : mmScore > 30 ? 'Moderate' : 'Outflows to equities';
+
+      const infW = Math.min(100, Math.max(5, inf / 15 * 100));
+      const infBar = document.getElementById('inf-bar');
+      infBar.style.width = infW + '%';
+      infBar.textContent = inf.toFixed(1) + '%';
+      infBar.style.background = inf > 8 ? '#A32D2D' : inf > 5 ? '#E24B4A' : inf > 3 ? '#BA7517' : '#1D9E75';
+      document.getElementById('inf-pct').textContent = inf.toFixed(1) + '%';
+    }
+
+    recalc();
+  </script>
+</body>
+
+</html>
