@@ -1,6 +1,18 @@
 {
   "articles": [
     {
+      "id": 9,
+      "title": "伊美以战争成为焦点，市场在畏惧中下跌！",
+      "category": "market",
+      "tags": [
+        "市场"
+      ],
+      "author": "David",
+      "date": "2026-03-28",
+      "excerpt": "Credit spreads 本周稳定，Treasury rate 畏惧战争带来的通胀风险，战争越持久，风险越大，同时VIX进入极高区间,黄金、白银本周有微量反弹，证明市场流动性紧迫性需求减缓，当前核心仍然是战争带来的通胀风险评估，维持逢低谨慎加仓，in other words， 将挡抄底！...",
+      "content": "Credit spreads 本周稳定，Treasury rate 畏惧战争带来的通胀风险，战争越持久，风险越大，同时VIX进入极高区间,黄金、白银本周有微量反弹，证明市场流动性紧迫性需求减缓，当前核心仍然是战争带来的通胀风险评估，维持逢低谨慎加仓，in other words， 将挡抄底！"
+    },
+    {
       "id": 8,
       "title": "市场波动继续增强，deflation展现波折性，同时deflation risk下降",
       "category": "featured",
@@ -103,5 +115,5 @@
       "content": "# Astera Labs (ALAB)：AI网络芯片的隐藏宝石\n\n## 公司简介\n\nAstera Labs是AI数据中心连接解决方案的领导者，专注于高速互连技术。\n\n## 业务分析\n\n1. **PCIe/CXL Retimers**：核心产品线\n2. **客户基础**：云服务商和OEM厂商\n3. **增长驱动**：AI数据中心建设需求\n\n## 投资亮点\n\n- 营收高速增长（YoY +240%）\n- 技术壁垒较高\n- 受益于AI基础设施建设浪潮\n\n## 风险提示\n\n客户集中度较高，需关注大客户订单变化。"
     }
   ],
-  "last_updated": "2026-03-19T02:47:23.935Z"
+  "last_updated": "2026-03-28T02:29:53.924Z"
 }
